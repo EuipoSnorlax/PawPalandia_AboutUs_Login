@@ -494,28 +494,38 @@ function validateProductRegisrationForm() {
 
 
 function validateCode(code) {
-    const codePattern = ;//PONER UNA RESTRICIÓN DE 
+    const codePattern = "";//PONER UNA RESTRICIÓN DE 
     return codePattern.test(code);
 }
 
 function validateName(name) {
-    const namePattern = ;
+    const namePattern = "";
     return namePattern.test(name);
 }
 function validateDescription(description) {
-    const descriptionPattern = ;//PONER UNA RESTRICCIÓN DE QUE NO PUEDE SER $0.00;
+    const descriptionPattern = "";//PONER UNA RESTRICCIÓN DE QUE NO PUEDE SER $0.00;
     return descriptionPattern.test(description);
 }
 
 function validatePrice(price) {
-    const pricePattern = //PONER UNA RESTRICCIÓN DE QUE NO PUEDE SER $0.00;
-    return pricePattern.test(price);
+    // Expresión regular para verificar un precio en formato válido (por ejemplo, $12.34)
+    const pricePattern = /^\$\d+(\.\d{2})?$/;
+
+    // Verifica si el precio coincide con el patrón y no es $0.00
+    return pricePattern.test(price) && price !== "$0.00";
 }
 
-function validatePriceVIP(priceVIP) {
-    const priceVIPPattern = //PONER UNA RESTRICCIÓN DE QUE NO PUEDE SER MÁS CARO QUE PRICE Y NO PUEDE SER $0.00;
-    return priceVIPPattern.test(priceVIP);
+function validatePriceVIP(priceVIP, price) {
+    const pricePattern = /^\$\d+(\.\d{2})?$/;
+
+    // Verifica que el precio VIP cumpla el patrón, no sea $0.00, y sea menor o igual al precio normal
+    return (
+        pricePattern.test(priceVIP) &&
+        priceVIP !== "$0.00" &&
+        parseFloat(priceVIP.slice(1)) <= parseFloat(price.slice(1))
+    );
 }
+
 function validatePrice(price) {
     const pricePattern = /^\d{10}$/;
     return pricePattern.test(price);
