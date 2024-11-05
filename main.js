@@ -428,5 +428,101 @@ function productRegistrationForm() {
 }
 productRegistrationForm();
 
+
+/* ----------------------------------------
+    Product Registration Validation Form
+------------------------------------------- */
+if (document.body.classList.contains('product-registration-page')) {
+    document.getElementById('productRegistrationForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting the default way
+    
+        // Validate the input fields
+        if (validateProductRegisrationForm()) {
+            // --- AQUÍ SE DEBE PONER UN ALERT QUE DIGA QUE LOS DATOS FUERON AGREGADOS CORRECTAMENTE EN UN ALERT
+            // -- AQUÍ SE PUEDE PONER UNA FUNCIÓN PARA AGREGAR LOS DATOS EN EL ARCHIVO PRODUCTS.JSON
+        }
+    });
+}
+
+function validateProductRegisrationForm() {
+    const code = document.getElementById('productCode').value;
+    const name = document.getElementById('productName').value;
+    const description = document.getElementById('productDescription').value;
+    const image = document.getElementById('productImage').value;
+    const price = document.getElementById('productPrice').value;
+    const priceVIP = document.getElementById('productPriceVIP').value;
+    const department= document.getElementById('productDepartment').value;
+    const inventoryCheck = document.getElementById('productInventoryCheck').value;
+    const amount = document.getElementById('productAmount').value;
+    const amountMin = document.getElementById('productAmountMin').value;
+    
+    const errorMessage = document.getElementById('errorMessage');
+
+    errorMessage.innerHTML = ''; // Clear previous error messages
+
+    // Validation checks
+    const isCodeValid = code ? true : (errorMessage.innerHTML += 'Se requiere un número de serie.<br>', false);
+    const isnameValid = name ? true : (errorMessage.innerHTML += 'Nombre no válido.<br>', false);
+    const isDescriptionValid = description ? true : (errorMessage.innerHTML += 'Se requiere una descripción.<br>', false);
+    const isImageValid = image ? true : (errorMessage.innerHTML += 'Se requiere una imagen.<br>', false);
+    const isPriceValid = price ? true : (errorMessage.innerHTML += 'Se requiere un precio.<br>', false);
+    const isPriceVIPValid = priceVIP ? true : (errorMessage.innerHTML += 'Se requiere un precio VIP.<br>', false);
+    const isDepartmentValid = department ? true : (errorMessage.innerHTML += 'Se requiere un departamento.<br>', false);
+    const isInventoryCheckValid = inventoryCheck ? true : (errorMessage.innerHTML += 'Se requiere un inventario.<br>', false);
+    const isAmountValid = amount ? true : (errorMessage.innerHTML += 'Se requiere una cantidad.<br>', false);
+    const isAmountMinValid = amountMin ? true : (errorMessage.innerHTML += 'Se requiere una cantidad mínima.<br>', false);
+
+    //const isTelephoneValid = validateTelephone(telephone) ? true : (errorMessage.innerHTML += 'Formato de teléfono no válido.<br>', false);
+    //const isMessageValid = message ? true : (errorMessage.innerHTML += 'Se requiere un mensaje.<br>', false);
+
+    return isCodeValid && isnameValid && isDescriptionValid && isImageValid && isPriceValid && isPriceVIPValid
+    && isDepartmentValid && isInventoryCheckValid && isAmountValid && isAmountMinValid ; // All validations passed
+}
+
+
+function validateCode(code) {
+    const codePattern = ;//PONER UNA RESTRICIÓN DE 
+    return codePattern.test(code);
+}
+
+function validateName(name) {
+    const namePattern = ;
+    return namePattern.test(name);
+}
+function validateDescription(description) {
+    const descriptionPattern = ;//PONER UNA RESTRICCIÓN DE QUE NO PUEDE SER $0.00;
+    return descriptionPattern.test(description);
+}
+
+function validatePrice(price) {
+    const pricePattern = //PONER UNA RESTRICCIÓN DE QUE NO PUEDE SER $0.00;
+    return pricePattern.test(price);
+}
+
+function validatePriceVIP(priceVIP) {
+    const priceVIPPattern = //PONER UNA RESTRICCIÓN DE QUE NO PUEDE SER MÁS CARO QUE PRICE Y NO PUEDE SER $0.00;
+    return priceVIPPattern.test(priceVIP);
+}
+function validatePrice(price) {
+    const pricePattern = /^\d{10}$/;
+    return pricePattern.test(price);
+}
+function sendEmail() {
+    const code = document.getElementById('code').value;
+    const email = document.getElementById('email').value;
+    const telephone = document.getElementById('telephone').value;
+    const message = document.getElementById('message').value;
+
+    // Console
+    console.log("Sending email with the following data:");
+    console.log(`code: ${code}`);
+    console.log(`Email: ${email}`);
+    console.log(`Telephone: ${telephone}`);
+    console.log(`Message: ${message}`);
+
+    // Clear the form after sending... Allons-y !!!
+    document.getElementById('productRegistrationForm').reset();
+}
+
 // 45:25_35,100yards_Biotic_SeNt // //  ML_CerbAg_Opt_Perf  //  //  Warp, Overload & Slam
 //
