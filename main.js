@@ -453,6 +453,8 @@ if (document.body.classList.contains('product-registration-page')) {
         if (validateProductRegisrationForm()) {
             // --- AQUÍ SE DEBE PONER UN ALERT QUE DIGA QUE LOS DATOS FUERON AGREGADOS CORRECTAMENTE EN UN ALERT
             // -- AQUÍ SE PUEDE PONER UNA FUNCIÓN PARA AGREGAR LOS DATOS EN EL ARCHIVO PRODUCTS.JSON
+            alertMessage = "Mensaje enviado correctamente!"
+            showAlert('success', alertMessage);
         }
     });
 }
@@ -485,25 +487,22 @@ function validateProductRegisrationForm() {
     const isAmountValid = amount ? true : (errorMessage.innerHTML += 'Se requiere una cantidad.<br>', false);
     const isAmountMinValid = amountMin ? true : (errorMessage.innerHTML += 'Se requiere una cantidad mínima.<br>', false);
 
-    //const isTelephoneValid = validateTelephone(telephone) ? true : (errorMessage.innerHTML += 'Formato de teléfono no válido.<br>', false);
-    //const isMessageValid = message ? true : (errorMessage.innerHTML += 'Se requiere un mensaje.<br>', false);
-
     return isCodeValid && isnameValid && isDescriptionValid && isImageValid && isPriceValid && isPriceVIPValid
     && isDepartmentValid && isInventoryCheckValid && isAmountValid && isAmountMinValid ; // All validations passed
 }
 
 
 function validateCode(code) {
-    const codePattern = "";//PONER UNA RESTRICIÓN DE 
+    const codePattern = /^\$\d+(\.\d{2})?$/;
     return codePattern.test(code);
 }
 
 function validateName(name) {
-    const namePattern = "";
+    const namePattern = /^\$\d+(\.\d{2})?$/;
     return namePattern.test(name);
 }
 function validateDescription(description) {
-    const descriptionPattern = "";//PONER UNA RESTRICCIÓN DE QUE NO PUEDE SER $0.00;
+    const descriptionPattern = /^\$\d+(\.\d{2})?$/;//PONER UNA RESTRICCIÓN DE QUE DEBE TENER MÁS DE 2 PALABRAS;
     return descriptionPattern.test(description);
 }
 
@@ -526,22 +525,35 @@ function validatePriceVIP(priceVIP, price) {
     );
 }
 
-function validatePrice(price) {
-    const pricePattern = /^\d{10}$/;
-    return pricePattern.test(price);
+function validateDepartament(departament) {
+    const departmentPattern = /^\$\d+(\.\d{2})?$/;//
+    return departmentPattern.test(departament);
 }
-function sendEmail() {
+
+function registProduct() {
     const code = document.getElementById('code').value;
-    const email = document.getElementById('email').value;
-    const telephone = document.getElementById('telephone').value;
-    const message = document.getElementById('message').value;
+    const name = document.getElementById('name').value;
+    const description = document.getElementById('description').value;
+    const image = document.getElementById('image').value;
+    const price = document.getElementById('price').value;
+    const priceVIP = document.getElementById('priceVIP').value;
+    const department = document.getElementById('department').value;
+    const inventoryCheck = document.getElementById('inventoryCheck').value;
+    const amount = document.getElementById('amount').value;
+    const amountMin = document.getElementById('amountMin').value;
 
     // Console
-    console.log("Sending email with the following data:");
-    console.log(`code: ${code}`);
-    console.log(`Email: ${email}`);
-    console.log(`Telephone: ${telephone}`);
-    console.log(`Message: ${message}`);
+    console.log("Agregando la siguiente información:");
+    console.log(`Código de barras: ${code}`);
+    console.log(`Nombre del producto: ${name}`);
+    console.log(`Descripción: ${description}`);
+    console.log(`Imagen: ${image}`);
+    console.log(`Precio: ${price}`);
+    console.log(`Precio Club PawPal: ${priceVIP}`);
+    console.log(`Departamento: ${department}`);
+    console.log(`Usa inventario: ${inventoryCheck}`);
+    console.log(`Cantidad actual: ${amount}`);
+    console.log(`Mínimo: ${amountMin}`);
 
     // Clear the form after sending... Allons-y !!!
     document.getElementById('productRegistrationForm').reset();
