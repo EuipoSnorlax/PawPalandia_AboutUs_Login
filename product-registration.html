@@ -90,22 +90,25 @@
                     <div class="col-md-6">
                         <div class="contact-form box">
                             <h2 class="form-title text-center">Registro de producto</h2>
-                            <div id="errorMessage" style="color: crimson;"></div>
                             <form action="#" id="productRegistrationForm">
-                                <div id="alertContainer"></div>
+                                <div id="alertContainerCode"></div> <!--Este es el contenedor de la alert para el código de barras-->
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="productCode" placeholder="Código de Barras" required>
+                                    <input type="text" class="form-control" id="productCode" placeholder="Código de Barras (13 dígitos)" required>
                                 </div>
+                                <div id="alertContainerName"></div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="productName" placeholder="Nombre del producto" required>
                                 </div>
+                                <div id="alertContainerDescription"></div>
                                 <div class="form-group">
                                     <textarea class="form-control" id="productDescription" placeholder="Descripción" required></textarea>
                                 </div>
+                                <div id="alertContainerImage"></div>
                                 <div class="form-group">
                                     <input type="url" class="form-control" id="productImage" placeholder="URL de la imagen (o subir archivo)">
                                     <input type="file" class="form-control" id="productImage" placeholder="Archivo de la imagen">
                                 </div>
+                                <div id="alertContainerPrice"></div>
                                 <div class="form-group">
                                     <input type="number" class="form-control" id="productPrice" placeholder="Precio Venta" required>
                                     <input type="number" class="form-control" id="productPriceVIP" placeholder="Precio Club PawPal" required>
@@ -121,7 +124,7 @@
                                     <input type="number" class="form-control" id="productAmount" placeholder="Cantidad Actual">
                                     <input type="number" class="form-control" id="productMin" placeholder="Mínimo">
                                 </div>
-                                <button type="submit" class="btn btn-block btn-theme btn-form">Guardar Producto</button>
+                                <button type="submit" class="btn btn-block btn-theme btn-form">Guardar Producto</button> <!--Button envío-->
                             </form>
                         </div>
                     </div>
