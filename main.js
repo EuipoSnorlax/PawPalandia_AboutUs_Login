@@ -325,5 +325,108 @@ function themeGlassEffect() {
 }
 themeGlassEffect();
 
+/* ----------------------------------------
+            User SignUp Form
+------------------------------------------- */
+
+function userSignUpForm() {
+    const userObject = {
+        code: '',
+        name: '',
+        description: '',
+        image: '',
+        price: '',
+        priceVIP: '',
+        department: '',
+        inventoryCheck: '',
+        amount: '',
+        amountMin: '',
+    };
+
+    const productForm = document.querySelector("#productRegistrationForm");
+    const code = document.querySelector("#productCode");
+    const name = document.querySelector("#productImage");
+    const description = document.querySelector("#productDescription");
+    const image = document.querySelector("#productImage");
+    const price = document.querySelector("#productPrice");
+    const priceVIP = document.querySelector("#productPriceVIP");
+    const department = document.querySelector("#productDepartment");
+    const inventoryCheck = document.querySelector("#productInventoryCheck");
+    const amount = document.querySelector("#productAmount");
+    const amountMin = document.querySelector("#productMin");
+    
+    productForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        productObject.code = code.value;
+        productObject.name = name.value;
+        productObject.description = description.value;
+        productObject.image = image.value;
+        productObject.price = price.value;
+        productObject.priceVIP = priceVIP.value;
+        productObject.department = department.value;
+        productObject.inventoryCheck = inventoryCheck.value;
+        productObject.amount = amount.value;
+        productObject.amountMin = amountMin.value;
+
+        
+        const productObjectJSON = JSON.stringify(productObject);
+        console.log(productObjectJSON);
+    }); 
+}
+productRegistrationForm();
+
+
+
+
+/* ----------------------------------------
+            Product Registration Form
+------------------------------------------- */
+
+function productRegistrationForm() {
+    const productObject = {
+        code: '',
+        name: '',
+        description: '',
+        image: '',
+        price: '',
+        priceVIP: '',
+        department: '',
+        inventoryCheck: '',
+        amount: '',
+        amountMin: '',
+    };
+
+    const productForm = document.querySelector("#productRegistrationForm");
+    const code = document.querySelector("#productCode");
+    const name = document.querySelector("#productImage");
+    const description = document.querySelector("#productDescription");
+    const image = document.querySelector("#productImage");
+    const price = document.querySelector("#productPrice");
+    const priceVIP = document.querySelector("#productPriceVIP");
+    const department = document.querySelector("#productDepartment");
+    const inventoryCheck = document.querySelector("#productInventoryCheck");
+    const amount = document.querySelector("#productAmount");
+    const amountMin = document.querySelector("#productMin");
+    
+    productForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        productObject.code = code.value;
+        productObject.name = name.value;
+        productObject.description = description.value;
+        productObject.image = image.value;
+        productObject.price = price.value;
+        productObject.priceVIP = priceVIP.value;
+        productObject.department = department.value;
+        productObject.inventoryCheck = inventoryCheck.value;
+        productObject.amount = amount.value;
+        productObject.amountMin = amountMin.value;
+
+        
+        const productObjectJSON = JSON.stringify(productObject);
+        console.log(productObjectJSON);
+    }); 
+}
+productRegistrationForm();
+
 // 45:25_35,100yards_Biotic_SeNt // //  ML_CerbAg_Opt_Perf  //  //  Warp, Overload & Slam
 //
