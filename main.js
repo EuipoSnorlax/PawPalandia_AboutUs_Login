@@ -53,6 +53,8 @@ if (document.body.classList.contains('contact-page')) {
         if (validateForm()) {
             // Send the email if validation passes
             sendEmail();
+            alertMessage = "Mensaje enviado correctamente!"
+            showAlert('success', alertMessage);
         }
     });
 }
@@ -133,6 +135,17 @@ function sendEmail() {
 
     // Clear the form after sending... Allons-y !!!
     document.getElementById('contactForm').reset();
+}
+
+// Function to display Bootstrap alert
+function showAlert(type, message) {
+    const alertContainer = document.getElementById('alertContainer');
+    alertContainer.innerHTML = `
+    <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    `;
 }
 
 
