@@ -534,7 +534,7 @@ function validateProductRegisrationForm() {
 }
 
 function validateCode(code) {
-  const codePattern = /^\$\d+(\.\d{13})$/;
+  const codePattern = /^\d{13}$/;
   return codePattern.test(code);
 }
 
@@ -613,7 +613,7 @@ function registProduct() {
 
 // Validación del código de barras (code)
   
-  document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
+  document.getElementById("productRegistrationForm").addEventListener("submit", function(event) {
       event.preventDefault();
       const productCode = document.getElementById("productCode").value;
       const alertContainerCode = document.getElementById("alertContainerCode");
