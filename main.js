@@ -469,6 +469,7 @@ if (document.body.classList.contains("product-registration-page")) {
     });
 }
 
+
 function validateProductRegisrationForm() {
   const code = document.getElementById("productCode").value;
   const name = document.getElementById("productName").value;
@@ -534,7 +535,7 @@ function validateProductRegisrationForm() {
 }
 
 function validateCode(code) {
-  const codePattern = /^\d{13}$/;
+  const codePattern = /^\$\d+(\.\d{13})$/;
   return codePattern.test(code);
 }
 
@@ -613,7 +614,7 @@ function registProduct() {
 
 // Validación del código de barras (code)
   
-  document.getElementById("productRegistrationForm").addEventListener("submit", function(event) {
+  document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
       event.preventDefault();
       const productCode = document.getElementById("productCode").value;
       const alertContainerCode = document.getElementById("alertContainerCode");
@@ -628,11 +629,11 @@ function registProduct() {
   
         return false;
   
-      } else{
-          alertContainerCode.innerHTML = `
-          <div class="alert alert-success" role="alert">
-                      El producto se registró correctamente.
-                  </div>`;
+      // } else{
+      //     alertContainerCode.innerHTML = `
+      //     <div class="alert alert-success" role="alert">
+      //                Campo agregado correctamente.
+      //             </div>`;
       }
     });
 
@@ -656,7 +657,7 @@ function registProduct() {
     } else{
         alertContainerName.innerHTML = `
         <div class="alert alert-success" role="alert">
-                    El producto se registró correctamente.
+                    Campo agregado correctamente.
                 </div>`;
     }
   });
@@ -678,11 +679,11 @@ function registProduct() {
     
           return false;
     
-        } else{
-            alertContainerName.innerHTML = `
-            <div class="alert alert-success" role="alert">
-                        El producto se registró correctamente.
-                    </div>`;
+        // } else{
+        //     alertContainerName.innerHTML = `
+        //     <div class="alert alert-success" role="alert">
+        //                 Campo agregado correctamente.
+        //             </div>`;
         }
       });
 
@@ -703,11 +704,11 @@ function registProduct() {
 
       return false;
 
-    } else{
-        alertContainerDescription.innerHTML = `
-        <div class="alert alert-success" role="alert">
-                    El producto se registró correctamente.
-                </div>`;
+    // } else{
+    //     alertContainerDescription.innerHTML = `
+    //     <div class="alert alert-success" role="alert">
+    //                 Campo agregado correctamente.
+    //             </div>`;
     }
   });
 
@@ -753,10 +754,35 @@ function registProduct() {
 
       return false;
 
-    } else{
-        alertContainerPrice.innerHTML = `
-        <div class="alert alert-success" role="alert">
-                    El producto se registró correctamente.
-                </div>`;
+    // } else{
+    //     alertContainerPrice.innerHTML = `
+    //     <div class="alert alert-success" role="alert">
+    //                 El producto se registró correctamente.
+    //             </div>`;
     }
   });
+
+      // Validación del precio del producto Club PawPal (priceVIP)
+  
+      document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const productPriceVIP = document.getElementById("productPriceVIP").value;
+        const alertContainerPriceVIP = document.getElementById("alertContainerPriceVIP");
+    
+        alertContainerPriceVIP.innerHTML = "";
+    
+        if (!validatePrice(productPriceVIP)) {
+          alertContainerPriceVIP.innerHTML = `
+            <div class="alert alert-danger" role="alert">
+             el precio no puede ser cero ni debe ser más caro que el precio normal.
+            </div>`;
+    
+          return false;
+    
+        // } else{
+        //     alertContainerPriceVIP.innerHTML = `
+        //     <div class="alert alert-success" role="alert">
+        //                 El producto se registró correctamente.
+        //             </div>`;
+        }
+      });
