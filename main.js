@@ -629,11 +629,11 @@ function registProduct() {
   
         return false;
   
-      // } else{
-      //     alertContainerCode.innerHTML = `
-      //     <div class="alert alert-success" role="alert">
-      //                Campo agregado correctamente.
-      //             </div>`;
+       } else{
+           alertContainerCode.innerHTML = `
+           <div class="alert alert-success" role="alert">
+                      Campo agregado correctamente.
+                   </div>`;
       }
     });
 
