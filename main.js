@@ -441,13 +441,13 @@ function productRegistrationForm() {
     productObject.code = code.value;
     productObject.name = name.value;
     productObject.description = description.value;
-    productObject.image = image.value;
+    // productObject.image = image.value;
     productObject.price = price.value;
     productObject.priceVIP = priceVIP.value;
     productObject.department = department.value;
-    productObject.inventoryCheck = inventoryCheck.value;
-    productObject.amount = amount.value;
-    productObject.amountMin = amountMin.value;
+    // productObject.inventoryCheck = inventoryCheck.value;
+    // productObject.amount = amount.value;
+    // productObject.amountMin = amountMin.value;
 
     const productObjectJSON = JSON.stringify(productObject);
     console.log(productObjectJSON);
@@ -475,19 +475,36 @@ if (document.body.classList.contains("product-registration-page")) {
     });
 }
 
+/* ----------------------------------------
+Clean Product Registration Validation Form
+------------------------------------------- */
+
+const formulario = document.getElementById("productRegistrationForm");
+
+formulario.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  clearForm();
+
+});
+
+function clearForm() {
+  formulario.reset();
+}
+
 
 
 function validateProductRegisrationForm() {
   const code = document.getElementById("productCode").value;
   const name = document.getElementById("productName").value;
   const description = document.getElementById("productDescription").value;
-  const image = document.getElementById("productImage").value;
+  // const image = document.getElementById("productImage").value;
   const price = document.getElementById("productPrice").value;
   const priceVIP = document.getElementById("productPriceVIP").value;
   const department = document.getElementById("productDepartment").value;
-  const inventoryCheck = document.getElementById("productInventoryCheck").value;
-  const amount = document.getElementById("productAmount").value;
-  const amountMin = document.getElementById("productAmountMin").value;
+  //const inventoryCheck = document.getElementById("productInventoryCheck").value;
+  // const amount = document.getElementById("productAmount").value;
+  // const amountMin = document.getElementById("productAmountMin").value;
 
   const errorMessage = document.getElementById("errorMessage");
 
@@ -506,7 +523,7 @@ function validateProductRegisrationForm() {
     : ((errorMessage.innerHTML += "Se requiere una descripción.<br>"), false);
   // const isImageValid = image
   //   ? true
-    // : ((errorMessage.innerHTML += "Se requiere una imagen.<br>"), false);
+  // : ((errorMessage.innerHTML += "Se requiere una imagen.<br>"), false);
   const isPriceValid = price
     ? true
     : ((errorMessage.innerHTML += "Se requiere un precio.<br>"), false);
@@ -558,8 +575,8 @@ function validateDescription(description) {
 }
 
 function validateImage(image) {
-    const imagePattern = /^(https?:\/\/)?(www\.)?[\w\-]+(\.[\w\-]+)+([\/?#][^\s]*)?$/;
-    return imagePattern.test(image);
+  const imagePattern = /^(https?:\/\/)?(www\.)?[\w\-]+(\.[\w\-]+)+([\/?#][^\s]*)?$/;
+  return imagePattern.test(image);
 }
 
 function validatePrice(price) {
@@ -612,7 +629,7 @@ function registProduct() {
   console.log(`Mínimo: ${amountMin}`);
 
   // Clear the form after sending... Allons-y !!!
-  document.getElementById("productRegistrationForm").reset();
+  //document.getElementById("productRegistrationForm").reset();
 }
 
 /* 45:25_35,100yards_Biotic_SeNt  ML_CerbAg_Opt_Perf   Warp, Overload & Slam */
@@ -634,8 +651,8 @@ document.getElementById("productRegistrationForm").addEventListener("submit", fu
 
     return false;
 
-   } else{
-       alertContainerCode.innerHTML = `
+  } else {
+    alertContainerCode.innerHTML = `
        <div class="alert alert-success" role="alert">
                   Producto agregado correctamente.
                </div>`;
@@ -643,176 +660,172 @@ document.getElementById("productRegistrationForm").addEventListener("submit", fu
 });
 
 // Validación del código de barras (code)
-  
-  document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
-      event.preventDefault();
-      const productCode = document.getElementById("productCode").value;
-      const alertContainerCode = document.getElementById("alertContainerCode");
-  
-      alertContainerCode.innerHTML = "";
-  
-      if (!validateCode(productCode)) {
-        alertContainerCode.innerHTML = `
+
+document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+  const productCode = document.getElementById("productCode").value;
+  const alertContainerCode = document.getElementById("alertContainerCode");
+
+  alertContainerCode.innerHTML = "";
+
+  if (!validateCode(productCode)) {
+    alertContainerCode.innerHTML = `
           <div class="alert alert-danger" role="alert">
-            El producto no se regitró correctamente.
+            El código de barras debe tener 13 caracteres númericos.
           </div>`;
-  
-        return false;
-  
-       } else{
-           alertContainerCode.innerHTML = `
-           <div class="alert alert-success" role="alert">
-                      Producto agregado correctamente.
-                   </div>`;
-      }
-    });
 
-    // Validación del nombre del producto (name)
-  
-  document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
-    event.preventDefault();
-    const productName = document.getElementById("productName").value;
-    const alertContainerName = document.getElementById("alertContainerName");
+    return false;
 
-    alertContainerName.innerHTML = "";
+  }
 
-    if (!validateName(productName)) {
-      alertContainerName.innerHTML = `
+});
+
+// Validación del nombre del producto (name)
+
+document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+  const productName = document.getElementById("productName").value;
+  const alertContainerName = document.getElementById("alertContainerName");
+
+  alertContainerName.innerHTML = "";
+
+  if (!validateName(productName)) {
+    alertContainerName.innerHTML = `
         <div class="alert alert-danger" role="alert">
          El nombre del producto debe tener al menos 4 caracteres.
         </div>`;
 
-      return false;
+    return false;
 
-    } else{
-        alertContainerName.innerHTML = `
+  } else {
+    alertContainerName.innerHTML = `
         <div class="alert alert-success" role="alert">
                     Producto registrado correctamente.
                 </div>`;
-    }
-  });
+  }
+});
 
-      // Validación de la nombre del producto (name)
-  
-      document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
-        event.preventDefault();
-        const productName = document.getElementById("productName").value;
-        const alertContainerName = document.getElementById("alertContainerName");
-    
-        alertContainerName.innerHTML = "";
-    
-        if (!validateName(productName)) {
-          alertContainerName.innerHTML = `
+// Validación de la nombre del producto (name)
+
+document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+  const productName = document.getElementById("productName").value;
+  const alertContainerName = document.getElementById("alertContainerName");
+
+  alertContainerName.innerHTML = "";
+
+  if (!validateName(productName)) {
+    alertContainerName.innerHTML = `
             <div class="alert alert-danger" role="alert">
              El nombre del producto debe tener al menos 4 caracteres.
             </div>`;
-    
-          return false;
-    
-        // } else{
-        //     alertContainerName.innerHTML = `
-        //     <div class="alert alert-success" role="alert">
-        //                 Campo agregado correctamente.
-        //             </div>`;
-        }
-      });
 
-          // Validación del descripción del producto (description)
-  
-  document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
-    event.preventDefault();
-    const productDescription = document.getElementById("productDescription").value;
-    const alertContainerDescription = document.getElementById("alertContainerDescription");
+    return false;
 
-    alertContainerDescription.innerHTML = "";
+    // } else{
+    //     alertContainerName.innerHTML = `
+    //     <div class="alert alert-success" role="alert">
+    //                 Campo agregado correctamente.
+    //             </div>`;
+  }
+});
 
-    if (!validateDescription(productDescription)) {
-      alertContainerDescription.innerHTML = `
+// Validación del descripción del producto (description)
+
+document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+  const productDescription = document.getElementById("productDescription").value;
+  const alertContainerDescription = document.getElementById("alertContainerDescription");
+
+  alertContainerDescription.innerHTML = "";
+
+  if (!validateDescription(productDescription)) {
+    alertContainerDescription.innerHTML = `
         <div class="alert alert-danger" role="alert">
          La descripción del producto debe tener al menos 4 caracteres.
         </div>`;
 
-      return false;
+    return false;
 
     // } else{
     //     alertContainerDescription.innerHTML = `
     //     <div class="alert alert-success" role="alert">
     //                 Campo agregado correctamente.
     //             </div>`;
-    }
-  });
+  }
+});
 
-      // Validación de la imagen del producto (image) SE COMENTÓ PORQUE ES UN CAMPO OPCIONAL A LA HORA DE REGISTRAR PRODUCTO
-  
-    //   document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
-    //     event.preventDefault();
-    //     const productImage = document.getElementById("productImage").value;
-    //     const alertContainerImage = document.getElementById("alertContainerImage");
-    
-    //     alertContainerImage.innerHTML = "";
-    
-    //     if (!validateImage(productImage)) {
-    //       alertContainerImage.innerHTML = `
-    //         <div class="alert alert-danger" role="alert">
-    //          ingrese una URL válida.
-    //         </div>`;
-    
-    //       return false;
-    
-    //     } else{
-    //         alertContainerImage.innerHTML = `
-    //         <div class="alert alert-success" role="alert">
-    //                     El producto se registró correctamente.
-    //                 </div>`;
-    //     }
-    //   });
+// Validación de la imagen del producto (image) SE COMENTÓ PORQUE ES UN CAMPO OPCIONAL A LA HORA DE REGISTRAR PRODUCTO
 
-    // Validación del precio del producto (price)
-  
-  document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
-    event.preventDefault();
-    const productPrice = document.getElementById("productPrice").value;
-    const alertContainerPrice = document.getElementById("alertContainerPrice");
+//   document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
+//     event.preventDefault();
+//     const productImage = document.getElementById("productImage").value;
+//     const alertContainerImage = document.getElementById("alertContainerImage");
 
-    alertContainerPrice.innerHTML = "";
+//     alertContainerImage.innerHTML = "";
 
-    if (!validatePrice(productPrice)) {
-      alertContainerPrice.innerHTML = `
+//     if (!validateImage(productImage)) {
+//       alertContainerImage.innerHTML = `
+//         <div class="alert alert-danger" role="alert">
+//          ingrese una URL válida.
+//         </div>`;
+
+//       return false;
+
+//     } else{
+//         alertContainerImage.innerHTML = `
+//         <div class="alert alert-success" role="alert">
+//                     El producto se registró correctamente.
+//                 </div>`;
+//     }
+//   });
+
+// Validación del precio del producto (price)
+
+document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+  const productPrice = document.getElementById("productPrice").value;
+  const alertContainerPrice = document.getElementById("alertContainerPrice");
+
+  alertContainerPrice.innerHTML = "";
+
+  if (!validatePrice(productPrice)) {
+    alertContainerPrice.innerHTML = `
         <div class="alert alert-danger" role="alert">
          el precio no puede ser cero.
         </div>`;
 
-      return false;
+    return false;
 
     // } else{
     //     alertContainerPrice.innerHTML = `
     //     <div class="alert alert-success" role="alert">
     //                 El producto se registró correctamente.
     //             </div>`;
-    }
-  });
+  }
+});
 
-      // Validación del precio del producto Club PawPal (priceVIP)
-  
-      document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
-        event.preventDefault();
-        const productPriceVIP = document.getElementById("productPriceVIP").value;
-        const alertContainerPriceVIP = document.getElementById("alertContainerPriceVIP");
-    
-        alertContainerPriceVIP.innerHTML = "";
-    
-        if (!validatePrice(productPriceVIP)) {
-          alertContainerPriceVIP.innerHTML = `
+// Validación del precio del producto Club PawPal (priceVIP)
+
+document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+  const productPriceVIP = document.getElementById("productPriceVIP").value;
+  const alertContainerPriceVIP = document.getElementById("alertContainerPriceVIP");
+
+  alertContainerPriceVIP.innerHTML = "";
+
+  if (!validatePrice(productPriceVIP)) {
+    alertContainerPriceVIP.innerHTML = `
             <div class="alert alert-danger" role="alert">
              el precio no puede ser cero ni debe ser más caro que el precio normal.
             </div>`;
-    
-          return false;
-    
-        // } else{
-        //     alertContainerPriceVIP.innerHTML = `
-        //     <div class="alert alert-success" role="alert">
-        //                 El producto se registró correctamente.
-        //             </div>`;
-        }
-      });
+
+    return false;
+
+    // } else{
+    //     alertContainerPriceVIP.innerHTML = `
+    //     <div class="alert alert-success" role="alert">
+    //                 El producto se registró correctamente.
+    //             </div>`;
+  }
+});
