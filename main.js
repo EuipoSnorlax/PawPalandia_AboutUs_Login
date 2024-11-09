@@ -54,6 +54,10 @@ if (document.body.classList.contains("contact-page")) {
     });
 }
 
+
+
+
+
 // Boring Option:
 // function validateForm() {
 //     const name = document.getElementById('name').value;
@@ -451,6 +455,8 @@ function productRegistrationForm() {
 }
 productRegistrationForm();
 
+
+
 /* ----------------------------------------
     Product Registration Validation Form
 ------------------------------------------- */
@@ -468,6 +474,7 @@ if (document.body.classList.contains("product-registration-page")) {
       }
     });
 }
+
 
 
 function validateProductRegisrationForm() {
@@ -497,9 +504,9 @@ function validateProductRegisrationForm() {
   const isDescriptionValid = description
     ? true
     : ((errorMessage.innerHTML += "Se requiere una descripción.<br>"), false);
-  const isImageValid = image
-    ? true
-    : ((errorMessage.innerHTML += "Se requiere una imagen.<br>"), false);
+  // const isImageValid = image
+  //   ? true
+    // : ((errorMessage.innerHTML += "Se requiere una imagen.<br>"), false);
   const isPriceValid = price
     ? true
     : ((errorMessage.innerHTML += "Se requiere un precio.<br>"), false);
@@ -509,33 +516,33 @@ function validateProductRegisrationForm() {
   const isDepartmentValid = department
     ? true
     : ((errorMessage.innerHTML += "Se requiere un departamento.<br>"), false);
-  const isInventoryCheckValid = inventoryCheck
-    ? true
-    : ((errorMessage.innerHTML += "Se requiere un inventario.<br>"), false);
-  const isAmountValid = amount
-    ? true
-    : ((errorMessage.innerHTML += "Se requiere una cantidad.<br>"), false);
-  const isAmountMinValid = amountMin
-    ? true
-    : ((errorMessage.innerHTML += "Se requiere una cantidad mínima.<br>"),
-      false);
+  // const isInventoryCheckValid = inventoryCheck
+  //   ? true
+  //   : ((errorMessage.innerHTML += "Se requiere un inventario.<br>"), false);
+  // const isAmountValid = amount
+  //   ? true
+  //   : ((errorMessage.innerHTML += "Se requiere una cantidad.<br>"), false);
+  // const isAmountMinValid = amountMin
+  //   ? true
+  //   : ((errorMessage.innerHTML += "Se requiere una cantidad mínima.<br>"),
+  //     false);
 
   return (
     isCodeValid &&
     isnameValid &&
     isDescriptionValid &&
-    isImageValid &&
+    // isImageValid &&
     isPriceValid &&
     isPriceVIPValid &&
-    isDepartmentValid &&
-    isInventoryCheckValid &&
-    isAmountValid &&
-    isAmountMinValid
+    isDepartmentValid
+    // isInventoryCheckValid &&
+    // isAmountValid &&
+    // isAmountMinValid
   ); // All validations passed
 }
 
 function validateCode(code) {
-  const codePattern = /^\$\d+(\.\d{13})$/;
+  const codePattern = /^\d{13}$/;
   return codePattern.test(code);
 }
 
@@ -610,7 +617,30 @@ function registProduct() {
 
 /* 45:25_35,100yards_Biotic_SeNt  ML_CerbAg_Opt_Perf   Warp, Overload & Slam */
 
+// Validación del form
 
+document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+  const productCode = document.getElementById("").value;
+  const alertContainerCode = document.getElementById("alertContainerCode");
+
+  alertContainerCode.innerHTML = "";
+
+  if (!validateCode(productCode)) {
+    alertContainerCode.innerHTML = `
+      <div class="alert alert-danger" role="alert">
+        El producto no se registró correctamente.
+      </div>`;
+
+    return false;
+
+   } else{
+       alertContainerCode.innerHTML = `
+       <div class="alert alert-success" role="alert">
+                  Producto agregado correctamente.
+               </div>`;
+  }
+});
 
 // Validación del código de barras (code)
   
@@ -624,7 +654,7 @@ function registProduct() {
       if (!validateCode(productCode)) {
         alertContainerCode.innerHTML = `
           <div class="alert alert-danger" role="alert">
-           El código de barras debe tener 13 dígitos numéricos.
+            El producto no se regitró correctamente.
           </div>`;
   
         return false;
@@ -632,7 +662,7 @@ function registProduct() {
        } else{
            alertContainerCode.innerHTML = `
            <div class="alert alert-success" role="alert">
-                      Campo agregado correctamente.
+                      Producto agregado correctamente.
                    </div>`;
       }
     });
@@ -657,7 +687,7 @@ function registProduct() {
     } else{
         alertContainerName.innerHTML = `
         <div class="alert alert-success" role="alert">
-                    Campo agregado correctamente.
+                    Producto registrado correctamente.
                 </div>`;
     }
   });

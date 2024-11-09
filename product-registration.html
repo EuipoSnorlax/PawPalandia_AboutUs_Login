@@ -91,6 +91,7 @@
                         <div class="contact-form box">
                             <h2 class="form-title text-center">Registro de producto</h2>
                             <form action="#" id="productRegistrationForm">
+                                <div id="alertContainer"></div>
                                 <div id="alertContainerCode"></div> <!--Este es el contenedor de la alert para el código de barras-->
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="productCode" placeholder="Código de Barras (13 dígitos)" required>
@@ -123,7 +124,7 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="number" class="form-control" id="productAmount" placeholder="Cantidad Actual">
-                                    <input type="number" class="form-control" id="productMin" placeholder="Mínimo">
+                                    <input type="number" class="form-control" id="productAmountMin" placeholder="Mínimo">
                                 </div>
                                 <button type="submit" class="btn btn-block btn-theme btn-form">Guardar Producto</button> <!--Button envío-->
                             </form>
