@@ -71,44 +71,45 @@
         </header>
         <!-- !Header -->
 
-         <!-- Signup -->
-         <section class="signup section-padding">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-7 col-lg-6 col-xl-5">
-                        <div class="signup-form box">
-                            <h2 class="form-title text-center">Crea tu cuenta</h2>
-                            <div id="errorMessage" style="color: crimson;"></div>
-                            <form action="#" id="productRegistrationForm">
-                                <div id="alertContainer"></div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="registerName" placeholder="Nombre(s)" required>
-                                </div>
-                                <div class="form-group2 mb-3">
-                                    <input type="text" class="form-control" placeholder="Apellido Paterno" id="registerMidleName" required>
-                                    <input type="text" class="form-control" placeholder="Apellido Materno" id="registerLastName" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Fecha de nacimiento</label>
-                                    <input type="date" class="form-control registerBirthDay" placeholder="Email" id="confirmRemoveBtn" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="number" class="form-control" placeholder="Teléfono" id="registerPhone" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control emailUser" placeholder="Correo" id="confirmRemoveBtn" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Contraseña" id="registerPassword" required>
-                                </div>
-                                <button type="submit" class="btn btn-block btn-theme btn-form">Registrarse</button>
-                                <p class="text-center mt-4 mb-0">¿Ya tienes cuenta? <a href="log-in.html">Iniciar sesión</a></p>
-                            </form>
+<!-- Signup -->
+<section class="signup section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7 col-lg-6 col-xl-5">
+                <div class="signup-form box">
+                    <h2 class="form-title text-center">Crea tu cuenta</h2>
+                    <div id="errorMessage" style="color: crimson;"></div>
+                    <form action="#" id="userRegistrationForm">
+                        <div id="alertContainer"></div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="registerName" name="userName" placeholder="Nombre(s)" required>
                         </div>
-                    </div>
+                        <div class="form-group2 mb-3">
+                            <input type="text" class="form-control" placeholder="Apellido Paterno" id="registerMidleName" required>
+                            <input type="text" class="form-control" placeholder="Apellido Materno" id="registerLastName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Fecha de nacimiento</label>
+                            <input type="date" class="form-control registerBirthDay" id="registerBirthDay" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" placeholder="Teléfono" id="registerPhone" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control emailUser" placeholder="Correo" id="registerEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Contraseña" id="registerPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-block btn-theme btn-form">Registrarse</button>
+                        <p class="text-center mt-4 mb-0">¿Ya tienes cuenta? <a href="log-in.html">Iniciar sesión</a></p>
+                    </form>
                 </div>
             </div>
-         </section>
+        </div>
+    </div>
+</section>
+
         <!-- !Signup -->
 
         <!-- Footer -->
