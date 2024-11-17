@@ -1,6 +1,6 @@
 const loginForm = document.querySelector('#loginForm');
 loginForm.addEventListener('submit', (e) => {
-<<<<<<< HEAD
+
 e.preventDefault();
 
 const loginEmail = document.querySelector('#loginEmail').value;
@@ -17,7 +17,7 @@ users.push({ email: loginEmail, password: loginPassword });
 localStorage.setItem('users', JSON.stringify(users));
 
 alert("Sesion iniciada con exito " );
-=======
+
     e.preventDefault();
 
     const loginEmail = document.querySelector('#loginEmail').value;
@@ -34,5 +34,5 @@ alert("Sesion iniciada con exito " );
     localStorage.setItem('users', JSON.stringify(users));
 
     alert("Usuario registrado con éxito");
->>>>>>> 5d0a240f0640fa048a23a152757c8077a7fa640e
-});
+
+})
