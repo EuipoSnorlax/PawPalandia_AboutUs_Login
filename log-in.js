@@ -26,6 +26,7 @@ return;
 users.push({ name: loginName, email: loginEmail, password: loginPassword });
 localStorage.setItem('users', JSON.stringify(users)); 
 
+alert("Sesion iniciada con exito " );
     // const alertHTML = `
     //   <div class="alert alert-warning alert-dismissible fade show" role="alert">
     //     Correo y/o contraseña incorrectos. Por favor, verifica tus datos.

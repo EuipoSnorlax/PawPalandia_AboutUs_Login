@@ -378,6 +378,9 @@ h3 {
     caret-color: var(--main-color);
     background-color: transparent;
 }
+.form-group p {
+    margin-bottom: 10px; /* Ajusta el espacio entre los párrafos */
+}
 
 .form-control:focus {
     background-color: transparent;
