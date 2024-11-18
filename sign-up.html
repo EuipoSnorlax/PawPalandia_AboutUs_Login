@@ -27,7 +27,7 @@
                 <div class="header-main d-flex justify-content-between align-items-center">
                     <div class="header-logo">
                         <img src="./imgs/Logo.png" alt="Logo de PawPalandia" style="height: 70px;">
-                        <a href="#"><span>Paw</span>Palandia</a>
+                        <a href="./index.html"><span>Paw</span>Palandia</a>
                     </div>
                     <button type="button" class="header-hamburger-btn js-header-menu-toggler">
                         <span></span>
@@ -38,8 +38,7 @@
                             <i class="fas fa-times"></i>
                         </button>
                         <ul class="menu">
-                            <li class="menu-item"><a href="index.html">inicio</a></li>
-                            <li class="menu-item"><a href="#about-us">Sobre Nosotros</a></li>
+                            <li class="menu-item"><a href="index.html">Sobre Nosotros</a></li>
                             <li class="menu-item menu-item-has-children">
                                 <a href="#" class="js-toggle-sub-menu">Productos y servicios <i class="fas fa-chevron-down"></i></a>
                                 <ul class="sub-menu js-sub-menu">
@@ -80,26 +79,45 @@
                     <h2 class="form-title text-center">Crea tu cuenta</h2>
                     <div id="errorMessage" style="color: crimson;"></div>
                     <form action="#" id="userRegistrationForm">
-                        <div id="alertContainer"></div>
+                        <div id="alertContainer" class="alert-container"></div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="registerName" name="userName" placeholder="Nombre(s)" required>
+                            <input type="text" class="form-control" id="registerName" name="name" placeholder="Nombre(s)" required>
                         </div>
                         <div class="form-group2 mb-3">
-                            <input type="text" class="form-control" placeholder="Apellido Paterno" id="registerMidleName" required>
-                            <input type="text" class="form-control" placeholder="Apellido Materno" id="registerLastName" required>
+                            <input type="text" class="form-control" placeholder="Apellido Paterno" id="registerMidleName" name="middlename" required>
+                            <input type="text" class="form-control" placeholder="Apellido Materno" id="registerLastName" name="lastname" required>
                         </div>
                         <div class="form-group">
                             <label>Fecha de nacimiento</label>
-                            <input type="date" class="form-control registerBirthDay" id="registerBirthDay" required>
+                            <input type="date" class="form-control registerBirthDay" id="registerBirthDay" name="birthday" required>
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" placeholder="Teléfono" id="registerPhone" required>
+                            <input type="number" class="form-control" placeholder="Teléfono" id="registerPhone" name= "phone" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control emailUser" placeholder="Correo" id="registerEmail" required>
+                            <input type="text" class="form-control emailUser" placeholder="Correo" id="registerEmail" name= " email" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Contraseña" id="registerPassword" required>
+                            <input type="password" class="form-control" placeholder="Contraseña" id="registerPassword" name="password" required>
+                        </div>
+                        <!--Club PawPalandia VIP section-->
+                        <div id="alertContainer1" class="alert-container"></div>
+                        <div class="form-group">
+                            <p style="text-align: justify; font-weight: 400; font-size: auto;">
+                                <strong>¿Estás listo para ser parte de nuestro exclusivo Club Pawpalandia VIP?</strong>
+                            </p>
+                            <p style="text-align: justify; font-weight: 400; font-size: auto;">
+                                Al ser miembro VIP, disfrutarás de ofertas exclusivas, descuentos únicos y mucho más. 
+                            </p>
+                            <p style="font-weight: bolder;">
+                                <input type="checkbox" id="memberVipCheck"> Sí, quiero ser miembro VIP de Pawpalandia y aprovechar todos los beneficios exclusivos.</p>              
+                        </div>
+                        <!--Terms and Conditions-->
+                        <div class="form-group">
+                            <p style="text-align: justify; font-weight: 400; font-size: auto;" > 
+                                <strong>¿Confirmas que has leído y aceptas los <a href="#Términos_condiciones">términos y condiciones?</a></strong></p>
+                            <p style="font-weight: bolder;">
+                                <input type="checkbox" id="acceptTermsCheck" required>Aceptar términos y condiciones.</p> 
                         </div>
                         <button type="submit" class="btn btn-block btn-theme btn-form">Registrarse</button>
                         <p class="text-center mt-4 mb-0">¿Ya tienes cuenta? <a href="log-in.html">Iniciar sesión</a></p>

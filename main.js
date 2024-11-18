@@ -156,7 +156,6 @@ function showAlert(type, message) {
             New User Validation T-9
 ------------------------------------------- */
 
-
 if (document.body.classList.contains('registration-page')) {
   document.getElementById('userRegistrationForm').addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent the form from submitting the default way
@@ -164,12 +163,29 @@ if (document.body.classList.contains('registration-page')) {
       // Validate the input fields
       if (validateNewUser()) {
           // Send the email if validation passes
-          alertMessage= "🐈🐕--Te has Registrado Correctamente --🐈🐕";
+          const alertMessage = "🐈🐕--Te has Registrado Correctamente --🐈🐕";
           showAlertAccount("success", alertMessage);
+
+          const isVip= document.getElementById('memberVipCheck').checked;
+          console.log('Es VIP:', isVip);
+          if (isVip){
+            showAlertErrorOne("info", "Gracias por ser parte del Club PawPalandia Vip");
+          }
+
           const registro = new SignUpUser();
           // console.log(document.getElementById('registerName'));
-          registro.agregarUsuario(document.getElementById('registerName').value, document.getElementById('registerMidleName').value, document.getElementById('registerLastName').value, document.querySelector('input.registerBirthDay').value, document.getElementById('registerPhone').value, document.querySelector('input.emailUser').value, document.getElementById('registerPassword').value);
-          //console.log(registro.items);
+          registro.agregarUsuario(
+            document.getElementById('registerName').value, 
+            document.getElementById('registerMidleName').value, 
+            document.getElementById('registerLastName').value, 
+            document.getElementById('registerBirthDay').value, 
+            document.getElementById('registerPhone').value, 
+            document.getElementById('registerEmail').value, 
+            document.getElementById('registerPassword').value, 
+            document.getElementById('memberVipCheck').checked,
+            document.getElementById('acceptTermsCheck').checked
+          );
+          //console.log(registro.items); ??  
           const userObjectJSON = JSON.stringify(registro.items);
           console.log(userObjectJSON);
       }
@@ -178,61 +194,60 @@ if (document.body.classList.contains('registration-page')) {
 
 function validateNewUser() {
   const name = document.getElementById('registerName').value;
-  const email = document.querySelector('input.emailUser').value;
+  const email = document.getElementById('registerEmail').value;
   const telephone = document.getElementById('registerPhone').value;
   const password = document.getElementById('registerPassword').value;
-  const ageUser = document.querySelector('input.registerBirthDay').value;
-  //const message = document.getElementById('message').value;
+  const ageUser = document.getElementById('registerBirthDay').value;
+  const vipUser = document.getElementById('memberVipCheck').checked;
+  const termsCondUser = document.getElementById('acceptTermsCheck').checked;
   const errorMessage = document.getElementById('errorMessage');
   
   errorMessage.innerHTML = ''; // Clear previous error messages
 
   // Validation checks
-  const isNameValid = name ? true : (errorMessage.innerHTML += 'Se requiere un nombre.<br>', false);
-  //const isEmailValid = validateEmail(email) ? true : (errorMessage.innerHTML += 'Formato de email no válido.<br>', false);
-  const isEmailValid = validateEmail(email) ? true : (showAlertErroOne("danger", "Formato de email no válido"), false);
-  //const isTelephoneValid = validateTelephone(telephone) ? true : (errorMessage.innerHTML += 'Formato de teléfono no válido.<br>', false);
-  const isTelephoneValid = validateTelephone(telephone) ? true : (showAlertErroOne("danger", "Formato de teléfono no válido"), false);
-  //const isPasswordValid = validatePassword(password) ? true : (errorMessage.innerHTML += 'La contraseña debe tener al menos 8 caracteres.<br>', false);
-  const isPasswordValid = validatePassword(password) ? true : (showAlertErroOne("danger", "La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico."), false);
-  //const isMessageValid = message ? true : (errorMessage.innerHTML += 'Se requiere un mensaje.<br>', false);
-  const isAgeValid = validateEdad(ageUser) ? true : (showAlertErroOne("danger", "Tienes que ser mayor de edad para poderte registrar"), false);
-
-  return isNameValid && isEmailValid && isTelephoneValid && isPasswordValid && isAgeValid; // All validations passed
+  const isNameValid = name ? true : ((errorMessage.innerHTML += 'Se requiere un nombre.<br>'), false);
+  const isEmailValid = validateEmail(email) ? true : (showAlertErrorOne("danger", "Formato de email no válido"), false);
+  const isTelephoneValid = validateTelephone(telephone) ? true : (showAlertErrorOne("danger", "Formato de teléfono no válido"), false);
+  const isPasswordValid = validatePassword(password) ? true : (showAlertErrorOne("danger", "La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un carácter no alfanumérico."), false);
+  const isAgeValid = validateAge(ageUser) ? true : (showAlertErrorOne("danger", "Tienes que ser mayor de edad para poderte registrar"), false);
+  const isVipValid = vipUser ? true : false;
+  const isTermsCondValid = termsCondUser ? true : (showAlertErrorOne("danger", "Debes aceptar nuestros términos y condiciones para registrarte"), false);
+  
+  return isNameValid && isEmailValid && isTelephoneValid && isPasswordValid && isAgeValid && isTermsCondValid; // All validations passed
 }
 
 function validatePassword(password) {
-  const password1 = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/;
-  return password1.test(password);
+  const passwordPattern = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/;
+  return passwordPattern.test(password);
 }
-
 
 function validateEmail(email) {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailPattern.test(email);
 }
 
-function validateEdad(edad1){
-const hoy = new Date();
-const nacimiento = new Date(edad1);
-let edad = hoy.getFullYear() - nacimiento.getFullYear();
-const mes = hoy.getMonth() - nacimiento.getMonth();
-if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
-   edad--;
-}
-return edad >= 18;
+function validateAge(birthday) {
+  const hoy = new Date();
+  const nacimiento = new Date(birthday);
+  let edad = hoy.getFullYear() - nacimiento.getFullYear();
+  const mes = hoy.getMonth() - nacimiento.getMonth();
+  if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+    edad--;
+  }
+  return edad >= 18;
 }
 
-function showAlertAccount(type,message) {
-  const alert1 = document.getElementById("alertContainer");
+function validateTelephone(telephone) { 
+  const telPattern = /^[0-9]{10}$/; 
+  return telPattern.test(telephone);
+}
+
+function showAlertAccount(type, message) {
+  const alertContainer = document.getElementById('alertContainer');
   alertContainer.innerHTML = `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
-
       ${message}
-
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-
-    </div>`;
-
+    </div>`;
 }
 
 /* ----------------------------------------
