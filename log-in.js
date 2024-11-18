@@ -40,6 +40,7 @@ alert("Sesion iniciada con exito " );
 
 //Redirigir a incio
 
-function logInForm() {
+async function logInForm() {
+    await new Promise(resolve => setTimeout(resolve, 5000));
     window.location.href = 'index.html'
 }
