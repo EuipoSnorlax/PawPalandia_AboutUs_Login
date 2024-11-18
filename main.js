@@ -14,7 +14,7 @@ window.addEventListener("load", () => {
            Button conocenos
 ------------------------------------------- */
 
-function scrollToElement(params) {
+function scrollToElement() {
   document.getElementById("click").scrollIntoView({
     behavior: "smooth",
   });
