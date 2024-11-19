@@ -184,10 +184,16 @@ if (document.body.classList.contains('registration-page')) {
             document.getElementById('memberVipCheck').checked,
             document.getElementById('acceptTermsCheck').checked
           );
-          //console.log(registro.items); ??  
+          //console.log(registro.items); 
+/*---------------Almacenar datos en el Local Storage-----*/  
           const userObjectJSON = JSON.stringify(registro.items);
+          localStorage.setItem('newUser',userObjectJSON);
           console.log(userObjectJSON);
-      }
+          //Redirigir a inicio con un retraso de 10 segundos
+ setTimeout(function(){
+   window.location.href = 'index.html'
+ }, 10000);
+}
   });
 }
 
