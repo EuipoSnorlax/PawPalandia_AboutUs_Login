@@ -167,7 +167,6 @@ if (document.body.classList.contains('registration-page')) {
           showAlertAccount("success", alertMessage);
 
           const isVip= document.getElementById('memberVipCheck').checked;
-          console.log('Es VIP:', isVip);
           if (isVip){
             showAlertErrorOne("info", "Gracias por ser parte del Club PawPalandia Vip");
           }
@@ -185,10 +184,16 @@ if (document.body.classList.contains('registration-page')) {
             document.getElementById('memberVipCheck').checked,
             document.getElementById('acceptTermsCheck').checked
           );
-          //console.log(registro.items); ??  
+          //console.log(registro.items); 
+/*---------------Almacenar datos en el Local Storage-----*/  
           const userObjectJSON = JSON.stringify(registro.items);
+          localStorage.setItem('newUser',userObjectJSON);
           console.log(userObjectJSON);
-      }
+          //Redirigir a inicio con un retraso de 10 segundos
+ setTimeout(function(){
+   window.location.href = 'index.html'
+ }, 10000);
+}
   });
 }
 
@@ -198,7 +203,6 @@ function validateNewUser() {
   const telephone = document.getElementById('registerPhone').value;
   const password = document.getElementById('registerPassword').value;
   const ageUser = document.getElementById('registerBirthDay').value;
-  const vipUser = document.getElementById('memberVipCheck').checked;
   const termsCondUser = document.getElementById('acceptTermsCheck').checked;
   const errorMessage = document.getElementById('errorMessage');
   
@@ -210,7 +214,6 @@ function validateNewUser() {
   const isTelephoneValid = validateTelephone(telephone) ? true : (showAlertErrorOne("danger", "Formato de teléfono no válido"), false);
   const isPasswordValid = validatePassword(password) ? true : (showAlertErrorOne("danger", "La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un carácter no alfanumérico."), false);
   const isAgeValid = validateAge(ageUser) ? true : (showAlertErrorOne("danger", "Tienes que ser mayor de edad para poderte registrar"), false);
-  const isVipValid = vipUser ? true : false;
   const isTermsCondValid = termsCondUser ? true : (showAlertErrorOne("danger", "Debes aceptar nuestros términos y condiciones para registrarte"), false);
   
   return isNameValid && isEmailValid && isTelephoneValid && isPasswordValid && isAgeValid && isTermsCondValid; // All validations passed
