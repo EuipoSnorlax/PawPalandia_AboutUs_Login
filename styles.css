@@ -363,14 +363,11 @@ h3 {
     caret-color: var(--main-color);
     background-color: transparent;
 }
-<<<<<<< HEAD
 
 .form-group p {
     margin-bottom: 10px;
     /* Ajusta el espacio entre los párrafos */
 }
-=======
->>>>>>> 97cb6e847decaf1f426af77bfcf70de5cef20684
 
 .form-control:focus {
     background-color: transparent;
@@ -721,7 +718,6 @@ textarea.form-control {
     display: none;
 }
 
-<<<<<<< HEAD
 /* ---------------
 21. Banner Inicio
 ----------------- */
@@ -748,10 +744,6 @@ textarea.form-control {
     border-radius: 20px;
 }
 
-=======
-
-
->>>>>>> 97cb6e847decaf1f426af77bfcf70de5cef20684
 /* ---------------
 21. Banner Section
 ----------------- */
