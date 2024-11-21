@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .product, .cart {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .product-item, .cart-item {
+            background-color: #fff;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 1 1 calc(33.33% - 20px);
+            text-align: center;
+        }
+        .product-item button, .cart-item button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .product-item button:hover, .cart-item button:hover {
+            background-color: #45a049;
+        }
+        .cart-summary {
+            background-color: #fff;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Carrito de Compras</h1>
+    
+    <!-- Lista de productos -->
+    <div class="product">
+        <div class="product-item" data-id="1">
+            <h3>Producto 1</h3>
+            <p>Precio: $10</p>
+            <button onclick="addToCart(1, 'Producto 1', 10)">Agregar al carrito</button>
+        </div>
+        <div class="product-item" data-id="2">
+            <h3>Producto 2</h3>
+            <p>Precio: $20</p>
+            <button onclick="addToCart(2, 'Producto 2', 20)">Agregar al carrito</button>
+        </div>
+        <div class="product-item" data-id="3">
+            <h3>Producto 3</h3>
+            <p>Precio: $30</p>
+            <button onclick="addToCart(3, 'Producto 3', 30)">Agregar al carrito</button>
+        </div>
+    </div>
+
+    <!-- Carrito -->
+    <div class="cart">
+        <h2>Tu carrito de compras</h2>
+        <div id="cart-items"></div>
+        <div class="cart-summary">
+            <p><strong>Total:</strong> $<span id="total-price">0</span></p>
+            <button onclick="clearCart()">Vaciar carrito</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// Array para almacenar los productos en el carrito
+let cart = [];
+
+// Función para agregar productos al carrito
+function addToCart(id, name, price) {
+    // Verificar si el producto ya está en el carrito
+    const existingProduct = cart.find(item => item.id === id);
+    
+    if (existingProduct) {
+        // Si ya existe, solo aumentar la cantidad
+        existingProduct.quantity += 1;
+    } else {
+        // Si no existe, agregarlo como nuevo producto
+        cart.push({ id, name, price, quantity: 1 });
+    }
+
+    // Actualizar el carrito visualmente
+    updateCart();
+}
+
+// Función para eliminar un producto del carrito
+function removeFromCart(id) {
+    // Eliminar producto del carrito
+    cart = cart.filter(item => item.id !== id);
+
+    // Actualizar el carrito visualmente
+    updateCart();
+}
+
+// Función para vaciar el carrito
+function clearCart() {
+    cart = [];
+    updateCart();
+}
+
+// Función para actualizar el contenido del carrito
+function updateCart() {
+    const cartItemsDiv = document.getElementById('cart-items');
+    const totalPriceSpan = document.getElementById('total-price');
+
+    // Limpiar el contenido actual del carrito
+    cartItemsDiv.innerHTML = '';
+
+    // Variables para calcular el total
+    let total = 0;
+
+    // Mostrar productos en el carrito
+    cart.forEach(item => {
+        const cartItemDiv = document.createElement('div');
+        cartItemDiv.classList.add('cart-item');
+        cartItemDiv.innerHTML = `
+            <h4>${item.name}</h4>
+            <p>Cantidad: ${item.quantity}</p>
+            <p>Precio: $${item.price * item.quantity}</p>
+            <button onclick="removeFromCart(${item.id})">Eliminar</button>
+        `;
+        cartItemsDiv.appendChild(cartItemDiv);
+
+        // Sumar al total
+        total += item.price * item.quantity;
+    });
+
+    // Actualizar el precio total
+    totalPriceSpan.textContent = total;
+}
+
+</script>
+</body>
+</html>

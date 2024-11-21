@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Details</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="responsive.css">
     <link rel="stylesheet" class="js-color-style" href="./css/color-1.css">
     <link rel="stylesheet" class="js-glass-style" href="./css/glass.css" disabled>
 </head>
+
 <body>
     <!-- Page Loader -->
     <div class="page-loader js-page-loader">
         <div></div>
-     </div>
+    </div>
     <!-- !Page Loader -->
 
     <!-- Main Wrapper -->
@@ -39,11 +44,13 @@
                         <ul class="menu">
                             <li class="menu-item"><a href="index.html">Sobre Nosotros</a></li>
                             <li class="menu-item menu-item-has-children">
-                                <a href="#" class="js-toggle-sub-menu">Productos y servicios <i class="fas fa-chevron-down"></i></a>
+                                <a href="#" class="js-toggle-sub-menu">Productos y servicios <i
+                                        class="fas fa-chevron-down"></i></a>
                                 <ul class="sub-menu js-sub-menu">
                                     <li class="sub-menu-item"><a href="courses.html">Productos</a></li>
                                     <li class="sub-menu-item"><a href="ListaItems.html">Lista de productos</a></li>
-                                    <li class="sub-menu-item"><a href="product-registration.html">Registro de productos</a></li>
+                                    <li class="sub-menu-item"><a href="product-registration.html">Registro de
+                                            productos</a></li>
                                     <li class="sub-menu-item"><a href="course-details.html">Servicios</a></li>
                                 </ul>
                             </li>
@@ -67,8 +74,8 @@
                 </div>
             </div>
         </header>
-           <!-- Bubble Animation -->
-           <div class="bubble-animation">
+        <!-- Bubble Animation -->
+        <div class="bubble-animation">
             <div class="bubble-animation-item"></div>
             <div class="bubble-animation-item"></div>
             <div class="bubble-animation-item"></div>
@@ -91,8 +98,40 @@
                     </ol>
                 </nav>
             </div>
-         </div>
+        </div>
         <!-- !Breadcrumb -->
+
+        <!--Modal-->
+
+        <div id="modalProduct" class="modal fade" tabindex="-1" aria-hidden="true" aria-labelledby="modalLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Detalles del pedido</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="product-item" data-id="1">
+                            <h3>Producto 1</h3>
+                            <p>Precio: $10</p>
+                            <button onclick="addToCart(1, 'Producto 1', 10)">Agregar al carrito</button>
+                        </div>
+                        <div class="cart">
+                            <h2>Tu carrito de compras</h2>
+                            <div id="cart-items"></div>
+                            <div class="cart-summary">
+                                <p><strong>Total:</strong> $<span id="total-price">0</span></p>
+                                <button onclick="clearCart()">Vaciar carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Course Details -->
         <section class="courses-section section-padding">
@@ -109,21 +148,65 @@
                     <div class="col-12">
                         <nav>
                             <div class="nav nav-tabs border-0 justify-content-center mb-4" id="nav-tab" role="tablist">
-                                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Perros</button>
-                                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Gatos</button>
-                                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Misceláneos</button>
+                                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                                    aria-selected="true">Perros</button>
+                                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
+                                    aria-selected="false">Gatos</button>
+                                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
+                                    aria-selected="false">Misceláneos</button>
                             </div>
                         </nav>
                         <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                aria-labelledby="nav-home-tab">
                                 <div class="row justify-content-center">
                                     <!-- Courses Item -->
+
+
+                                    <!--Card-->
+                                    <div class="card-container">
+                                    <!-- <div class="col-md-6 col-lg-3">
+                                        <div class="courses-item">
+                                            <div class="courses-item-inner">
+                                                <div class="img-box">
+                                                    <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                                        alt="course img">
+                                                </div>
+                                                <h3 class="card-title">Estética canina</h3>   
+                                                </div>
+                                                <div class="card-rating">
+                                                    <span class="average-rating">(4.5)</span>
+                                                    <span class="average-stars">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star-half-alt"></i>
+                                                    </span>
+                                                    <span class="card-reviews">(230)</span>
+                                                </div>
+                                                <div class="card-price">$ 400</div>
+                                                <button type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#modalProduct">Comprar</button>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                    <!--Card-->
+
+
+
+                                    <!-- Courses Item 
                                     <div class="col-md-6 col-lg-3">
                                         <div class="courses-item">
                                             <a href="course-details.html" class="link">
                                                 <div class="courses-item-inner">
                                                     <div class="img-box">
-                                                        <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="course img">
+                                                        <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                                            alt="course img">
                                                     </div>
                                                     <h3 class="title">Estética canina</h3>
                                                     <div class="instructor">
@@ -146,14 +229,14 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <!-- !Courses Item -->
-                                    <!-- Courses Item -->
+                                   
                                     <div class="col-md-6 col-lg-3">
                                         <div class="courses-item">
                                             <a href="course-details.html" class="link">
                                                 <div class="courses-item-inner">
                                                     <div class="img-box">
-                                                        <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="course img">
+                                                        <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                                            alt="course img">
                                                     </div>
                                                     <h3 class="title">Estética canina</h3>
                                                     <div class="instructor">
@@ -176,14 +259,15 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <!-- !Courses Item -->
-                                    <!-- Courses Item -->
+                                   
+
                                     <div class="col-md-6 col-lg-3">
                                         <div class="courses-item">
                                             <a href="course-details.html" class="link">
                                                 <div class="courses-item-inner">
                                                     <div class="img-box">
-                                                        <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="course img">
+                                                        <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                                            alt="course img">
                                                     </div>
                                                     <h3 class="title">Estética canina</h3>
                                                     <div class="instructor">
@@ -206,48 +290,20 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <!-- !Courses Item -->
-                                    <!-- Courses Item -->
-                                    <div class="col-md-6 col-lg-3">
-                                        <div class="courses-item">
-                                            <a href="course-details.html" class="link">
-                                                <div class="courses-item-inner">
-                                                    <div class="img-box">
-                                                        <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="course img">
-                                                    </div>
-                                                    <h3 class="title">Estética canina</h3>
-                                                    <div class="instructor">
-                                                        <img src="imgs/guy.png" alt="instructor img">
-                                                        <span class="instructor-name">john doe</span>
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="average-rating">(4.5)</span>
-                                                        <span class="average-stars">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star-half-alt"></i>
-                                                        </span>
-                                                        <span class="reviews">(230)</span>
-                                                    </div>
-                                                    <div class="price">$ 400</div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <!-- !Courses Item -->
+                                   
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                aria-labelledby="nav-profile-tab">
                                 <div class="row justify-content-center">
-                                    <!-- Courses Item -->
+                                    
                                     <div class="col-md-6 col-lg-3">
                                         <div class="courses-item">
                                             <a href="course-details.html" class="link">
                                                 <div class="courses-item-inner">
                                                     <div class="img-box">
-                                                        <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="course img">
+                                                        <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                                            alt="course img">
                                                     </div>
                                                     <h3 class="title">Estética canina</h3>
                                                     <div class="instructor">
@@ -270,14 +326,15 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <!-- !Courses Item -->
-                                     <!-- Courses Item -->
+                                    
+
                                     <div class="col-md-6 col-lg-3">
                                         <div class="courses-item">
                                             <a href="course-details.html" class="link">
                                                 <div class="courses-item-inner">
                                                     <div class="img-box">
-                                                        <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="course img">
+                                                        <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                                            alt="course img">
                                                     </div>
                                                     <h3 class="title">Estética canina</h3>
                                                     <div class="instructor">
@@ -300,18 +357,20 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <!-- !Courses Item -->
+                                   
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                            <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                                aria-labelledby="nav-contact-tab">
                                 <div class="row justify-content-center">
-                                    <!-- Courses Item -->
+                                    
                                     <div class="col-md-6 col-lg-3">
                                         <div class="courses-item">
                                             <a href="course-details.html" class="link">
                                                 <div class="courses-item-inner">
                                                     <div class="img-box">
-                                                        <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="course img">
+                                                        <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                                            alt="course img">
                                                     </div>
                                                     <h3 class="title">Estética canina</h3>
                                                     <div class="instructor">
@@ -334,16 +393,17 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <!-- !Courses Item -->
+                                   
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 mt-3">
+                    <div class="col-12 mt-3"> -->
+
                         <!-- Pagination -->
-                         <nav aria-label="Page navigation">
+                        <nav aria-label="Page navigation">
                             <ul class="pagination justify-content-center">
                                 <li class="page-item">
                                     <a href="#" class="page-link" aria-label="Previous">
@@ -362,7 +422,7 @@
                                     </a>
                                 </li>
                             </ul>
-                         </nav>
+                        </nav>
                         <!-- !Pagination -->
                     </div>
                 </div>
@@ -433,14 +493,17 @@
                         </div>
                         <div class="col-sm-6 col-md-4 col-lg-2">
                             <div class="footer-item">
-                                <h3 >Newsletter</h3>
+                                <h3>Newsletter</h3>
                                 <ul>
                                     <li><a href="">Suscríbete y recibe promociones</a></li>
                                     <div class="input-group mb-2">
-                                        <input type="text" class="form-control" placeholder="correo@mail.com" aria-label="email" aria-describedby="button-addon2">
-                                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">></button>
+                                        <input type="text" class="form-control" placeholder="correo@mail.com"
+                                            aria-label="email" aria-describedby="button-addon2">
+                                        <button class="btn btn-outline-secondary" type="button"
+                                            id="button-addon2">></button>
                                     </div>
-                                    <li><a href="#"><strong>Atención:</strong><br> Lunes a domingo de 7:00 a 0:00 Hrs</a></li>
+                                    <li><a href="#"><strong>Atención:</strong><br> Lunes a domingo de 7:00 a 0:00
+                                            Hrs</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -452,7 +515,7 @@
                     <p class="m-0 py-4 text-center">Copyright &copy;2024 PAWPALANDIA</p>
                 </div>
             </div>
-         </footer>
+        </footer>
         <!-- !Footer -->
     </div>
     <!-- !Main Wrapper -->
@@ -466,13 +529,13 @@
         <div class="style-switcher-item">
             <p class="mb-2">Theme Colors</p>
             <!-- Theme Colors -->
-             <div class="theme-colors js-theme-colors">
+            <div class="theme-colors js-theme-colors">
                 <button type="button" data-js-theme-color="color-1" class="js-theme-color-item color-1"></button>
                 <button type="button" data-js-theme-color="color-2" class="js-theme-color-item color-2"></button>
                 <button type="button" data-js-theme-color="color-3" class="js-theme-color-item color-3"></button>
                 <button type="button" data-js-theme-color="color-4" class="js-theme-color-item color-4"></button>
                 <button type="button" data-js-theme-color="color-5" class="js-theme-color-item color-5"></button>
-             </div>
+            </div>
         </div>
         <div class="style-switcher-item">
             <div class="form-check form-switch">
@@ -486,10 +549,14 @@
                 <label for="glass-effect" class="form-check-label">Glass Effect</label>
             </div>
         </div>
-     </div>
+    </div>
     <!-- !Style Switcher -->
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <script src="main.js"></script>
+    <script src="./courses.js"></script>
 </body>
+
 </html>
