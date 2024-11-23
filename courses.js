@@ -74,7 +74,7 @@ cardData.forEach((item) => {
       </span>
       <span class="card-reviews">(230)</span>
     </div>
-      <button onclick="addToCart(10, 'Producto 2', 20)"  class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalProduct">Agregar al carrito</button>
+      <button onclick="addToCart(${item.id}, '${item.name}', ${item.price})"  class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalProduct">Agregar al carrito</button>
     </div>
   `;
     container.appendChild(card);
@@ -140,6 +140,7 @@ function updateCart() {
             <p>Cantidad: ${item.quantity}</p>
             <p>Precio: $${item.price * item.quantity}</p>
             <button onclick="removeFromCart(${item.id})">Eliminar</button>
+            <button onclick="addToCart(${item.id}, '${item.name}', ${item.price})">Agregar al carrito</button>
         `;
         cartItemsDiv.appendChild(cartItemDiv);
 
