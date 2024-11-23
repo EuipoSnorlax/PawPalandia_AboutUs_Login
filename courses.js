@@ -60,9 +60,9 @@ cardData.forEach((item) => {
     card.innerHTML = `
     <img src="${item.image}" alt="${item.name}" class="card-img">
     <div class="card-body">
-      <h5 class="card-title">${item.name}</h5>
+      <h5 class="card-title" id = 'name'>${item.name}</h5>
       <p class="card-text">${item.description}</p>
-      <p class="card-text"><strong>Precio:</strong> $${item.price}</p>
+      <p class="card-text" id = 'price'><strong>Precio:</strong> $${item.price}</p>
        <div class="card-rating">
       <span class="average-rating">(4.5)</span>
       <span class="average-stars">
@@ -74,11 +74,82 @@ cardData.forEach((item) => {
       </span>
       <span class="card-reviews">(230)</span>
     </div>
-      <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalProduct">Agregar al carrito</button>
+      <button onclick="addToCart(10, 'Producto 2', 20)"  class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalProduct">Agregar al carrito</button>
     </div>
   `;
     container.appendChild(card);
 });
+
+
+
+
+
+
+// Array para almacenar los productos en el carrito
+let cart = [];
+
+// Función para agregar productos al carrito
+function addToCart(id, name, price) {
+    // Verificar si el producto ya está en el carrito
+    const existingProduct = cart.find(item => item.id === id);
+    
+    if (existingProduct) {
+        // Si ya existe, solo aumentar la cantidad
+        existingProduct.quantity += 1;
+    } else {
+        // Si no existe, agregarlo como nuevo producto
+        cart.push({ id, name, price, quantity: 1 });
+    }
+
+    // Actualizar el carrito visualmente
+    updateCart();
+}
+
+// Función para eliminar un producto del carrito
+function removeFromCart(id) {
+    // Eliminar producto del carrito
+    cart = cart.filter(item => item.id !== id);
+
+    // Actualizar el carrito visualmente
+    updateCart();
+}
+
+// Función para vaciar el carrito
+function clearCart() {
+    cart = [];
+    updateCart();
+}
+
+// Función para actualizar el contenido del carrito
+function updateCart() {
+    const cartItemsDiv = document.getElementById('cart-items');
+    const totalPriceSpan = document.getElementById('total-price');
+
+    // Limpiar el contenido actual del carrito
+    cartItemsDiv.innerHTML = '';
+
+    // Variables para calcular el total
+    let total = 0;
+
+    // Mostrar productos en el carrito
+    cart.forEach(item => {
+        const cartItemDiv = document.createElement('div');
+        cartItemDiv.classList.add('cart-item');
+        cartItemDiv.innerHTML = `
+            <h4>${item.name}</h4>
+            <p>Cantidad: ${item.quantity}</p>
+            <p>Precio: $${item.price * item.quantity}</p>
+            <button onclick="removeFromCart(${item.id})">Eliminar</button>
+        `;
+        cartItemsDiv.appendChild(cartItemDiv);
+
+        // Sumar al total
+        total += item.price * item.quantity;
+    });
+
+    // Actualizar el precio total
+    totalPriceSpan.textContent = total;
+}
 
 
 

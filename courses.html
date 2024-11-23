@@ -110,13 +110,12 @@
                         <h5 class="modal-title">Detalles del pedido</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <div class="product-item" data-id="1">
-                            <h3>Producto 1</h3>
-                            <p>Precio: $10</p>
-                            <button onclick="addToCart(1, 'Producto 1', 10)">Agregar al carrito</button>
-                        </div>
                         <div class="cart">
+                            <div class="product-item" data-id="1">
+                                <h3>Producto 1</h3>
+                                <p>Precio: $10</p>
+                                <button onclick="addToCart(1, 'Producto 1', 10)">Agregar al carrito</button>
+                            </div>
                             <h2>Tu carrito de compras</h2>
                             <div id="cart-items"></div>
                             <div class="cart-summary">
@@ -124,7 +123,6 @@
                                 <button onclick="clearCart()">Vaciar carrito</button>
                             </div>
                         </div>
-                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                         <button type="button" class="btn btn-primary">Confirmar</button>
@@ -168,265 +166,36 @@
 
                                     <!--Card-->
                                     <div class="card-container">
-                                    <!-- <div class="col-md-6 col-lg-3">
-                                        <div class="courses-item">
-                                            <div class="courses-item-inner">
-                                                <div class="img-box">
-                                                    <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                                        alt="course img">
-                                                </div>
-                                                <h3 class="card-title">Estética canina</h3>   
-                                                </div>
-                                                <div class="card-rating">
-                                                    <span class="average-rating">(4.5)</span>
-                                                    <span class="average-stars">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star-half-alt"></i>
-                                                    </span>
-                                                    <span class="card-reviews">(230)</span>
-                                                </div>
-                                                <div class="card-price">$ 400</div>
-                                                <button type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#modalProduct">Comprar</button>
-                                            </div>
-                                        </div>
-                                    </div> -->
-                                </div>
-                                    <!--Card-->
+
+                                    </div>
 
 
 
-                                    <!-- Courses Item 
-                                    <div class="col-md-6 col-lg-3">
-                                        <div class="courses-item">
-                                            <a href="course-details.html" class="link">
-                                                <div class="courses-item-inner">
-                                                    <div class="img-box">
-                                                        <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                                            alt="course img">
-                                                    </div>
-                                                    <h3 class="title">Estética canina</h3>
-                                                    <div class="instructor">
-                                                        <img src="imgs/guy.png" alt="instructor img">
-                                                        <span class="instructor-name">john doe</span>
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="average-rating">(4.5)</span>
-                                                        <span class="average-stars">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star-half-alt"></i>
-                                                        </span>
-                                                        <span class="reviews">(230)</span>
-                                                    </div>
-                                                    <div class="price">$ 400</div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                   
-                                    <div class="col-md-6 col-lg-3">
-                                        <div class="courses-item">
-                                            <a href="course-details.html" class="link">
-                                                <div class="courses-item-inner">
-                                                    <div class="img-box">
-                                                        <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                                            alt="course img">
-                                                    </div>
-                                                    <h3 class="title">Estética canina</h3>
-                                                    <div class="instructor">
-                                                        <img src="imgs/guy.png" alt="instructor img">
-                                                        <span class="instructor-name">john doe</span>
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="average-rating">(4.5)</span>
-                                                        <span class="average-stars">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star-half-alt"></i>
-                                                        </span>
-                                                        <span class="reviews">(230)</span>
-                                                    </div>
-                                                    <div class="price">$ 400</div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                   
-
-                                    <div class="col-md-6 col-lg-3">
-                                        <div class="courses-item">
-                                            <a href="course-details.html" class="link">
-                                                <div class="courses-item-inner">
-                                                    <div class="img-box">
-                                                        <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                                            alt="course img">
-                                                    </div>
-                                                    <h3 class="title">Estética canina</h3>
-                                                    <div class="instructor">
-                                                        <img src="imgs/guy.png" alt="instructor img">
-                                                        <span class="instructor-name">john doe</span>
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="average-rating">(4.5)</span>
-                                                        <span class="average-stars">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star-half-alt"></i>
-                                                        </span>
-                                                        <span class="reviews">(230)</span>
-                                                    </div>
-                                                    <div class="price">$ 400</div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                   
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
-                                aria-labelledby="nav-profile-tab">
-                                <div class="row justify-content-center">
-                                    
-                                    <div class="col-md-6 col-lg-3">
-                                        <div class="courses-item">
-                                            <a href="course-details.html" class="link">
-                                                <div class="courses-item-inner">
-                                                    <div class="img-box">
-                                                        <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                                            alt="course img">
-                                                    </div>
-                                                    <h3 class="title">Estética canina</h3>
-                                                    <div class="instructor">
-                                                        <img src="imgs/guy.png" alt="instructor img">
-                                                        <span class="instructor-name">john doe</span>
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="average-rating">(4.5)</span>
-                                                        <span class="average-stars">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star-half-alt"></i>
-                                                        </span>
-                                                        <span class="reviews">(230)</span>
-                                                    </div>
-                                                    <div class="price">$ 400</div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    
-
-                                    <div class="col-md-6 col-lg-3">
-                                        <div class="courses-item">
-                                            <a href="course-details.html" class="link">
-                                                <div class="courses-item-inner">
-                                                    <div class="img-box">
-                                                        <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                                            alt="course img">
-                                                    </div>
-                                                    <h3 class="title">Estética canina</h3>
-                                                    <div class="instructor">
-                                                        <img src="imgs/guy.png" alt="instructor img">
-                                                        <span class="instructor-name">john doe</span>
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="average-rating">(4.5)</span>
-                                                        <span class="average-stars">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star-half-alt"></i>
-                                                        </span>
-                                                        <span class="reviews">(230)</span>
-                                                    </div>
-                                                    <div class="price">$ 400</div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                   
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="nav-contact" role="tabpanel"
-                                aria-labelledby="nav-contact-tab">
-                                <div class="row justify-content-center">
-                                    
-                                    <div class="col-md-6 col-lg-3">
-                                        <div class="courses-item">
-                                            <a href="course-details.html" class="link">
-                                                <div class="courses-item-inner">
-                                                    <div class="img-box">
-                                                        <img src="https://images.unsplash.com/photo-1625321150203-cea4bee44b54?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                                            alt="course img">
-                                                    </div>
-                                                    <h3 class="title">Estética canina</h3>
-                                                    <div class="instructor">
-                                                        <img src="imgs/guy.png" alt="instructor img">
-                                                        <span class="instructor-name">john doe</span>
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="average-rating">(4.5)</span>
-                                                        <span class="average-stars">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star-half-alt"></i>
-                                                        </span>
-                                                        <span class="reviews">(230)</span>
-                                                    </div>
-                                                    <div class="price">$ 400</div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                   
+                                    <!-- Pagination -->
+                                    <nav aria-label="Page navigation">
+                                        <ul class="pagination justify-content-center">
+                                            <li class="page-item">
+                                                <a href="#" class="page-link" aria-label="Previous">
+                                                    <i class="fas fa-chevron-left"></i>
+                                                </a>
+                                            </li>
+                                            <li class="page-item"><a href="#" class="page-link">1</a></li>
+                                            <li class="page-item"><a href="#" class="page-link">2</a></li>
+                                            <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                                            <li class="page-item"><a href="#" class="page-link">4</a></li>
+                                            <li class="page-item disabled"><a href="#" class="page-link">...</a></li>
+                                            <li class="page-item"><a href="#" class="page-link">40</a></li>
+                                            <li class="page-item">
+                                                <a href="#" class="page-link" aria-label="Next">
+                                                    <i class="fas fa-chevron-right"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                    <!-- !Pagination -->
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 mt-3"> -->
-
-                        <!-- Pagination -->
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item">
-                                    <a href="#" class="page-link" aria-label="Previous">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </a>
-                                </li>
-                                <li class="page-item"><a href="#" class="page-link">1</a></li>
-                                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                                <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                                <li class="page-item"><a href="#" class="page-link">4</a></li>
-                                <li class="page-item disabled"><a href="#" class="page-link">...</a></li>
-                                <li class="page-item"><a href="#" class="page-link">40</a></li>
-                                <li class="page-item">
-                                    <a href="#" class="page-link" aria-label="Next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <!-- !Pagination -->
-                    </div>
-                </div>
-            </div>
         </section>
         <!-- !Course Details -->
 

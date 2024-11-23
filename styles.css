@@ -1282,3 +1282,90 @@ section.policy-section > p,ol{
     font-weight: bolder;
     justify-content: end;
 }
+
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.username {
+    font-weight: bold;
+}
+
+.time-ago {
+    color: #888;
+}
+
+.pet-image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.caption {
+    margin-top: 10px;
+}
+
+.instagram-link {
+    display: inline-flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    margin-top: 10px;
+}
