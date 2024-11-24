@@ -72,7 +72,8 @@ cardData.forEach((item) => {
     <div class="card-body">
       <h5 class="card-title" id = 'name'>${item.name}</h5>
       <p class="card-text">${item.description}</p>
-      <p class="card-text" id = 'price'><strong>Precio:</strong> $${item.price}</p>
+      <p id='price'><strong>Precio:</strong> $${item.price}</p>
+      <button id="btn-cart-plus" onclick="addToCart(${item.id}, '${item.name}', '${item.image}', ${item.price})" class="btn btn-outline-warning" type="button" data-bs-toggle="modal" data-bs-target="#modalProduct"><i class="fa-solid fa-cart-plus" style="color: #000000;"></i></button>
        <div class="card-rating">
       <span class="average-rating">(4.5)</span>
       <span class="average-stars">
@@ -82,7 +83,6 @@ cardData.forEach((item) => {
             <i class="fa-solid fa-star" style="color: #FFD43B;"></i>     
            <i class="fa-solid fa-star-half" style="color: #FFD43B;"></i>
            <span class="card-reviews">(230)</span>
-           <button onclick="addToCart(${item.id}, '${item.name}', '${item.image}', ${item.price})" class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalProduct"><i class="fa-solid fa-cart-plus" style="color: #000000;"></i></button>
       </span>
       </div>
     </div>
@@ -183,6 +183,3 @@ function updateCart() {
 
 
 
-function addCarrito(params) {
-    
-}

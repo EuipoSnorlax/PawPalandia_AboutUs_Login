@@ -1368,9 +1368,7 @@ CARD DINÁMICA
     padding: 20px;
 }
 
-.card {
-   
-    
+.card { 
     width: 300px;
     border-radius: 8px;
     overflow: hidden;
@@ -1380,7 +1378,6 @@ CARD DINÁMICA
     background: #eff6ff;
     border-radius: 8px;
     box-shadow: 10px 5px 5px #c9c7f1;
-
 }
 
 .card:hover {
@@ -1410,12 +1407,33 @@ CARD DINÁMICA
 .card-text {
     text-align: center;
     font-size: 0.9rem;
-    margin-bottom: 10px;
+    margin-bottom: -4%;
     color: #555;
 }
 
+#btn-cart-plus{
+    width: 30%;
+}
+
+#btn-cart-plus:hover{
+    cursor: url('/imgs/HuellitaPet.png');
+    
+}
+
 .card-rating{
+    margin-top: 4%;
     text-align: center;
+}
+
+#price{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    background-color: var(--main-color);
+    color: var(--WHITE);
+    font-weight: 400;
+    padding: 4px 4px;
+    border-radius: 4px;
 }
 
 .card button {
