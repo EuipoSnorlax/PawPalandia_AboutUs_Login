@@ -5,7 +5,7 @@ const cardData = [
         "name": "Collar Ajustable para Perros",
         "price": 15.99,
         "description": "Collar resistente y ajustable, disponible en varios colores.",
-        "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTgYnwQe8iPTQKYvRmvDOeEzPT-gsScASRfiQTCGOpbS3EGq9BLKRsmi6u_HfipUNxOuLLnrrv5XDr3ZSxxVDI6qrGH4N06IdTCmMeFcJiw&usqp=CAc",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJzG-aoxw13npDwOYM1BxWEHwwxVSzZ1gyDQ&s",
         "category": "Accesorios",
         "stock": 25
     },
@@ -14,7 +14,7 @@ const cardData = [
         "name": "Comida Premium para Gatos",
         "price": 24.99,
         "description": "Bolsa de 2 kg de alimento balanceado para gatos adultos.",
-        "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSi8GLSldv-aJ7rJNAPhrBLV4a8LbXCseIfOIHaQpuc51nkWc2YbLJjoFtNDKR-edKu3vl4tW928UCJl120kKtF9J6drGBUcdVBW2dbhhispyx8F_fMZQ8vKVB29Xo5y90lu6XCweU&usqp=CAc",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDh6ifXyVLgOCnwwmLJQ5EznUPMyCXmz41WA&s",
         "category": "Alimentos",
         "stock": 50
     },
@@ -23,7 +23,7 @@ const cardData = [
         "name": "Juguete Interactivo para Mascotas",
         "price": 10.49,
         "description": "Pelota interactiva para mantener entretenidas a tus mascotas.",
-        "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTZg0rnrg3BMUKlargiR6eyrdlIBe7mf6oMXg4KTl6DZi3_lYGtEOGzBDOb5RP2Cl99gK2XcMl3YlFlCFXv7z2HomNWXRab8BuN5MVnVW9wekTLvTRgQeRdkjQx05L_FTc2GfT0odk&usqp=CAc",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeh4xKd_t00GI0Rd_pWytqY4hS-J7QM_UZK14A0z6Yv_wyA96NJ_VElQTNxgcXfyh7ZRA&usqp=CAU",
         "category": "Juguetes",
         "stock": 40
     },
@@ -32,7 +32,7 @@ const cardData = [
         "name": "Cama para Perros Grandes",
         "price": 45.99,
         "description": "Cama cómoda y resistente, perfecta para razas grandes.",
-        "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQVcx1dknsG1uGhkJ-WSdZ_7stRgrlHDa_LGpM8yW69wtwjDfb43YAVfWxjlL8kr4ojBgBLW3MNftMFM_8QfPvlwfEnIbr_qVwkLLWQTw&usqp=CAc",
+        "image": "https://m.media-amazon.com/images/I/71g+X2Sbf2L.jpg",
         "category": "Mobiliario",
         "stock": 10
     },
@@ -41,10 +41,20 @@ const cardData = [
         "name": "Rascador para Gatos",
         "price": 29.99,
         "description": "Rascador con diseño compacto y materiales duraderos.",
-        "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQfNLYSAAi1UW2IF-hhOTVBr2EABVly_2Xedp6S2pXSKA73TNUnz0orISIUueVPRT3S9NH8bbTJs_Ngw1VxfOqTzmxNMefqBY6lcHgOOUSXQIT_VzMcS2JL5Z2t&usqp=CAc",
+        "image": "https://m.media-amazon.com/images/I/71GR4c0VZ9S._AC_UF1000,1000_QL80_.jpg",
+        "category": "Accesorios",
+        "stock": 20
+    },
+    {
+        "id": 6,
+        "name": "Rascador para Gatos",
+        "price": 29.99,
+        "description": "Rascador con diseño compacto y materiales duraderos.",
+        "image": "https://m.media-amazon.com/images/I/71GR4c0VZ9S._AC_UF1000,1000_QL80_.jpg",
         "category": "Accesorios",
         "stock": 20
     }
+    
 ]
 
 
@@ -66,15 +76,15 @@ cardData.forEach((item) => {
        <div class="card-rating">
       <span class="average-rating">(4.5)</span>
       <span class="average-stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
+            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>     
+           <i class="fa-solid fa-star-half" style="color: #FFD43B;"></i>
+           <span class="card-reviews">(230)</span>
+           <button onclick="addToCart(${item.id}, '${item.name}', '${item.image}', ${item.price})" class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalProduct"><i class="fa-solid fa-cart-plus" style="color: #000000;"></i></button>
       </span>
-      <span class="card-reviews">(230)</span>
-    </div>
-      <button onclick="addToCart(${item.id}, '${item.name}', ${item.price})"  class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalProduct">Agregar al carrito</button>
+      </div>
     </div>
   `;
     container.appendChild(card);
@@ -89,21 +99,37 @@ cardData.forEach((item) => {
 let cart = [];
 
 // Función para agregar productos al carrito
-function addToCart(id, name, price) {
+function addToCart(id, name, image, price) {
     // Verificar si el producto ya está en el carrito
     const existingProduct = cart.find(item => item.id === id);
-    
+
     if (existingProduct) {
         // Si ya existe, solo aumentar la cantidad
         existingProduct.quantity += 1;
     } else {
         // Si no existe, agregarlo como nuevo producto
-        cart.push({ id, name, price, quantity: 1 });
+        cart.push({ id, name, image, price, quantity: 1 });
     }
 
     // Actualizar el carrito visualmente
     updateCart();
 }
+
+function decreaseProduct(id) {
+    const menosProductos = cart.find(item => item.id === id);
+    if (menosProductos) {
+        if (menosProductos.quantity > 1) {
+            menosProductos.quantity -= 1;
+        } else {
+            const index = cart.indexOf(menosProductos);
+            cart.splice(index, 1);
+        }
+        
+    }
+
+    updateCart();
+}
+
 
 // Función para eliminar un producto del carrito
 function removeFromCart(id) {
@@ -122,6 +148,7 @@ function clearCart() {
 
 // Función para actualizar el contenido del carrito
 function updateCart() {
+    
     const cartItemsDiv = document.getElementById('cart-items');
     const totalPriceSpan = document.getElementById('total-price');
 
@@ -137,10 +164,12 @@ function updateCart() {
         cartItemDiv.classList.add('cart-item');
         cartItemDiv.innerHTML = `
             <h4>${item.name}</h4>
+            <img src="${item.image}" style="width: 100px; height: 100px;">
             <p>Cantidad: ${item.quantity}</p>
             <p>Precio: $${item.price * item.quantity}</p>
-            <button onclick="removeFromCart(${item.id})">Eliminar</button>
-            <button onclick="addToCart(${item.id}, '${item.name}', ${item.price})">Agregar al carrito</button>
+            <button onclick="removeFromCart(${item.id})" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
+            <button onclick="addToCart(${item.id}, '${item.name}', '${item.image}', ${item.price})" class="btn btn-outline-primary">Añadir piezas</button>
+           <button onclick="decreaseProduct(${item.id})" class="btn btn-outline-warning">ELiminar piezas</button> 
         `;
         cartItemsDiv.appendChild(cartItemDiv);
 
@@ -154,3 +183,6 @@ function updateCart() {
 
 
 
+function addCarrito(params) {
+    
+}

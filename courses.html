@@ -42,27 +42,27 @@
                             <i class="fas fa-times"></i>
                         </button>
                         <ul class="menu">
-                            <li class="menu-item"><a href="index.html">Sobre Nosotros</a></li>
+                            <li class="menu-item"><a href="#about-us">Sobre Nosotros</a></li>
                             <li class="menu-item menu-item-has-children">
-                                <a href="#" class="js-toggle-sub-menu">Productos y servicios <i
-                                        class="fas fa-chevron-down"></i></a>
+                                <a href="#" class="js-toggle-sub-menu">Productos y servicios <i class="fas fa-chevron-down"></i></a>
                                 <ul class="sub-menu js-sub-menu">
                                     <li class="sub-menu-item"><a href="courses.html">Productos</a></li>
                                     <li class="sub-menu-item"><a href="ListaItems.html">Lista de productos</a></li>
-                                    <li class="sub-menu-item"><a href="product-registration.html">Registro de
-                                            productos</a></li>
+                                    <li class="sub-menu-item"><a href="product-registration.html">Registro de productos</a></li>
                                     <li class="sub-menu-item"><a href="course-details.html">Servicios</a></li>
                                 </ul>
                             </li>
+                            <li class="menu-item"><a href="contact.html">contacto</a></li>
                             <li class="menu-item menu-item-has-children">
-                                <a href="#" class="js-toggle-sub-menu">Iniciar Sesión / Registrarse <i
-                                        class="fas fa-chevron-down"></i></a>
+                                <i class="fa-solid fa-user" style="color: #000000;"></i>
                                 <ul class="sub-menu js-sub-menu">
                                     <li class="sub-menu-item"><a href="log-in.html">Iniciar Sesión</a></li>
                                     <li class="sub-menu-item"><a href="sign-up.html">Registrarse</a></li>
                                 </ul>
                             </li>
-                            <li class="menu-item"><a href="contact.html">contacto</a></li>
+
+                            <li class="menu-item"><i class="menu-item fa-solid fa-cart-shopping" style="color: #000000;"></i></li>
+                            
 
                             <!-- Search Bar? -->
                             <!-- TBF -->
@@ -87,19 +87,6 @@
             <div class="bubble-animation-item"></div>
         </div>
         <!-- !Bubble Animation -->
-        <!-- Breadcrumb -->
-        <div class="breadcrumb-nav">
-            <div class="container">
-                <nav aria-label="bradcrumb">
-                    <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item"><a href="courses.html">Courses</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Course Details</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-        <!-- !Breadcrumb -->
 
         <!--Modal-->
 
@@ -107,25 +94,21 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Detalles del pedido</h5>
+                        <h5 class="modal-title">Carrito de compras</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                         <div class="cart">
-                            <!-- <div class="product-item" data-id="1">
-                                <h3>Producto 1</h3>
-                                <p>Precio: $10</p>
-                                <button onclick="addToCart(1, 'Producto 1', 10)">Agregar al carrito</button>
-                            </div> -->
-                            <h2>Tu carrito de compras</h2>
-                            <div id="cart-items"></div>
+                            <div id="cart-items">
+                                
+                            </div>
                             <div class="cart-summary">
                                 <p><strong>Total:</strong> $<span id="total-price">0</span></p>
-                                <button onclick="clearCart()">Vaciar carrito</button>
+                                <button onclick="clearCart()" class="btn btn-outline-danger">Vaciar carrito</button>
                             </div>
                         </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary">Confirmar</button>
+                        <button type="button" onclick="addCarrito()" class="btn btn-primary">Añadir al carrito</button>
                     </div>
                 </div>
             </div>
