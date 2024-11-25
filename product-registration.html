@@ -70,7 +70,7 @@
         </header>
         <!-- !Header -->
 
-         <!-- Contact Section -->
+         <!-- Product Registration Section -->
          <section class="contact-section section-padding">
             <!-- Bubble Animation -->
             <div class="bubble-animation">
@@ -93,40 +93,34 @@
                             <h2 class="form-title text-center">Registro de producto</h2>
                             <div id="errorMessage"></div>
                             <form action="#" id="productRegistrationForm">
-                                <div id="alertContainer"></div>
-                                <div id="alertContainerCode"></div> <!--Este es el contenedor de la alert para el código de barras-->
+                                <div id="alertContainer2"></div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="productCode" placeholder="Código de Barras (13 dígitos)" required>
-                                </div>
-                                <div id="alertContainerName"></div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="productName" placeholder="Nombre del producto" required>
-                                </div>
-                                <div id="alertContainerDescription"></div>
-                                <div class="form-group">
-                                    <textarea class="form-control" id="productDescription" placeholder="Descripción" required></textarea>
-                                </div>
-                                <div id="alertContainerImage"></div>
-                                <div class="form-group">
-                                    <input type="url" class="form-control" id="productImage" placeholder="URL de la imagen (o subir archivo)">
-                                    <input type="file" class="form-control" id="productImage" placeholder="Archivo de la imagen">
-                                </div>
-                                <div id="alertContainerPrice"></div>
-                                <div class="form-group">
-                                    <input type="number" class="form-control" id="productPrice" placeholder="Precio Venta" required>
-                                    <div id="alertContainerPriceVIP"></div>
-                                    <input type="number" class="form-control" id="productPriceVIP" placeholder="Precio Club PawPal" required>
+                                    <input type="text" class="form-control" id="productCode" name="productCode" placeholder="Código de Barras (13 dígitos)" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="productDepartment" placeholder="Departamento">
+                                    <input type="text" class="form-control" id="productName" name="productName" placeholder="Nombre del producto" required>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="productDescription" name="productDescription" placeholder="Descripción" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <input type="url" class="form-control" id="productImage" name="productImage" placeholder="URL de la imagen (o subir archivo)">
+                                    <input type="file" class="form-control" id="productImage1" name="productImage1" placeholder="Archivo de la imagen">
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" class="form-control" id="productPrice" name="productPrice" placeholder="Precio Venta" required>
+                                    <input type="number" class="form-control" id="productPriceVIP" name="productPriceVIP" placeholder="Precio Club PawPal" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="productDepartment" name="productDepartment" placeholder="Departamento">
                                 </div>
                                 <div class="form-group">
                                     <p style="text-align: center; font-weight: 400;" ><strong>Inventario</strong></p>
-                                    <p><input type="checkbox" id="productInventoryCheck"> Este producto SÍ utiliza inventario. </p> 
+                                    <p><input type="checkbox" id="productInventoryCheck" name="productInventoryCheck"> Este producto SÍ utiliza inventario. </p> 
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control" id="productAmount" placeholder="Cantidad Actual">
-                                    <input type="number" class="form-control" id="productAmountMin" placeholder="Mínimo">
+                                    <input type="number" class="form-control" id="productAmount" name="productAmount" placeholder="Cantidad Actual">
+                                    <input type="number" class="form-control" id="productAmountMin" name="productAmountMin" placeholder="Mínimo">
                                 </div>
                                 <button type="submit" class="btn btn-block btn-theme btn-form">Guardar Producto</button> <!--Button envío-->
                             </form>
@@ -135,7 +129,7 @@
                 </div>
             </div>
          </section>
-        <!-- !Contact Section -->
+        <!-- !Product Registration Section -->
 
         <!-- Footer -->
         <!-- Footer -->

@@ -1,13 +1,14 @@
-async function loadJSONData(call) {
+async function loadJSONData(callback) {
     try {
         const response = await fetch('./products.json');
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const productos = await response.json();
-        call(productos);
+        callback(productos);
     } catch (error) {
         console.error('Error loading JSON file:', error);
+        showAlertErrorOne('danger', 'No se pudieron cargar los productos. Intente más tarde.');
     }
 }
 
@@ -114,4 +115,11 @@ document.getElementById('confirmRemoveBtn').addEventListener('click', function (
     removeProductModal.hide();
 });
 
-
+function showAlertErrorOne(type, message) {
+    const alertContainer = document.getElementById('alertContainer2');
+    alertContainer.innerHTML = `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>`;
+  }
+  
