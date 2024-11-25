@@ -1502,7 +1502,6 @@ Modal Carrito de compras -----*/
 	font-weight: 500;
 	margin-bottom: 5px;
 	margin-top: 80%;
-	font-family: 'Bebas Neue', sans-serif;
 	font-size: 30px;
 	letter-spacing: 2px;
 }
@@ -1519,7 +1518,7 @@ Modal Carrito de compras -----*/
 .servicio-card-box:hover img{
     transform: scale(1.1);
 }
-.servicio-card-box:hover .overlay{
+.servicio-card-box:hover .servicio-card-overlay{
     height: 40%;
 }
 
