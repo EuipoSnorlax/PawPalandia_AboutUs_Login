@@ -2,12 +2,15 @@
 
 window.addEventListener("load", () => {
   /* ----------------------------------------
-            Page Loader
-    ------------------------------------------- */
-  document.querySelector(".js-page-loader").classList.add("fade-out");
+  Page Loader
+  ------------------------------------------- */
+  const pageLoader= document.querySelector(".js-page-loader");
+  if (pageLoader) {
+    pageLoader.classList.add("fade-out");
   setTimeout(() => {
-    document.querySelector(".js-page-loader").style.display = "none";
+    pageLoader.style.display = "none";
   }, 600);
+  }
 });
 
 /* ----------------------------------------
@@ -155,11 +158,12 @@ function showAlert(type, message) {
 /* ----------------------------------------
             New User Validation T-9
 ------------------------------------------- */
-
+document.addEventListener('DOMContentLoaded', function () {
 if (document.body.classList.contains('registration-page')) {
-  document.getElementById('userRegistrationForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent the form from submitting the default way
-  
+  const formUser= document.getElementById('userRegistrationForm');
+  if (formUser) {
+    formUser.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the form from submitting the default way  
       // Validate the input fields
       if (validateNewUser()) {
           // Send the email if validation passes
@@ -185,40 +189,57 @@ if (document.body.classList.contains('registration-page')) {
             document.getElementById('acceptTermsCheck').checked
           );
           //console.log(registro.items); 
-/*---------------Almacenar datos en el Local Storage-----*/  
+          /*---------------Almacenar datos en el Local Storage-----*/  
           const userObjectJSON = JSON.stringify(registro.items);
           localStorage.setItem('newUser',userObjectJSON);
           console.log(userObjectJSON);
-          //Redirigir a inicio con un retraso de 10 segundos
- setTimeout(function(){
-   window.location.href = 'index.html'
- }, 10000);
-}
-  });
-}
+          // //Redirigir a inicio con un retraso de 10 segundos
+          setTimeout(function(){
+            window.location.href = 'index.html';
+          }, 10000);
+      }
+    });
+  }
+ }
+});
 
 function validateNewUser() {
   const name = document.getElementById('registerName').value;
+  const middleName = document.getElementById('registerMidleName').value;
+  const lastName = document.getElementById('registerLastName').value;
   const email = document.getElementById('registerEmail').value;
   const telephone = document.getElementById('registerPhone').value;
   const password = document.getElementById('registerPassword').value;
   const ageUser = document.getElementById('registerBirthDay').value;
   const termsCondUser = document.getElementById('acceptTermsCheck').checked;
-  const errorMessage = document.getElementById('errorMessage');
   
+  const errorMessage = document.getElementById('errorMessage');
   errorMessage.innerHTML = ''; // Clear previous error messages
 
-  // Validation checks
-  const isNameValid = name ? true : ((errorMessage.innerHTML += 'Se requiere un nombre.<br>'), false);
+  // Validation checks 
+  const isNameValid = validateName (name)? true : (showAlertErrorOne("danger", "Se requiere un nombre válido.<br>"), false);
+  const isMiddleName = validateMiddleName (middleName)? true : (showAlertErrorOne("danger", "Se requiere un apellido válido.<br>"), false);
+  const isLastName = validateLastName(lastName) ? true : (showAlertErrorOne("danger", "Se requiere un apellido válido.<br>"), false);
   const isEmailValid = validateEmail(email) ? true : (showAlertErrorOne("danger", "Formato de email no válido"), false);
   const isTelephoneValid = validateTelephone(telephone) ? true : (showAlertErrorOne("danger", "Formato de teléfono no válido"), false);
   const isPasswordValid = validatePassword(password) ? true : (showAlertErrorOne("danger", "La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un carácter no alfanumérico."), false);
-  const isAgeValid = validateAge(ageUser) ? true : (showAlertErrorOne("danger", "Tienes que ser mayor de edad para poderte registrar"), false);
+  const isAgeValid = validateAge(ageUser) ? true : false;
   const isTermsCondValid = termsCondUser ? true : (showAlertErrorOne("danger", "Debes aceptar nuestros términos y condiciones para registrarte"), false);
   
-  return isNameValid && isEmailValid && isTelephoneValid && isPasswordValid && isAgeValid && isTermsCondValid; // All validations passed
+  return isNameValid && isMiddleName && isLastName && isEmailValid && isTelephoneValid && isPasswordValid && isAgeValid && isTermsCondValid; // All validations passed
 }
-
+function validateName(name) {
+  const namePattern = /^.{4,}$/;
+  return namePattern.test(name);
+}
+function validateMiddleName(middlename) {
+  const namePattern = /^.{4,}$/;
+  return namePattern.test(middlename);
+}
+function validateLastName(lastname) {
+  const namePattern = /^.{4,}$/;
+  return namePattern.test(lastname);
+}
 function validatePassword(password) {
   const passwordPattern = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/;
   return passwordPattern.test(password);
@@ -232,12 +253,20 @@ function validateEmail(email) {
 function validateAge(birthday) {
   const hoy = new Date();
   const nacimiento = new Date(birthday);
+  if (nacimiento.getFullYear()<1900){
+    showAlertErrorOne("danger", "Fecha de nacimiento no válida.");
+    return false;
+  }
   let edad = hoy.getFullYear() - nacimiento.getFullYear();
   const mes = hoy.getMonth() - nacimiento.getMonth();
   if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
     edad--;
   }
-  return edad >= 18;
+  if (edad<18){
+    showAlertErrorOne("danger", "Tienes que ser mayor de edad para poder registrarte.");
+    return false;
+  }
+  return  true;
 }
 
 function validateTelephone(telephone) { 
@@ -251,6 +280,48 @@ function showAlertAccount(type, message) {
       ${message}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>`;
+}
+// Create a ItemsController class
+class SignUpUser {
+  // Set up the items and currentId property in the contructor
+  constructor(currentId = 0) {
+      this.items = [];
+      this.currentId = currentId;
+  }
+  // Create the addItem method
+  
+  agregarUsuario(name1, middlename, lastname, datebirthday, phone, email, password,isVip, acceptTerms) {
+      const user = {
+          // Increment the currentId property
+          name: name1,
+          middlename: middlename,
+          lastname: lastname,
+          datebirthday: datebirthday,
+          phone: phone,
+          email: email,
+          password: password,
+          isVip: isVip, //add
+          acceptTerms:acceptTerms, //add
+          id: this.currentId++,
+      };
+      
+      // Push the item to the items property
+      this.items.push(user);
+  }
+}
+ // Function to show the alerts. Alerts clean up after a certain time
+function showAlertErrorOne(type, message) {
+  const alertContainer = document.getElementById('alertContainer');
+  alertContainer.insertAdjacentHTML('beforeend', `
+      <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+          ${message}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+  `);
+  
+  setTimeout(function() {
+      alertContainer.innerHTML = '';
+  }, 1500);
 }
 
 /* ----------------------------------------
@@ -273,7 +344,7 @@ function headerMenu() {
 
   // Closing Menu by clicking outside of it.
   backdrop.addEventListener("click", toggleMenu);
-
+  
   function collapse() {
     menu.querySelector(".active .js-sub-menu").removeAttribute("style");
     menu.querySelector(".active").classList.remove("active");
@@ -458,427 +529,214 @@ function themeGlassEffect() {
 themeGlassEffect();
 
 
+/* ----------------------------------------
+            Switch Cats and Dogs selector
+------------------------------------------- */
+
+function perros(){
+  document.getElementById("perros").style.display = "block";
+  document.getElementById("gatos").style.display = "none";
+
+  document.getElementById("perrosButton").classList.add("active");
+  document.getElementById("gatosButton").classList.remove("active");
+}
+
+function gatos(){
+  document.getElementById("gatos").style.display = "block";
+  document.getElementById("perros").style.display = "none";
+
+  document.getElementById("gatosButton").classList.add("active");
+  document.getElementById("perrosButton").classList.remove("active");
+}
+
 
 /* ----------------------------------------
             Product Registration Form
 ------------------------------------------- */
-
-function productRegistrationForm() {
-  const productObject = {
-    code: "",
-    name: "",
-    description: "",
-    image: "",
-    price: "",
-    priceVIP: "",
-    department: "",
-    inventoryCheck: "",
-    amount: "",
-    amountMin: "",
-  };
-
-  const productForm = document.querySelector("#productRegistrationForm");
-  const code = document.querySelector("#productCode");
-  const name = document.querySelector("#productImage");
-  const description = document.querySelector("#productDescription");
-  const image = document.querySelector("#productImage");
-  const price = document.querySelector("#productPrice");
-  const priceVIP = document.querySelector("#productPriceVIP");
-  const department = document.querySelector("#productDepartment");
-  const inventoryCheck = document.querySelector("#productInventoryCheck");
-  const amount = document.querySelector("#productAmount");
-  const amountMin = document.querySelector("#productMin");
-// modificado 13-11
-  // productForm.addEventListener("submit", (event) => {
-  //   event.preventDefault();
-  //   productObject.code = code.value;
-  //   productObject.name = name.value;
-  //   productObject.description = description.value;
-  //   // productObject.image = image.value;
-  //   productObject.price = price.value;
-  //   productObject.priceVIP = priceVIP.value;
-  //   productObject.department = department.value;
-  //   // productObject.inventoryCheck = inventoryCheck.value;
-  //   // productObject.amount = amount.value;
-  //   // productObject.amountMin = amountMin.value;
-
-  //   const productObjectJSON = JSON.stringify(productObject);
-  //   console.log(productObjectJSON);
-  // });
-}
-productRegistrationForm();
-
-
-
-/* ----------------------------------------
-    Product Registration Validation Form
-------------------------------------------- */
-if (document.body.classList.contains("product-registration-page")) {
-  document
-    .getElementById("productRegistrationForm")
-    .addEventListener("submit", function (event) {
-      event.preventDefault(); // Prevent the form from submitting the default way
-
-      // Validate the input fields
-      if (validateProductRegisrationForm()) {
-        alertMessage = "¡Producto agregado correctamente!";
-        showAlert("success", alertMessage);
-        // -- AQUÍ SE PUEDE PONER UNA FUNCIÓN PARA AGREGAR LOS DATOS EN EL ARCHIVO PRODUCTS.JSON
+document.addEventListener('DOMContentLoaded',function(){
+  if (document.body.classList.contains('product-registration-page')) {
+      const form= document.getElementById('productRegistrationForm');
+      if (form){
+          form.addEventListener('submit', function(event) {
+          event.preventDefault(); // Prevent the form from submitting the default way
+      
+          // Validate the input fields
+          if (validateNewProduct()) {
+              // Succes if validation passes
+              const alertMessage = "🐈🐕--Producto Registrado Correctamente --🐈🐕";
+              showAlertProduct("success", alertMessage);
+    
+              const registro = new newProduct();
+              // console.log(document.getElementById('registerName'));
+              registro.agregarProductObject(
+               document.getElementById('productCode').value,
+                document.getElementById('productName').value, 
+                document.getElementById('productDescription').value, 
+                document.getElementById('productImage').value, 
+                document.getElementById('productPrice').value, 
+                document.getElementById('productPriceVIP').value, 
+                document.getElementById('productDepartment').value, 
+                document.getElementById('productInventoryCheck').checked,
+                document.getElementById('productAmount').value||0,
+                document.getElementById('productAmountMin').value||0
+              );
+              //console.log(registro.items); 
+    /*---------------Almacenar datos en el Local Storage-----*/  
+              const productObjectJSON = JSON.stringify(registro.items);
+              localStorage.setItem('newProduct',productObjectJSON);
+              console.log(productObjectJSON);
+                  //Redirigir a inicio con un retraso de 20 segundos
+              setTimeout(function(){
+                  window.location.href = 'ListaItems.html';
+              }, 20000);
+          }
+       });
+    }
+  }
+});
+    function validateNewProduct() {
+      const pCode = document.getElementById('productCode').value;
+      const pName = document.getElementById('productName').value;
+      const pDescription = document.getElementById('productDescription').value;
+      const pImage = document.getElementById('productImage').value;
+      const pPrice = document.getElementById('productPrice').value;
+      const pPriceVip = document.getElementById('productPriceVIP').value;
+      const pDepartment = document.getElementById('productDepartment').value;
+      const pInventoryCheck = document.getElementById('productInventoryCheck').checked;
+      const pAmount = document.getElementById('productAmount').value;
+      const pAmountMin = document.getElementById('productAmountMin').value;
+      
+      const errorMessage = document.getElementById('errorMessage'); 
+      errorMessage.innerHTML = '';
+      // Validation checks 
+      const isPCodeValid = validatePCode (pCode)? true : (showAlertErrorTwo("danger", "Se requiere ingresar un código de barras de 13 dígitos.<br>"), false);
+      const isPNameValid = validatePName (pName)? true : (showAlertErrorTwo("danger", "Ingrese un nombre de producto válido.<br>"), false);
+      const isPDescriptionValid = validatePDescription(pDescription) ? true : (showAlertErrorTwo("danger", "Falta agregar una descripción del producto.<br>"), false);
+      const isPPriceValid = validatePPrice(pPrice) ? true : (showAlertErrorTwo("danger", "Ingresa precio del producto"), false);
+      const isPPriceVIPValid = validatePPriceVIP(pPriceVip,pPrice) ? true : (showAlertErrorTwo("danger", "Ingresa precio del producto con descuento VIP"), false);
+      const isPDepartmentValid = validatePDepartment(pDepartment) ? true : (showAlertErrorTwo("danger", "Ingresa el departamento al que pertenece el producto."), false);
+      
+      let isPImageValid= true;
+      if (pImage){
+        isPImageValid=validatePImage(pImage)? true: (showAlertErrorTwo("danger", "URL de la imagen no válida."), false);
       }
-    });
-}
-
-/* ----------------------------------------
-Clean Product Registration Validation Form
-------------------------------------------- */
-
-const formulario = document.getElementById("productRegistrationForm");
-
-formulario.addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  clearForm();
-
-});
-
-function clearForm() {
-  formulario.reset();
-}
-
-
-
-function validateProductRegisrationForm() {
-  const code = document.getElementById("productCode").value;
-  const name = document.getElementById("productName").value;
-  const description = document.getElementById("productDescription").value;
-  // const image = document.getElementById("productImage").value;
-  const price = document.getElementById("productPrice").value;
-  const priceVIP = document.getElementById("productPriceVIP").value;
-  const department = document.getElementById("productDepartment").value;
-  //const inventoryCheck = document.getElementById("productInventoryCheck").value;
-  // const amount = document.getElementById("productAmount").value;
-  // const amountMin = document.getElementById("productAmountMin").value;
-
-  const errorMessage = document.getElementById("errorMessage");
-
-  errorMessage.innerHTML = ""; // Clear previous error messages
-
-  // Validation checks
-  const isCodeValid = code
-    ? true
-    : ((errorMessage.innerHTML += "Se requiere un número de serie.<br>"),
-      false);
-  const isnameValid = name
-    ? true
-    : ((errorMessage.innerHTML += "Nombre no válido.<br>"), false);
-  const isDescriptionValid = description
-    ? true
-    : ((errorMessage.innerHTML += "Se requiere una descripción.<br>"), false);
-  // const isImageValid = image
-  //   ? true
-  // : ((errorMessage.innerHTML += "Se requiere una imagen.<br>"), false);
-  const isPriceValid = price
-    ? true
-    : ((errorMessage.innerHTML += "Se requiere un precio.<br>"), false);
-  const isPriceVIPValid = priceVIP
-    ? true
-    : ((errorMessage.innerHTML += "Se requiere un precio VIP.<br>"), false);
-  const isDepartmentValid = department
-    ? true
-    : ((errorMessage.innerHTML += "Se requiere un departamento.<br>"), false);
-  // const isInventoryCheckValid = inventoryCheck
-  //   ? true
-  //   : ((errorMessage.innerHTML += "Se requiere un inventario.<br>"), false);
-  // const isAmountValid = amount
-  //   ? true
-  //   : ((errorMessage.innerHTML += "Se requiere una cantidad.<br>"), false);
-  // const isAmountMinValid = amountMin
-  //   ? true
-  //   : ((errorMessage.innerHTML += "Se requiere una cantidad mínima.<br>"),
-  //     false);
-
-  return (
-    isCodeValid &&
-    isnameValid &&
-    isDescriptionValid &&
-    // isImageValid &&
-    isPriceValid &&
-    isPriceVIPValid &&
-    isDepartmentValid
-    // isInventoryCheckValid &&
-    // isAmountValid &&
-    // isAmountMinValid
-  ); // All validations passed
-}
-
-function validateCode(code) {
-  const codePattern = /^\d{13}$/;
-  return codePattern.test(code);
-}
-
-
-function validateName(name) {
-  const namePattern = /^.{4,}$/;
-  return namePattern.test(name);
-}
-
-function validateDescription(description) {
-  const descriptionPattern = /^.{4,}$/; //PONER UNA RESTRICCIÓN DE QUE DEBE TENER MÁS DE 2 PALABRAS;
-  return descriptionPattern.test(description);
-}
-
-function validateImage(image) {
-  const imagePattern = /^(https?:\/\/)?(www\.)?[\w\-]+(\.[\w\-]+)+([\/?#][^\s]*)?$/;
-  return imagePattern.test(image);
-}
-
-function validatePrice(price) {
-  // Expresión regular para verificar un precio en formato válido (por ejemplo, $12.34)
-  const pricePattern = /^(?!0(\.0+)?$).+$/;
-
-  // Verifica si el precio coincide con el patrón y no es $0.00
-  return pricePattern.test(price) && price !== "$0.00";
-}
-
-function validatePriceVIP(priceVIP, price) {
-  const pricePattern = /^(?!0(\.0+)?$).+$/;
-
-  // Verifica que el precio VIP cumpla el patrón, no sea $0.00, y sea menor o igual al precio normal
-  return (
-    pricePattern.test(priceVIP) &&
-    priceVIP !== "$0.00" &&
-    parseFloat(priceVIP.slice(1)) <= parseFloat(price.slice(1))
-  );
-}
-
-function validateDepartament(departament) {
-  const departmentPattern = /^.{4,}$/; //
-  return departmentPattern.test(departament);
-}
-
-function registProduct() {
-  const code = document.getElementById("code").value;
-  const name = document.getElementById("name").value;
-  const description = document.getElementById("description").value;
-  const image = document.getElementById("image").value;
-  const price = document.getElementById("price").value;
-  const priceVIP = document.getElementById("priceVIP").value;
-  const department = document.getElementById("department").value;
-  const inventoryCheck = document.getElementById("inventoryCheck").value;
-  const amount = document.getElementById("amount").value;
-  const amountMin = document.getElementById("amountMin").value;
-
-  // Console
-  console.log("Agregando la siguiente información:");
-  console.log(`Código de barras: ${code}`);
-  console.log(`Nombre del producto: ${name}`);
-  console.log(`Descripción: ${description}`);
-  console.log(`Imagen: ${image}`);
-  console.log(`Precio: ${price}`);
-  console.log(`Precio Club PawPal: ${priceVIP}`);
-  console.log(`Departamento: ${department}`);
-  console.log(`Usa inventario: ${inventoryCheck}`);
-  console.log(`Cantidad actual: ${amount}`);
-  console.log(`Mínimo: ${amountMin}`);
-
-  // Clear the form after sending... Allons-y !!!
-  //document.getElementById("productRegistrationForm").reset();
-}
-
-/* 45:25_35,100yards_Biotic_SeNt  ML_CerbAg_Opt_Perf   Warp, Overload & Slam */
-
-// Validación del form
-
-document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
-  event.preventDefault();
-  const productCode = document.getElementById("").value;
-  const alertContainerCode = document.getElementById("alertContainerCode");
-
-  alertContainerCode.innerHTML = "";
-
-  if (!validateCode(productCode)) {
-    alertContainerCode.innerHTML = `
-      <div class="alert alert-danger" role="alert">
-        El producto no se registró correctamente.
-      </div>`;
-
-    return false;
-
-  } else {
-    alertContainerCode.innerHTML = `
-       <div class="alert alert-success" role="alert">
-                  Producto agregado correctamente.
-               </div>`;
-  }
-});
-
-// Validación del código de barras (code)
-
-document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
-  event.preventDefault();
-  const productCode = document.getElementById("productCode").value;
-  const alertContainerCode = document.getElementById("alertContainerCode");
-
-  alertContainerCode.innerHTML = "";
-
-  if (!validateCode(productCode)) {
-    alertContainerCode.innerHTML = `
-          <div class="alert alert-danger" role="alert">
-            El código de barras debe tener 13 caracteres númericos.
-          </div>`;
-
-    return false;
-
-  }
-
-});
-
-// Validación del nombre del producto (name)
-
-document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
-  event.preventDefault();
-  const productName = document.getElementById("productName").value;
-  const alertContainerName = document.getElementById("alertContainerName");
-
-  alertContainerName.innerHTML = "";
-
-  if (!validateName(productName)) {
-    alertContainerName.innerHTML = `
-        <div class="alert alert-danger" role="alert">
-         El nombre del producto debe tener al menos 4 caracteres.
+      let isInventoryValid=true;
+      if (pInventoryCheck) { 
+        const isPAmountValid = validatePAmount(pAmount) ? true : (showAlertErrorTwo("danger", "Ingrese cantidad en almacén."), false); 
+        const isPAmountMinValid = validatePAmountMin(pAmountMin) ? true : (showAlertErrorTwo("danger", "Ingrese cantidad mínima que debe haber en el almacén."), false); 
+        isInventoryValid= isPAmountValid && isPAmountMinValid; 
+      }
+      return isPCodeValid && isPNameValid && isPDescriptionValid && isPImageValid && isPPriceValid && isPPriceVIPValid && isPDepartmentValid && (pInventoryCheck ? isInventoryValid: true); // All validations passed }
+    }
+    function validatePCode(code) {
+      const codePattern = /^\d{13}$/;
+      return codePattern.test(code);
+    }
+    
+    
+    function validatePName(name) {
+      const namePattern = /^.{4,}$/;
+      return namePattern.test(name);
+    }
+    
+    function validatePDescription(description) {
+      const descriptionPattern = /^.{8,}$/; //PONER UNA RESTRICCIÓN DE QUE DEBE TENER MÁS DE 2 PALABRAS;
+      return descriptionPattern.test(description);
+    }
+    
+    function validatePImage(image) {
+      const imagePattern = /^(https?:\/\/)?(www\.)?[\w\-]+(\.[\w\-]+)+([\/?#][^\s]*)?$/;
+      return imagePattern.test(image);
+    }
+    
+    function validatePPrice(price) {
+      // Expresión regular para verificar un precio en formato válido (por ejemplo, $12.34)
+      const pricePattern = /^(?!0(\.0+)?$).+$/;
+    
+      // Verifica si el precio coincide con el patrón y no es $0.00
+      return pricePattern.test(price) && price !== "$0.00";
+    }
+    
+    function validatePPriceVIP(priceVIP, price) {
+      if (parseFloat(priceVIP)>= parseFloat(price)){
+        showAlertErrorTwo ("danger", "EL precio VIP debe ser menor que el precio normal.");
+        return false;
+      }
+      const pricePattern = /^(?!0(\.0+)?$).+$/;
+      // Verifica que el precio VIP cumpla el patrón, no sea $0.00, y sea menor o igual al precio normal
+      return (
+        pricePattern.test(priceVIP) &&
+        priceVIP !== "$0.00" &&
+        parseFloat(priceVIP) <= parseFloat(price)
+      );
+    }
+    
+    function validatePDepartment(department) {
+      const departmentPattern = /^.{4,}$/; //
+      return departmentPattern.test(department);
+    }
+  
+    function validateInventory(inventoryCheck) { 
+      return inventoryCheck; 
+      } 
+    function validatePAmount(amount) { 
+      const amountPattern = /^\d+$/; 
+      return amountPattern.test(amount); 
+      } 
+    function validatePAmountMin(amountMin) { 
+      const amountMinPattern = /^\d+$/; 
+      return amountMinPattern.test(amountMin);  
+      }
+    
+    function showAlertProduct(type, message) {
+      const alertContainer = document.getElementById('alertContainer2');
+      alertContainer.innerHTML = `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
+          ${message}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>`;
-
-    return false;
-
-  } else {
-    alertContainerName.innerHTML = `
-        <div class="alert alert-success" role="alert">
-                    Producto registrado correctamente.
-                </div>`;
+    }
+    
+    
+    class newProduct {
+      // Set up the items and currentId property in the contructor
+      constructor(currentId = 0) {
+          this.items = [];
+          this.currentId = currentId;
+      }
+  
+      // Create the addItem method
+      
+      agregarProductObject(code,name,description,image,price,priceVIP,department,inventoryCheck,amount,amountMin) {
+          const product = {
+              // Increment the currentId property
+              code: code,
+              name: name,
+              description: description,
+              image:image,
+              price: price,
+              priceVIP: priceVIP,
+              department: department,
+              inventoryCheck: inventoryCheck,
+              amount: amount, //add
+              amountMin:amountMin,
+              id: this.currentId++,
+          };
+          
+          // Push the item to the items property
+          this.items.push(product);
+          localStorage.clear();
+      }
+  } // Function to show the alerts. Alerts clean up after a certain time
+function showAlertErrorTwo(type, message) {
+      const alertContainer = document.getElementById('alertContainer2');
+      alertContainer.insertAdjacentHTML('beforeend', `
+          <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+              ${message}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+      `);
+      
+      setTimeout(function() {
+          alertContainer.innerHTML = '';
+      }, 2000);
   }
-});
-
-// Validación de la nombre del producto (name)
-
-document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
-  event.preventDefault();
-  const productName = document.getElementById("productName").value;
-  const alertContainerName = document.getElementById("alertContainerName");
-
-  alertContainerName.innerHTML = "";
-
-  if (!validateName(productName)) {
-    alertContainerName.innerHTML = `
-            <div class="alert alert-danger" role="alert">
-             El nombre del producto debe tener al menos 4 caracteres.
-            </div>`;
-
-    return false;
-
-    // } else{
-    //     alertContainerName.innerHTML = `
-    //     <div class="alert alert-success" role="alert">
-    //                 Campo agregado correctamente.
-    //             </div>`;
-  }
-});
-
-// Validación del descripción del producto (description)
-
-document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
-  event.preventDefault();
-  const productDescription = document.getElementById("productDescription").value;
-  const alertContainerDescription = document.getElementById("alertContainerDescription");
-
-  alertContainerDescription.innerHTML = "";
-
-  if (!validateDescription(productDescription)) {
-    alertContainerDescription.innerHTML = `
-        <div class="alert alert-danger" role="alert">
-         La descripción del producto debe tener al menos 4 caracteres.
-        </div>`;
-
-    return false;
-
-    // } else{
-    //     alertContainerDescription.innerHTML = `
-    //     <div class="alert alert-success" role="alert">
-    //                 Campo agregado correctamente.
-    //             </div>`;
-  }
-});
-
-// Validación de la imagen del producto (image) SE COMENTÓ PORQUE ES UN CAMPO OPCIONAL A LA HORA DE REGISTRAR PRODUCTO
-
-//   document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
-//     event.preventDefault();
-//     const productImage = document.getElementById("productImage").value;
-//     const alertContainerImage = document.getElementById("alertContainerImage");
-
-//     alertContainerImage.innerHTML = "";
-
-//     if (!validateImage(productImage)) {
-//       alertContainerImage.innerHTML = `
-//         <div class="alert alert-danger" role="alert">
-//          ingrese una URL válida.
-//         </div>`;
-
-//       return false;
-
-//     } else{
-//         alertContainerImage.innerHTML = `
-//         <div class="alert alert-success" role="alert">
-//                     El producto se registró correctamente.
-//                 </div>`;
-//     }
-//   });
-
-// Validación del precio del producto (price)
-
-// document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
-//   event.preventDefault();
-//   const productPrice = document.getElementById("productPrice").value;
-//   const alertContainerPrice = document.getElementById("alertContainerPrice");
-
-//   alertContainerPrice.innerHTML = "";
-
-//   if (!validatePrice(productPrice)) {
-//     alertContainerPrice.innerHTML = `
-//         <div class="alert alert-danger" role="alert">
-//          el precio no puede ser cero.
-//         </div>`;
-
-//     return false;
-
-//     // } else{
-//     //     alertContainerPrice.innerHTML = `
-//     //     <div class="alert alert-success" role="alert">
-//     //                 El producto se registró correctamente.
-//     //             </div>`;
-//   }
-// });
-
-// Validación del precio del producto Club PawPal (priceVIP)
-
-document.getElementById("productRegistrationForm").addEventListener("submit", function (event) {
-  event.preventDefault();
-  // const productPriceVIP = document.getElementById("productPriceVIP").value;
-  // const alertContainerPriceVIP = document.getElementById("alertContainerPriceVIP");
-
-  // alertContainerPriceVIP.innerHTML = "";
-
-  // if (!validatePrice(productPriceVIP)) {
-  //   alertContainerPriceVIP.innerHTML = `
-  //           <div class="alert alert-danger" role="alert">
-  //            el precio no puede ser cero ni debe ser más caro que el precio normal.
-  //           </div>`;
-
-  //   return false;
-
-    // } else{
-    //     alertContainerPriceVIP.innerHTML = `
-    //     <div class="alert alert-success" role="alert">
-    //                 El producto se registró correctamente.
-    //             </div>`;
-  // }
-});
