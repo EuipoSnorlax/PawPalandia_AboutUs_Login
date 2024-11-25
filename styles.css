@@ -33,7 +33,8 @@
 29. "Sing-Up" Section.
 30. Policy-Privacy
 31. Card Dinámica
-32. Booking Form
+32. Card Services
+33. Booking Form
 --------------------------------------------------------------------------------------- */
 
 
@@ -1455,7 +1456,75 @@ Modal Carrito de compras -----*/
 }
 
 /* --------------
-32. Booking form
+32. Card Services
+---------------- */
+.servicio-card-wrapper{
+    padding: 10px 10%;
+}
+#servicio-card-area{
+    padding: 50px 0;
+}
+.servicio-card-box-area{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+    grid-gap: 20px;
+    margin-top: 50px;
+}
+.servicio-card-box {
+	border-radius: 25px;
+	position: relative;
+	overflow: hidden;
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+}
+.servicio-card-box img{
+    width: 100%;
+    display: block;
+    transition: transform 0.5s;
+}
+.servicio-card-overlay {
+	width: 100%;
+	height: 0;
+	border-radius: 10px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 40px;
+	text-align: center;
+	font-size: 14px;
+	transition: height 0.5s;
+}
+.servicio-card-overlay h3 {
+	font-weight: 500;
+	margin-bottom: 5px;
+	margin-top: 80%;
+	font-family: 'Bebas Neue', sans-serif;
+	font-size: 30px;
+	letter-spacing: 2px;
+}
+.servicio-card-overlay a {
+	margin-top: 10px;
+	color: #262626;
+	text-decoration: none;
+	font-size: 14px;
+	background: #fff;
+	border-radius: 50px;
+	text-align: center;
+	padding: 5px 15px;
+}
+.servicio-card-box:hover img{
+    transform: scale(1.1);
+}
+.servicio-card-box:hover .overlay{
+    height: 40%;
+}
+
+/* --------------
+33. Booking form
 ---------------- */
 
 .booking-form-container {
