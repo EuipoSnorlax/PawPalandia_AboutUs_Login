@@ -739,6 +739,11 @@ textarea.form-control {
 /* ---------------
 21. Banner Inicio
 ----------------- */
+/* .banner-section{
+    margin-top: -6%;
+    margin-bottom: -6%;
+} */
+
 .banner-section-inicio {
     width: 80%;
     margin: 0 auto;
@@ -746,6 +751,7 @@ textarea.form-control {
     display: block;
     height: 30vh;
     border-radius: 30px;
+    
 }
 
 .bannerInicio {
