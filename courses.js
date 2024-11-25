@@ -3,7 +3,7 @@ const cardData = [
     {
         "id": 1,
         "name": "Collar Ajustable para Perros",
-        "price": 15.99,
+        "price": 75.80,
         "description": "Collar resistente y ajustable, disponible en varios colores.",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJzG-aoxw13npDwOYM1BxWEHwwxVSzZ1gyDQ&s",
         "category": "Accesorios",
@@ -12,7 +12,7 @@ const cardData = [
     {
         "id": 2,
         "name": "Comida Premium para Gatos",
-        "price": 24.99,
+        "price": 450.00,
         "description": "Bolsa de 2 kg de alimento balanceado para gatos adultos.",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDh6ifXyVLgOCnwwmLJQ5EznUPMyCXmz41WA&s",
         "category": "Alimentos",
@@ -21,7 +21,7 @@ const cardData = [
     {
         "id": 3,
         "name": "Juguete Interactivo para Mascotas",
-        "price": 10.49,
+        "price": 100.78,
         "description": "Pelota interactiva para mantener entretenidas a tus mascotas.",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeh4xKd_t00GI0Rd_pWytqY4hS-J7QM_UZK14A0z6Yv_wyA96NJ_VElQTNxgcXfyh7ZRA&usqp=CAU",
         "category": "Juguetes",
@@ -30,7 +30,7 @@ const cardData = [
     {
         "id": 4,
         "name": "Cama para Perros Grandes",
-        "price": 45.99,
+        "price": 1200.99,
         "description": "Cama cómoda y resistente, perfecta para razas grandes.",
         "image": "https://m.media-amazon.com/images/I/71g+X2Sbf2L.jpg",
         "category": "Mobiliario",
@@ -39,7 +39,7 @@ const cardData = [
     {
         "id": 5,
         "name": "Rascador para Gatos",
-        "price": 29.99,
+        "price": 500.00,
         "description": "Rascador con diseño compacto y materiales duraderos.",
         "image": "https://m.media-amazon.com/images/I/71GR4c0VZ9S._AC_UF1000,1000_QL80_.jpg",
         "category": "Accesorios",
@@ -47,10 +47,10 @@ const cardData = [
     },
     {
         "id": 6,
-        "name": "Rascador para Gatos",
-        "price": 29.99,
-        "description": "Rascador con diseño compacto y materiales duraderos.",
-        "image": "https://m.media-amazon.com/images/I/71GR4c0VZ9S._AC_UF1000,1000_QL80_.jpg",
+        "name": "Aceite de Sardina",
+        "price": 599.00,
+        "description": "Superalimento para perros, contiene Omega-3, el cual es rico en ácidos grasos de cadena larga llamados EPA y DHA.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiphckvQQYOuPVCT3mcN9sG9r-s23e_-0mzZCbylF32YVzGT9RTvUaP6HD36mlpV0AZPY&usqp=CAU",
         "category": "Accesorios",
         "stock": 20
     }
@@ -73,7 +73,11 @@ cardData.forEach((item) => {
       <h5 class="card-title" id = 'name'>${item.name}</h5>
       <p class="card-text">${item.description}</p>
       <p id='price'><strong>Precio:</strong> $${item.price}</p>
-      <button id="btn-cart-plus" onclick="addToCart(${item.id}, '${item.name}', '${item.image}', ${item.price})" class="btn btn-outline-warning" type="button" data-bs-toggle="modal" data-bs-target="#modalProduct"><i class="fa-solid fa-cart-plus" style="color: #000000;"></i></button>
+      <div class="d-flex justify-content-center">
+    <button id="btn-cart-plus" onclick="addToCart(${item.id}, '${item.name}', '${item.image}', ${item.price})" class="btn btn-outline-warning" type="button" data-bs-toggle="modal" data-bs-target="#modalProduct">
+        <i class="fa-solid fa-cart-plus" style="color: #000000;"></i>
+    </button>
+</div>
        <div class="card-rating">
       <span class="average-rating">(4.5)</span>
       <span class="average-stars">
