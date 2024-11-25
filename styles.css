@@ -1190,6 +1190,11 @@ textarea.form-control {
     border-color: transparent transparent transparent #fff;
 }
 
+.card_About {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 10px 5px 5px #a4a0dd;
+}
 
 .timeline-h3 {
     color: #4e7bbe;

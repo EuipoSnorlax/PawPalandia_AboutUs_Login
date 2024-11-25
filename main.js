@@ -527,12 +527,12 @@ function themeGlassEffect() {
   }
 }
 themeGlassEffect();
-<<<<<<< HEAD
-=======
+
 
 /* ----------------------------------------
             Switch Cats and Dogs selector
 ------------------------------------------- */
+/*
 function perros(){
   document.getElementById("perros").style.display = "block";
   document.getElementById("gatos").style.display = "none";
@@ -547,9 +547,9 @@ function gatos(){
 
   document.getElementById("gatosButton").classList.add("active");
   document.getElementById("perrosButton").classList.remove("active");
-}
+}*/
 
->>>>>>> 8ca2d9f09bec38c00523b9b3d7fe6c380e16c243
+
 /* ----------------------------------------
             Product Registration Form
 ------------------------------------------- */
