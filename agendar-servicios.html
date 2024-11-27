@@ -1,28 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In</title>
+    <title>Formulario de Agendar Citas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
     <link rel="stylesheet" href="responsive.css">
     <link rel="stylesheet" class="js-color-style" href="./css/color-1.css">
     <link rel="stylesheet" class="js-glass-style" href="./css/glass.css" disabled>
+
 </head>
-
 <body>
-
     <!-- Page Loader -->
     <div class="page-loader js-page-loader">
         <div></div>
     </div>
     <!-- !Page Loader -->
+
 
     <!-- Main Wrapper -->
     <div class="main-wrapper">
@@ -32,7 +34,7 @@
                 <div class="header-main d-flex justify-content-between align-items-center">
                     <div class="header-logo">
                         <img src="./imgs/Logo.png" alt="Logo de PawPalandia" style="height: 70px;">
-                        <a href="./PagePromos.html"><span>Paw</span>Palandia</a>
+                        <a href="./index.html"><span>Paw</span>Palandia</a>
                     </div>
                     <button type="button" class="header-hamburger-btn js-header-menu-toggler">
                         <span></span>
@@ -61,58 +63,97 @@
                                     <li class="sub-menu-item"><a href="sign-up.html">Registrarse</a></li>
                                 </ul>
                             </li>
+
                             <li class="menu-item"><i class="menu-item fa-solid fa-cart-shopping" style="color: var(--main-color);"><a href="./payment.html"></a></i></li>
+                            
+
+                            <!-- Search Bar? -->
+                            <!-- TBF -->
+                            <!-- TBF -->
+                            <!-- TBF -->
+                            <!-- !Search Bar? -->
                         </ul>
                     </nav>
                 </div>
             </div>
         </header>
         <!-- !Header -->
-           <!-- Bubble Animation -->
-           <div class="bubble-animation">
-            <div class="bubble-animation-item"></div>
-            <div class="bubble-animation-item"></div>
-            <div class="bubble-animation-item"></div>
-            <div class="bubble-animation-item"></div>
-            <div class="bubble-animation-item"></div>
-            <div class="bubble-animation-item"></div>
-            <div class="bubble-animation-item"></div>
-            <div class="bubble-animation-item"></div>
-            <div class="bubble-animation-item"></div>
-        </div>
-        <!-- !Bubble Animation -->
 
-        <!-- Login -->
-        <div class="login-section section-padding">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-7 col-lg-6 col-xl-5">
-                        <div class="login-form box">
-                            <h2 class="form-title text-center">Iniciar Sesión</h2>
-                            <form id="loginForm" action="">
-                                <div id="alertContainer" class="mt-3"></div>
-                                <div class="form-group">
-                                    <input id="loginName" type="text" class="form-control" placeholder="Nombre">
-                                </div>
-                                <div class="form-group">
-                                    <input id="loginEmail" type="text" class="form-control" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <input id="loginPassword" type="password" class="form-control"
-                                        placeholder="Contraseña">
-                                    <div class="d-flex mb-2 justify-content-end"><a href="#">¿Olvidaste la contraseña?</a></div>
-                                </div>
-                                <button type="submit" onclick="logInForm()" class="btn btn-theme btn-block btn-form">Ingresar</button>
-                                <p class="text-center mt-4 mb-0">¿No tienes una cuenta? <a href="sign-up.html">¡Regístrate!</a></p>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+
+
+
+    <div class="booking-form-container mt-5">
+        <h3 class="text-center header-logo"><span>Agenda tu servicio</span></h3>
+        
+        <!-- Formulario de citas -->
+        <form id="form-citas">
+            <div id="alerta-citas" class="alert d-none" role="alert"></div>
+            <div class="mb-3">
+                <p style="text-align: center;" class="header-logo">Llena este formulario o llámanos: <span>800 220 7735</span></p>
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre completo" required>
             </div>
-        </div>
-        <!-- !Login -->
+            <div class="mb-3">
+                <!-- <label for="nombre" class="form-label">Nombre de la Mascota</label> -->
+                <input type="text" class="form-control" id="nombre-mascota" placeholder="Nombre de la mascota" required>
+            </div>
+            <div class="mb-3">
+                <!-- <label for="nombre" class="form-label">Raza</label> -->
+                <input type="text" class="form-control" id="raza" placeholder="Raza (Si no tiene raza, pon Criollo)" required>
+            </div>
+            <div class="mb-3">
+                <!-- <label for="email" class="form-label">Correo Electrónico</label> -->
+                <input type="email" class="form-control" id="email" placeholder="Correo" required>
+            </div>
+            <div class="mb-3">
+                <!-- <label for="telefono" class="form-label">Teléfono</label> -->
+                <input type="tel" class="form-control" id="telefono" placeholder="Teléfono (10 dígitos)" required>
+            </div>
+            <div class="mb-3">
+                <!-- <label for="fecha-hora" class="form-label">Fecha y Hora</label> -->
+                <input type="text" class="form-control" id="fecha-hora" placeholder="Fecha/Hora (Citas de 10 a 18hrs)" required>
+            </div>
+            <div class="mb-3">
+                <!-- <label for="servicio" class="form-label">Tipo de Servicio</label> -->
+                <select class="form-select" id="servicio" required>
+                    <option value="" disabled selected>Selecciona un servicio</option>
+                    <option value="estetica">Estética Canina</option>
+                    <option value="entrenamiento">Entrenamiento Canino</option>
+                    <option value="veterinario">Servicio Veterinario</option>
+                    <option value="cremacion">Cremación</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <!-- <label for="comentarios" class="form-label">Comentarios Adicionales</label> -->
+                <textarea class="form-control" id="comentarios" rows="3" placeholder="Indicaciones (opcional)"></textarea>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="terminos" required>
+                <label class="form-check-label" for="terminos">
+                    Acepto los <a href="./terminosCondiciones.html" target="_blank">términos y condiciones</a> y el <a href="privacyPolicy.html" target="_blank">aviso de privacidad</a>.
+                </label>
+            </div>
+            <button type="submit" class="btn btn-theme mb-4">Agendar Cita</button>
+        </form>
+        
+        <hr>
+        
+        <!-- Formulario para solicitud de llamada -->
+        <h3 class="text-center header-logo mb-3"><span>¿Prefieres que te llamemos?</span></h3>
+        <form id="form-llamada">
+            <div id="alerta-llamada" class="alert d-none" role="alert"></div>
+            <div class="mb-3">
+                <!-- <label for="nombre-llamada" class="form-label">Nombre</label> -->
+                <input type="text" class="form-control" id="nombre-llamada" placeholder="Ingresa tu nombre" required>
+            </div>
+            <div class="mb-3">
+                <!-- <label for="telefono-llamada" class="form-label">Teléfono</label> -->
+                <input type="tel" class="form-control" id="telefono-llamada" placeholder="Ingresa tu teléfono" required>
+            </div>
+            <button type="submit" class="btn btn-theme mb-4">Solicitar Llamada</button>
+        </form>
+    </div>
 
-        <!-- Footer -->
+            <!-- Footer -->
             <footer class="footer">
                 <div class="footer-top">
                     <div class="container">
@@ -196,9 +237,9 @@
                 </div>
              </footer>
             <!-- !Footer -->
+
     </div>
     <!-- !Main Wrapper -->
-
 
     <!-- Style Switcher -->
     <div class="style-switcher js-style-switcher">
@@ -231,12 +272,115 @@
         </div>
     </div>
     <!-- !Style Switcher -->
+    
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <script src="main.js"></script>
-    <script src="log-in.js"></script>
+ <script>
+        const citasRegistradas = [];
+
+        // Inicializar Flatpickr
+        flatpickr("#fecha-hora", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+            time_24hr: true,
+            minDate: "today",
+            maxDate: "today + 15",
+            minTime: "10:00",
+            maxTime: "18:00",
+            minuteIncrement: 60,
+            onClose: function(selectedDates, dateStr, instance) {
+                if (citasRegistradas.includes(dateStr)) {
+                    alert("Esta hora ya está reservada. Por favor, elige otra.");
+                    instance.clear();
+                }
+            }
+        });
+
+        // Manejo del formulario de citas
+        document.getElementById("form-citas").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const nombre = document.getElementById("nombre").value.trim();
+            const nombreMascota = document.getElementById("nombre-mascota").value.trim();
+            const raza = document.getElementById("raza").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const telefono = document.getElementById("telefono").value.trim();
+            const fechaHora = document.getElementById("fecha-hora").value.trim();
+            const servicio = document.getElementById("servicio").value;
+            const terminos = document.getElementById("terminos").checked;
+
+            // Validaciones
+            if (nombre.length < 4) {
+                mostrarAlerta("alerta-citas", "El nombre debe tener al menos 4 caracteres.", "danger");
+                return;
+            }
+            if (nombreMascota.length < 4) {
+                mostrarAlerta("alerta-citas", "El nombre de la mascota debe tener al menos 4 caracteres.", "danger");
+                return;
+            }
+            if (raza.length < 4) {
+                mostrarAlerta("alerta-citas", "La raza de la mascota debe tener al menos 4 caracteres.", "danger");
+                return;
+            }
+            if (email.length < 4) {
+                mostrarAlerta("alerta-citas", "El correo electrónico debe tener al menos 4 caracteres.", "danger");
+                return;
+            }
+            if (telefono.length !== 10 || isNaN(telefono)) {
+                mostrarAlerta("alerta-citas", "El teléfono debe tener 10 números inluyendo lada.", "danger");
+                return;
+            }
+            if (!fechaHora) {
+                mostrarAlerta("alerta-citas", "Por favor, selecciona una fecha y hora.", "danger");
+                return;
+            }
+            if (!servicio) {
+                mostrarAlerta("alerta-citas", "Por favor, selecciona un tipo de servicio.", "danger");
+                return;
+            }
+            if (!terminos) {
+                mostrarAlerta("alerta-citas", "Debes aceptar los términos y condiciones.", "danger");
+                return;
+            }
+
+            // Registrar la cita
+            citasRegistradas.push(fechaHora);
+            mostrarAlerta("alerta-citas", "¡Cita agendada con éxito! En unos momentos te contactaremos con la confirmación", "success");
+            this.reset();
+        });
+
+        // Función para mostrar alertas
+        function mostrarAlerta(id, mensaje, tipo) {
+            const alerta = document.getElementById(id);
+            alerta.className = `alert alert-${tipo}`;
+            alerta.textContent = mensaje;
+            alerta.classList.remove("d-none");
+            setTimeout(() => alerta.classList.add("d-none"), 5000);
+        }
+
+        // Manejo del formulario para solicitud de llamada
+document.getElementById("form-llamada").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const nombreLlamada = document.getElementById("nombre-llamada").value.trim();
+    const telefonoLlamada = document.getElementById("telefono-llamada").value.trim();
+
+    // Validaciones
+    if (nombreLlamada.length < 4) {
+        mostrarAlerta("alerta-llamada", "El nombre debe tener al menos 4 caracteres.", "danger");
+        return;
+    }
+    if (telefonoLlamada.length !== 10 || isNaN(telefonoLlamada)) {
+        mostrarAlerta("alerta-llamada", "El teléfono debe tener 10 números incluyendo lada.", "danger");
+        return;
+    }
+
+    // Confirmación de solicitud
+    mostrarAlerta("alerta-llamada", "¡Solicitud recibida! En breve nos pondremos en contacto contigo.", "success");
+    this.reset();
+});
+    </script>
+        <script src="main.js"></script>
+        <script src="app.js"></script>
+    
 </body>
-
 </html>

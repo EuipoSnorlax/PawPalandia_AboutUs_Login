@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In</title>
+    <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -17,12 +17,12 @@
 </head>
 
 <body>
-
     <!-- Page Loader -->
     <div class="page-loader js-page-loader">
         <div></div>
     </div>
     <!-- !Page Loader -->
+
 
     <!-- Main Wrapper -->
     <div class="main-wrapper">
@@ -43,7 +43,7 @@
                             <i class="fas fa-times"></i>
                         </button>
                         <ul class="menu">
-                            <li class="menu-item"><a href="#about-us">Sobre Nosotros</a></li>
+                            <li class="menu-item"><a href="index.html">Sobre Nosotros</a></li>
                             <li class="menu-item menu-item-has-children">
                                 <a href="#" class="js-toggle-sub-menu">Productos y servicios <i class="fas fa-chevron-down"></i></a>
                                 <ul class="sub-menu js-sub-menu">
@@ -68,51 +68,234 @@
             </div>
         </header>
         <!-- !Header -->
-           <!-- Bubble Animation -->
-           <div class="bubble-animation">
-            <div class="bubble-animation-item"></div>
-            <div class="bubble-animation-item"></div>
-            <div class="bubble-animation-item"></div>
-            <div class="bubble-animation-item"></div>
-            <div class="bubble-animation-item"></div>
-            <div class="bubble-animation-item"></div>
-            <div class="bubble-animation-item"></div>
-            <div class="bubble-animation-item"></div>
-            <div class="bubble-animation-item"></div>
-        </div>
-        <!-- !Bubble Animation -->
-
-        <!-- Login -->
-        <div class="login-section section-padding">
+        
+        <!-- Carousel Promociones-->
+        <section>
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-7 col-lg-6 col-xl-5">
-                        <div class="login-form box">
-                            <h2 class="form-title text-center">Iniciar Sesión</h2>
-                            <form id="loginForm" action="">
-                                <div id="alertContainer" class="mt-3"></div>
-                                <div class="form-group">
-                                    <input id="loginName" type="text" class="form-control" placeholder="Nombre">
-                                </div>
-                                <div class="form-group">
-                                    <input id="loginEmail" type="text" class="form-control" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <input id="loginPassword" type="password" class="form-control"
-                                        placeholder="Contraseña">
-                                    <div class="d-flex mb-2 justify-content-end"><a href="#">¿Olvidaste la contraseña?</a></div>
-                                </div>
-                                <button type="submit" onclick="logInForm()" class="btn btn-theme btn-block btn-form">Ingresar</button>
-                                <p class="text-center mt-4 mb-0">¿No tienes una cuenta? <a href="sign-up.html">¡Regístrate!</a></p>
-                            </form>
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="imgs/dog_banner.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="imgs/cat_banner.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="imgs/service_banner.png" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+<!-- Carousel Promociones -->
+
+<!-- Selector mascotas -->
+        <section>
+            <div class="container">
+                <div class="row mt-4">
+                    <h5>¿Para quien compraras hoy?</h5>
+                    <div class="col-sm-6">
+                        <a href="courses.html">
+                            <img src="imgs/dog.jpg" class="img-fluid rounded" alt="...">
+                        </a>
+                        <p>Perrijos</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="courses.html">
+                            <img src="imgs/cat.jpg" class="img-fluid rounded" alt="...">
+                        </a>
+                        <p>Michijos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Selector mascotas -->
+
+        <!-- Selector -->
+        <section>
+            <div class="container">
+                <div id="selectionButtons"class="button mt-4">
+                    <button id="perrosButton" class="btn btn-outline-secondary rounded-pill active" onclick=perros(); type="button">
+                        Productos para perro
+                    </button>
+                    <button id="gatosButton" class="btn btn-outline-secondary rounded-pill" onclick=gatos(); type="button">
+                        Productos para gato
+                    </button>
+                </div>
+    
+                <div id="perros" class="container-fluid mt-4" style="display: block;">
+                    <div class="row"  >
+                        <div class="col text-center">
+                            <a href="courses.html">
+                                <img src="imgs/dog_food.png" height="100px" weight="100px" class="img rounded" alt="">
+                            </a>
+                            <p>Alimento</p>
+                        </div>
+                        <div class="col text-center">
+                            <a href="courses.html">
+                                <img src="imgs/dog_treats.png" height="100px" weight="100px" class="img rounded" alt="">
+                            </a>
+                            <p>Premios</p>
+                        </div>
+                        <div class="col text-center">
+                            <a href="courses.html">
+                                <img src="imgs/dog_toys.png" height="100px" weight="100px" class="img rounded" alt="">
+                            </a>
+                            <p>Juguetes</p>
+                        </div>
+                        <div class="col text-center">
+                            <a href="courses.html">
+                                <img src="imgs/dog_clothes.png" height="100px" weight="100px" class="img rounded" alt="">
+                            </a>
+                            <p>Ropa</p>
+                        </div>
+                        <div class="col text-center">
+                            <a href="courses.html"> 
+                                <img src="imgs/dog_health.png" height="100px" weight="100px" class="img rounded" alt="">
+                            </a>
+                            <p>Salud</p>
+                        </div>
+                        <div class="col text-center">
+                            <a href="courses.html">
+                                <img src="imgs/dog_bed.png" height="100px" weight="100px" class="img rounded" alt="">
+                            </a>
+                            <p>Camas</p>
+                        </div>
+                        <div class="col text-center">
+                            <a href="courses.html">
+                                <img src="imgs/dog_clean.png" height="100px" weight="100px" class="img rounded" alt="">
+                            </a>
+                            <p>Limpieza</p>
+                        </div>
+                        <div class="col text-center">
+                            <a href="courses.html">
+                                <img src="imgs/continue.png" height="100px" weight="100px" class="img rounded" alt="">
+                            </a>
+                            <p>Ver todo</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div id="gatos" class="container-fluid mt-4" style="display: none;">
+                    <div class="row">
+                        <div class="col text-center">
+                            <a href="courses.html">
+                                <img src="imgs/cat_food.png" height="100px" weight="100px" class="img rounded" alt="">
+                            </a>
+                            <p>Alimento</p>
+                        </div>
+                        <div class="col text-center">
+                            <a href="courses.html">
+                                <img src="imgs/cat_treats.png" height="100px" weight="100px" class="img rounded" alt="">
+                            </a>
+                            <p>Premios</p>
+                        </div>
+                        <div class="col text-center">
+                            <a href="courses.html">
+                                <img src="imgs/cat_toys.png" height="100px" weight="100px" class="img rounded" alt="">
+                            </a>
+                            <p>Juguetes</p>
+                        </div>
+                        <div class="col text-center">
+                            <a href="courses.html">
+                                <img src="imgs/cat_clothes.png" height="100px" weight="100px" class="img rounded" alt="">
+                            </a>
+                            <p>Ropa</p>
+                        </div>
+                        <div class="col text-center">
+                            <a href="courses.html">
+                                <img src="imgs/cat_health.png" height="100px" weight="100px" class="img rounded" alt="">
+                            </a>
+                            <p>Salud</p>
+                        </div>
+                        <div class="col text-center">
+                            <a href="courses.html">
+                                <img src="imgs/cat_bed.png" height="100px" weight="100px" class="img rounded" alt="">
+                            </a>
+                            <p>Camas</p>
+                        </div>
+                        <div class="col text-center">
+                            <a href="courses.html">
+                                <img src="imgs/cat_clean.png" height="100px" weight="100px" class="img rounded" alt="">
+                            </a>
+                            <p>Limpieza</p>
+                        </div>
+                        <div class="col text-center">
+                            <a href="courses.html">
+                                <img src="imgs/continue.png" height="100px" weight="100px" class="img rounded" alt="">
+                            </a>
+                            <p>Ver todo</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- !Login -->
+        </section>
+        <!-- !Selector -->
 
-        <!-- Footer -->
+    <!-- Cards: Services -->
+<div id="servicio-card-area">
+    <div class="servicio-card-wrapper">
+        <div class="servicio-card-box-area"> 
+            <div class="servicio-card-box">
+                <img src="imgs/card_estetica.jpg" alt="">
+                <div class="servicio-card-overlay">
+                    <a href="agendar-servicios.html">Haz tu cita</a>
+                </div>
+            </div>
+            <div class="servicio-card-box">
+                <img src="imgs/card_entrenamiento.jpg" alt="">
+                <div class="servicio-card-overlay">
+                    <a href="agendar-servicios.html">Inscríbete</a>
+                </div>
+            </div>
+            <div class="servicio-card-box">
+                <img src="imgs/card_veterinario.jpg" alt="">
+                <div class="servicio-card-overlay">
+                    <a href="agendar-servicios.html">Consultar</a>
+                </div>
+            </div>
+            <div class="servicio-card-box">
+                <img src="imgs/card_adopcion.jpg" alt="">
+                <div class="servicio-card-overlay">
+                    <a href="/Adopciones.html">Adoptar</a>
+                </div>
+            </div>
+            <div class="servicio-card-box">
+                <img src="imgs/card_cremacion.jpg" alt="">
+                <div class="servicio-card-overlay">
+                    <a href="agendar-servicios.html">Haz tu cita</a>
+                </div>
+            </div>
+            <div class="servicio-card-box">
+                <img src="imgs/card_blog.jpg" alt="">
+                <div class="servicio-card-overlay">
+                    <a href="./blog/blog.html">Ver más</a>
+                </div>
+            </div>
+        </div>            
+    </div>       
+</div>
+<!-- Cards: Services -->
+        
+            <!-- Footer -->
             <footer class="footer">
                 <div class="footer-top">
                     <div class="container">
@@ -196,9 +379,9 @@
                 </div>
              </footer>
             <!-- !Footer -->
+
     </div>
     <!-- !Main Wrapper -->
-
 
     <!-- Style Switcher -->
     <div class="style-switcher js-style-switcher">
@@ -236,7 +419,6 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="main.js"></script>
-    <script src="log-in.js"></script>
 </body>
 
 </html>

@@ -32,7 +32,7 @@
                 <div class="header-main d-flex justify-content-between align-items-center">
                     <div class="header-logo">
                         <img src="./imgs/Logo.png" alt="Logo de PawPalandia" style="height: 70px;">
-                        <a href="./index.html"><span>Paw</span>Palandia</a>
+                        <a href="./PagePromos.html"><span>Paw</span>Palandia</a>
                     </div>
                     <button type="button" class="header-hamburger-btn js-header-menu-toggler">
                         <span></span>
@@ -50,26 +50,18 @@
                                     <li class="sub-menu-item"><a href="courses.html">Productos</a></li>
                                     <li class="sub-menu-item"><a href="ListaItems.html">Lista de productos</a></li>
                                     <li class="sub-menu-item"><a href="product-registration.html">Registro de productos</a></li>
-                                    <li class="sub-menu-item"><a href="course-details.html">Servicios</a></li>
+                                    <li class="sub-menu-item"><a href="agendar-servicios.html">Servicios</a></li>
                                 </ul>
                             </li>
                             <li class="menu-item"><a href="contact.html">contacto</a></li>
                             <li class="menu-item menu-item-has-children">
-                                <i class="fa-solid fa-user" style="color: #000000;"></i>
+                                <i class="fa-solid fa-user" style="color: var(--main-color);"></i>
                                 <ul class="sub-menu js-sub-menu">
                                     <li class="sub-menu-item"><a href="log-in.html">Iniciar Sesión</a></li>
                                     <li class="sub-menu-item"><a href="sign-up.html">Registrarse</a></li>
                                 </ul>
                             </li>
-
-                            <li class="menu-item"><i class="menu-item fa-solid fa-cart-shopping" style="color: #000000;"></i></li>
-                            
-
-                            <!-- Search Bar? -->
-                            <!-- TBF -->
-                            <!-- TBF -->
-                            <!-- TBF -->
-                            <!-- !Search Bar? -->
+                            <li class="menu-item"><i class="menu-item fa-solid fa-cart-shopping" style="color: var(--main-color);"><a href="./payment.html"></a></i></li>
                         </ul>
                     </nav>
                 </div>
@@ -117,187 +109,6 @@
             </div>
         </section>
         <!-- !Banner -->
-        <!-- Carousel Promociones-->
-        <section>
-            <div class="container">
-                <div id="carouselExampleIndicators" class="carousel slide">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                            aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="imgs/dog_banner.png" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="imgs/cat_banner.png" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="imgs/service_banner.png" class="d-block w-100" alt="...">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-        <!-- Carousel Promociones -->
-        
-        <!-- Selector mascotas -->
-        <section>
-            <div class="container">
-                <div class="row mt-4">
-                    <h5>¿Para quien compraras hoy?</h5>
-                    <div class="col-sm-6">
-                        <a href="courses.html">
-                            <img src="imgs/dog.jpg" class="img-fluid rounded" alt="...">
-                        </a>
-                        <p>Perrijos</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <a href="courses.html">
-                            <img src="imgs/cat.jpg" class="img-fluid rounded" alt="...">
-                        </a>
-                        <p>Michijos</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Selector mascotas -->
-
-        <!-- Selector -->
-        <section>
-            <div class="container">
-                <div id="selectionButtons"class="button mt-4">
-                    <button id="perrosButton" class="btn btn-outline-secondary rounded-pill active" onclick=perros(); type="button">
-                        Productos para perro
-                    </button>
-                    <button id="gatosButton" class="btn btn-outline-secondary rounded-pill" onclick=gatos(); type="button">
-                        Productos para gato
-                    </button>
-                </div>
-    
-                <div id="perros" class="container-fluid mt-4" style="display: block;">
-                    <div class="row"  >
-                        <div class="col text-center">
-                            <a href="courses.html">
-                                <img src="imgs/dog_food.png" height="100px" weight="100px" class="img rounded" alt="">
-                            </a>
-                            <p>Alimento</p>
-                        </div>
-                        <div class="col text-center">
-                            <a href="courses.html">
-                                <img src="imgs/dog_treats.png" height="100px" weight="100px" class="img rounded" alt="">
-                            </a>
-                            <p>Premios</p>
-                        </div>
-                        <div class="col text-center">
-                            <a href="courses.html">
-                                <img src="imgs/dog_toys.png" height="100px" weight="100px" class="img rounded" alt="">
-                            </a>
-                            <p>Juguetes</p>
-                        </div>
-                        <div class="col text-center">
-                            <a href="courses.html">
-                                <img src="imgs/dog_clothes.png" height="100px" weight="100px" class="img rounded" alt="">
-                            </a>
-                            <p>Ropa</p>
-                        </div>
-                        <div class="col text-center">
-                            <a href="courses.html"> 
-                                <img src="imgs/dog_health.png" height="100px" weight="100px" class="img rounded" alt="">
-                            </a>
-                            <p>Salud</p>
-                        </div>
-                        <div class="col text-center">
-                            <a href="courses.html">
-                                <img src="imgs/dog_bed.png" height="100px" weight="100px" class="img rounded" alt="">
-                            </a>
-                            <p>Camas</p>
-                        </div>
-                        <div class="col text-center">
-                            <a href="courses.html">
-                                <img src="imgs/dog_clean.png" height="100px" weight="100px" class="img rounded" alt="">
-                            </a>
-                            <p>Limpieza</p>
-                        </div>
-                        <div class="col text-center">
-                            <a href="courses.html">
-                                <img src="imgs/continue.png" height="100px" weight="100px" class="img rounded" alt="">
-                            </a>
-                            <p>Ver todo</p>
-                        </div>
-                    </div>
-                </div>
-    
-                <div id="gatos" class="container-fluid mt-4" style="display: none;">
-                    <div class="row">
-                        <div class="col text-center">
-                            <a href="courses.html">
-                                <img src="imgs/cat_food.png" height="100px" weight="100px" class="img rounded" alt="">
-                            </a>
-                            <p>Alimento</p>
-                        </div>
-                        <div class="col text-center">
-                            <a href="courses.html">
-                                <img src="imgs/cat_treats.png" height="100px" weight="100px" class="img rounded" alt="">
-                            </a>
-                            <p>Premios</p>
-                        </div>
-                        <div class="col text-center">
-                            <a href="courses.html">
-                                <img src="imgs/cat_toys.png" height="100px" weight="100px" class="img rounded" alt="">
-                            </a>
-                            <p>Juguetes</p>
-                        </div>
-                        <div class="col text-center">
-                            <a href="courses.html">
-                                <img src="imgs/cat_clothes.png" height="100px" weight="100px" class="img rounded" alt="">
-                            </a>
-                            <p>Ropa</p>
-                        </div>
-                        <div class="col text-center">
-                            <a href="courses.html">
-                                <img src="imgs/cat_health.png" height="100px" weight="100px" class="img rounded" alt="">
-                            </a>
-                            <p>Salud</p>
-                        </div>
-                        <div class="col text-center">
-                            <a href="courses.html">
-                                <img src="imgs/cat_bed.png" height="100px" weight="100px" class="img rounded" alt="">
-                            </a>
-                            <p>Camas</p>
-                        </div>
-                        <div class="col text-center">
-                            <a href="courses.html">
-                                <img src="imgs/cat_clean.png" height="100px" weight="100px" class="img rounded" alt="">
-                            </a>
-                            <p>Limpieza</p>
-                        </div>
-                        <div class="col text-center">
-                            <a href="courses.html">
-                                <img src="imgs/continue.png" height="100px" weight="100px" class="img rounded" alt="">
-                            </a>
-                            <p>Ver todo</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- !Selector -->
- 
 
         <!-- Fun Facts -->
         <section class="fun-facts-section">
@@ -729,7 +540,7 @@
                                         <li><a href="#"><i class="fab fa-twitter social-icon"></i> Twitter</a></li>
                                         <li><a href="#"><i class="fab fa-instagram social-icon"></i> Instagram</a></li>
                                         <li><a href="#"><i class="fab fa-youtube social-icon"></i> YouTube</a></li>
-                                        <li><a href="#">Blog PawPalandia</a></li>
+                                        <li><a href="./blog/blog.html">Blog PawPalandia</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -737,8 +548,8 @@
                                 <div class="footer-item">
                                     <h3>Club PawPal</h3>
                                     <ul>
-                                        <li><a href="#">Iniciar Sesión</a></li>
-                                        <li><a href="#">Crear Cuenta</a></li>
+                                        <li><a href="log-in.html">Iniciar Sesión</a></li>
+                                        <li><a href="sign-up.html">Crear Cuenta</a></li>
                                         <li><a href="#">¿Qué es Club PawPal?</a></li>
                                     </ul>
                                 </div>
@@ -747,11 +558,11 @@
                                 <div class="footer-item">
                                     <h3>Servicios</h3>
                                     <ul>
-                                        <li><a href="#">Entrenamiento Canino</a></li>
-                                        <li><a href="#">Estética Canina</a></li>
-                                        <li><a href="#">Consulta Veterinaria</a></li>
+                                        <li><a href="agendar-servicios.html">Entrenamiento Canino</a></li>
+                                        <li><a href="agendar-servicios.html">Estética Canina</a></li>
+                                        <li><a href="agendar-servicios.html">Consulta Veterinaria</a></li>
                                         <li><a href="#">Adopciones</a></li>
-                                        <li><a href="#">Cremaciones</a></li>
+                                        <li><a href="agendar-servicios.html">Cremaciones</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -762,7 +573,7 @@
                                         <li><a href="#">Perros</a></li>
                                         <li><a href="#">Gatos</a></li>
                                         <li><a href="#">Salud e higiene</a></li>
-                                        <li><a href="#">Promociones</a></li>
+                                        <li><a href="PagePromos.html">Promociones</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -771,7 +582,7 @@
                                     <h3>Enlaces de interés</h3>
                                     <ul>
                                         <li><a href="privacyPolicy.html">Aviso de privacidad</a></li>
-                                        <li><a href="#">Términos y condiciones</a></li>
+                                        <li><a href="terminosCondiciones.html">Términos y condiciones</a></li>
                                         <li><a href="#">Políticas de envío</a></li>
                                         <li><a href="#">Facturación</a></li>
                                     </ul>
