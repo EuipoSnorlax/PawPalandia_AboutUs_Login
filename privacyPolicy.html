@@ -27,7 +27,7 @@
                 <div class="header-main d-flex justify-content-between align-items-center">
                     <div class="header-logo">
                         <img src="./imgs/Logo.png" alt="Logo de PawPalandia" style="height: 70px;">
-                        <a href="./index.html"><span>Paw</span>Palandia</a>
+                        <a href="./PagePromos.html"><span>Paw</span>Palandia</a>
                     </div>
                     <button type="button" class="header-hamburger-btn js-header-menu-toggler">
                         <span></span>
@@ -38,44 +38,45 @@
                             <i class="fas fa-times"></i>
                         </button>
                         <ul class="menu">
+                            <li class="menu-item"><a href="PagePromos.html">Inicio</a></li>
                             <li class="menu-item"><a href="index.html">Sobre Nosotros</a></li>
                             <li class="menu-item menu-item-has-children">
                                 <a href="#" class="js-toggle-sub-menu">Productos y servicios <i class="fas fa-chevron-down"></i></a>
                                 <ul class="sub-menu js-sub-menu">
                                     <li class="sub-menu-item"><a href="courses.html">Productos</a></li>
-                                    <li class="sub-menu-item"><a href="ListaItems.html">Lista de productos</a></li>
-                                    <li class="sub-menu-item"><a href="product-registration.html">Registro de productos</a></li>
                                     <li class="sub-menu-item"><a href="agendar-servicios.html">Servicios</a></li>
                                 </ul>
                             </li>
-                            <li class="menu-item"><a href="contact.html">contacto</a></li>
+                            <li class="menu-item"><a href="contact.html">Contacto</a></li>
                             <li class="menu-item menu-item-has-children">
-                                <i class="fa-solid fa-user" style="color: var(--main-color);"></i>
+                                <a href="#" class="js-toggle-sub-menu">
+                                    <i class="fa-solid fa-user" style="font-size: large;"></i>
+                                    <i class="fas fa-chevron-down"></i>
+                                </a>
                                 <ul class="sub-menu js-sub-menu">
                                     <li class="sub-menu-item"><a href="log-in.html">Iniciar Sesión</a></li>
                                     <li class="sub-menu-item"><a href="sign-up.html">Registrarse</a></li>
                                 </ul>
                             </li>
-                            <li class="menu-item"><i class="menu-item fa-solid fa-cart-shopping" style="color: var(--main-color);"><a href="./payment.html"></a></i></li>
+                            <li class="menu-item"><a href="./payment.html"><i class="fa-solid fa-cart-shopping" style="font-size: large;"></i></a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
             </div>
         </header>
         <!-- !Header -->
-              
-              
               <!-- Privacy Policy -->
               <!-- </div> -->
-              <div>
+              <div class="container">
                 <div class="container-policy">
                     <div class="privacy-div">
 
-                        <h1 class=" text-left">Aviso de privacidad</h1>
+                        <h1 class="text-left">Aviso de privacidad</h1>
                     </div>
                     <div class="privacy-section-padding">
                     <section class="policy-section">
-                        <h2>Identidad y domicilio del responsable</h2>
+                        <h2 textoCuerpo1>Identidad y domicilio del responsable</h2>
                         <p>
                             Pawpalandia, con domicilio en calle colibrí #23 oficinas 15 a 19, Colonia paraisos del Colli, C.P. 45630, es responsable del tratamiento de sus datos personales conforme a lo dispuesto por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.</p>
                             <br>
@@ -204,6 +205,8 @@
                                         <li><a href="terminosCondiciones.html">Términos y condiciones</a></li>
                                         <li><a href="#">Políticas de envío</a></li>
                                         <li><a href="#">Facturación</a></li>
+                                        <li><a href="ListaItems.html">Listado de productos</a></li>
+                                        <li><a href="product-registration.html">Registro de producto</a></li>    
                                     </ul>
                                 </div>
                             </div>
@@ -211,7 +214,7 @@
                                 <div class="footer-item">
                                     <h3 >Newsletter</h3>
                                     <ul>
-                                        <li><a href="">Suscríbete y recibe promociones</a></li>
+                                        <li><a href="sign-up.html">Suscríbete y recibe promociones</a></li>
                                         <div class="input-group mb-2">
                                             <input type="text" class="form-control" placeholder="correo@mail.com" aria-label="email" aria-describedby="button-addon2">
                                             <button class="btn btn-outline-secondary" type="button" id="button-addon2">></button>
