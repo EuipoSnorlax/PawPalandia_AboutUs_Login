@@ -4,7 +4,7 @@
   .hero {
     text-align: center;
     padding: 4rem 2rem;
-    background-color: #eaefff;
+    background-color: var(--main-color);
   }
   
   .hero h1 {
@@ -14,7 +14,6 @@
   
   .hero p {
     font-size: 1.2rem;
-    color: #555;
   }
   
   .blog-carousel {
@@ -22,44 +21,54 @@
   }
   
   .carousel {
+    overflow-x: auto;
     display: flex;
     gap: 1.5rem;
-    overflow-x: auto;
   }
   
-  .card {
+  .card-blog {
     flex: 0 0 300px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     text-align: center;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between; /* Asegura que los elementos se distribuyan correctamente */ 
+    text-align: center;
   }
   
-  .card img {
+  .card-blog img {
     height: 215px;
     width: 300px;
     border-radius: 10px;
-    margin-bottom: 1rem;
+    margin-bottom: 5px;
+    padding: 5px;
   }
   
-  .card h3 {
+  .card-blog h3 {
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    color: var(--main-color);
+    text-align: justify;
+    padding: 5px;
   }
   
-  .card p {
+  .card-blog p {
+    margin-top: 15px;
     color: #555;
-    margin-bottom: 1rem;
+    text-align: justify;
+    align-self:baseline;
+    padding: 5px;
   }
   
-  .card a {
+  .card-blog a {
     text-decoration: none;
     color: #fff;
     background-color: #007bff;
     padding: 0.5rem 1rem;
     border-radius: 5px;
   }
-  
-  
-  
+  .card-blog button{
+    align-self: center;
+  }
