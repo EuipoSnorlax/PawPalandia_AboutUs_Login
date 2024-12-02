@@ -100,6 +100,17 @@
     .header .menu-item:first-child > a {
         border-top: 1px solid var(--border-color-1);
     }
+/* Cambia menu para que se despliegue el chevron-down, sin que se mueva el ícono del usuario */
+    .header .menu-item>a .fa-chevron-down { 
+        transition: transform 0.3s ease; 
+    } 
+    .header .menu-item-has-children > a.active .fa-chevron-down { 
+        transform: rotate(180deg); 
+    } 
+    .header .menu-item-has-children > a .fa-user { 
+        margin-right: 10px; 
+    }
+/* Fin de intento del menu*/
 
     .header .sub-menu {
         position: relative;
@@ -115,15 +126,14 @@
         overflow: hidden;
     }
 
-    .header .menu-item.active > a i {
-        transform: rotate(-180deg);
+    .header .menu-item.active > a .fa-chevron-down { 
+        transform: rotate(-180deg); 
     }
-
+    /* intento*/
     .header .sub-menu-item a {
         padding: 12px 45px;
         border-bottom: 1px solid var(--border-color-1);
     }
-
     .header-backdrop {
         position: fixed;
         z-index: 999;
