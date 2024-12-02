@@ -46,7 +46,8 @@
                             <li class="menu-item"><a href="PagePromos.html">Inicio</a></li>
                             <li class="menu-item"><a href="#about-us">Sobre Nosotros</a></li>
                             <li class="menu-item menu-item-has-children">
-                                <a href="#" class="js-toggle-sub-menu">Productos y servicios <i class="fas fa-chevron-down"></i></a>
+                                <a href="#" class="js-toggle-sub-menu">Productos y servicios <i
+                                        class="fas fa-chevron-down"></i></a>
                                 <ul class="sub-menu js-sub-menu">
                                     <li class="sub-menu-item"><a href="courses.html">Productos</a></li>
                                     <li class="sub-menu-item"><a href="agendar-servicios.html">Servicios</a></li>
@@ -63,7 +64,8 @@
                                     <li class="sub-menu-item"><a href="sign-up.html">Registrarse</a></li>
                                 </ul>
                             </li>
-                            <li class="menu-item"><a href="./payment.html"><i class="fa-solid fa-cart-shopping" style="font-size: large;"></i></a>
+                            <li class="menu-item"><a href="./payment.html"><i class="fa-solid fa-cart-shopping"
+                                        style="font-size: large;"></i></a>
                             </li>
                         </ul>
                     </nav>
@@ -589,20 +591,23 @@
                                         <li><a href="#">Políticas de envío</a></li>
                                         <li><a href="#">Facturación</a></li>
                                         <li><a href="ListaItems.html">Listado de productos</a></li>
-                                        <li><a href="product-registration.html">Registro de producto</a></li>    
+                                        <li><a href="product-registration.html">Registro de producto</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-4 col-lg-2">
                                 <div class="footer-item">
-                                    <h3 >Newsletter</h3>
+                                    <h3>Newsletter</h3>
                                     <ul>
                                         <li><a href="sign-up.html">Suscríbete y recibe promociones</a></li>
                                         <div class="input-group mb-2">
-                                            <input type="text" class="form-control" placeholder="correo@mail.com" aria-label="email" aria-describedby="button-addon2">
-                                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">></button>
+                                            <input type="text" class="form-control" placeholder="correo@mail.com"
+                                                aria-label="email" aria-describedby="button-addon2">
+                                            <button class="btn btn-outline-secondary" type="button"
+                                                id="button-addon2">></button>
                                         </div>
-                                        <li><a href="#"><strong>Atención:</strong><br> Lunes a domingo de 7:00 a 0:00 Hrs</a></li>
+                                        <li><a href="#"><strong>Atención:</strong><br> Lunes a domingo de 7:00 a 0:00
+                                                Hrs</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -614,11 +619,27 @@
                         <p class="m-0 py-4 text-center">Copyright &copy;2024 PAWPALANDIA</p>
                     </div>
                 </div>
-             </footer>
+            </footer>
             <!-- !Footer -->
 
     </div>
     <!-- !Main Wrapper -->
+
+    <!--Boton flotante-->
+    <button class="floating-btn" onclick="toggleChat()" id="chatbot-button"><i class="fa-solid fa-comments"
+            style="color: #ffffff;"></i></button>
+
+
+    <!--sliderbaer CHATBOT-->
+
+    <div id="chatSidebar" class="chat-sidebar">
+        <button class="close-btn" onclick="toggleChat()"><i class="fa-solid fa-rectangle-xmark fa-2xl" style="color: #a40000;"></i></button>
+        <div class="chat-content">
+            <iframe class="container-iframe"
+                src="https://copilotstudio.microsoft.com/environments/Default-799bd0cb-438c-4214-9abe-19ea0d669df8/bots/cr9cd_pawpal/webchat?__version__=2"
+                frameborder="0" style="width: 100%; height: 100%;"></iframe>
+        </div>
+    </div>
 
     <!-- Style Switcher -->
     <div class="style-switcher js-style-switcher">

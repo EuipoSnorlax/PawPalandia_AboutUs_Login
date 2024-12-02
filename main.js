@@ -740,3 +740,10 @@ function showAlertErrorTwo(type, message) {
           alertContainer.innerHTML = '';
       }, 2000);
   }
+
+  //Slidebar chatbot
+
+  function toggleChat() {
+    const chatSidebar = document.getElementById('chatSidebar');
+    chatSidebar.classList.toggle('open');
+}

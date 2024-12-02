@@ -23,7 +23,7 @@
         <div></div>
     </div>
     <!-- !Page Loader -->
-    
+
     <!-- Main Wrapper -->
     <div class="main-wrapper">
         <!-- Header -->
@@ -46,7 +46,8 @@
                             <li class="menu-item"><a href="PagePromos.html">Inicio</a></li>
                             <li class="menu-item"><a href="index.html">Sobre Nosotros</a></li>
                             <li class="menu-item menu-item-has-children">
-                                <a href="#" class="js-toggle-sub-menu">Productos y servicios <i class="fas fa-chevron-down"></i></a>
+                                <a href="#" class="js-toggle-sub-menu">Productos y servicios <i
+                                        class="fas fa-chevron-down"></i></a>
                                 <ul class="sub-menu js-sub-menu">
                                     <li class="sub-menu-item"><a href="courses.html">Productos</a></li>
                                     <li class="sub-menu-item"><a href="agendar-servicios.html">Servicios</a></li>
@@ -63,7 +64,8 @@
                                     <li class="sub-menu-item"><a href="sign-up.html">Registrarse</a></li>
                                 </ul>
                             </li>
-                            <li class="menu-item"><a href="./payment.html"><i class="fa-solid fa-cart-shopping" style="font-size: large;"></i></a>
+                            <li class="menu-item"><a href="./payment.html"><i class="fa-solid fa-cart-shopping"
+                                        style="font-size: large;"></i></a>
                             </li>
                         </ul>
                     </nav>
@@ -75,8 +77,9 @@
         <div class="container my-3">
             <h2 id="title" class="text-center fs-1 mb-3">Lista de productos</h2>
             <div class="d-flex justify-content-center">
-                <button onclick="window.location.href='product-registration.html'" type="button" class="btn btn-theme mb-4">Añadir producto</button>
-                    <!--<button type="button" class="btn btn-theme mb-4" data-bs-toggle="modal"
+                <button onclick="window.location.href='product-registration.html'" type="button"
+                    class="btn btn-theme mb-4">Añadir producto</button>
+                <!--<button type="button" class="btn btn-theme mb-4" data-bs-toggle="modal"
                     data-bs-target="#addProduct">Modificar producto</button>
                     <button type="button" class="btn btn-theme mb-4" data-bs-toggle="modal"
                     data-bs-target="#addProduct">Eliminar producto</button>-->
@@ -140,7 +143,7 @@
 
         <!-- Modal eliminar producto -->
 
-               <!-- Modal modificar producto -->
+        <!-- Modal modificar producto -->
         <div class="modal" tabindex="-1" id="modifyProduct">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -174,98 +177,117 @@
 
         <!-- Modal modificar producto -->
 
+        <!--Boton flotante-->
+        <button class="floating-btn" onclick="toggleChat()" id="chatbot-button"><i class="fa-solid fa-comments"
+                style="color: #ffffff;"></i></button>
 
-        
+
+        <!--sliderbaer CHATBOT-->
+
+        <div id="chatSidebar" class="chat-sidebar">
+            <button class="close-btn" onclick="toggleChat()"><i class="fa-solid fa-rectangle-xmark fa-2xl"
+                    style="color: #a40000;"></i></button>
+            <div class="chat-content">
+                <iframe class="container-iframe"
+                    src="https://copilotstudio.microsoft.com/environments/Default-799bd0cb-438c-4214-9abe-19ea0d669df8/bots/cr9cd_pawpal/webchat?__version__=2"
+                    frameborder="0" style="width: 100%; height: 100%;"></iframe>
+            </div>
+        </div>
+
+
         <!-- Footer -->
-            <footer class="footer">
-                <div class="footer-top">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-6 col-md-4 col-lg-2">
-                                <div class="footer-item">
-                                    <h3 class="footer-logo"><span>paw</span>palandia</h3>
-                                    <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f social-icon"></i> Facebook</a></li>
-                                        <li><a href="#"><i class="fab fa-twitter social-icon"></i> Twitter</a></li>
-                                        <li><a href="#"><i class="fab fa-instagram social-icon"></i> Instagram</a></li>
-                                        <li><a href="#"><i class="fab fa-youtube social-icon"></i> YouTube</a></li>
-                                        <li><a href="./blog/blog.html">Blog PawPalandia</a></li>
-                                    </ul>
-                                </div>
+        <footer class="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4 col-lg-2">
+                            <div class="footer-item">
+                                <h3 class="footer-logo"><span>paw</span>palandia</h3>
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook-f social-icon"></i> Facebook</a></li>
+                                    <li><a href="#"><i class="fab fa-twitter social-icon"></i> Twitter</a></li>
+                                    <li><a href="#"><i class="fab fa-instagram social-icon"></i> Instagram</a></li>
+                                    <li><a href="#"><i class="fab fa-youtube social-icon"></i> YouTube</a></li>
+                                    <li><a href="./blog/blog.html">Blog PawPalandia</a></li>
+                                </ul>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-2">
-                                <div class="footer-item">
-                                    <h3>Club PawPal</h3>
-                                    <ul>
-                                        <li><a href="log-in.html">Iniciar Sesión</a></li>
-                                        <li><a href="sign-up.html">Crear Cuenta</a></li>
-                                        <li><a href="#">¿Qué es Club PawPal?</a></li>
-                                    </ul>
-                                </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-lg-2">
+                            <div class="footer-item">
+                                <h3>Club PawPal</h3>
+                                <ul>
+                                    <li><a href="log-in.html">Iniciar Sesión</a></li>
+                                    <li><a href="sign-up.html">Crear Cuenta</a></li>
+                                    <li><a href="#">¿Qué es Club PawPal?</a></li>
+                                </ul>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-2">
-                                <div class="footer-item">
-                                    <h3>Servicios</h3>
-                                    <ul>
-                                        <li><a href="agendar-servicios.html">Entrenamiento Canino</a></li>
-                                        <li><a href="agendar-servicios.html">Estética Canina</a></li>
-                                        <li><a href="agendar-servicios.html">Consulta Veterinaria</a></li>
-                                        <li><a href="#">Adopciones</a></li>
-                                        <li><a href="agendar-servicios.html">Cremaciones</a></li>
-                                    </ul>
-                                </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-lg-2">
+                            <div class="footer-item">
+                                <h3>Servicios</h3>
+                                <ul>
+                                    <li><a href="agendar-servicios.html">Entrenamiento Canino</a></li>
+                                    <li><a href="agendar-servicios.html">Estética Canina</a></li>
+                                    <li><a href="agendar-servicios.html">Consulta Veterinaria</a></li>
+                                    <li><a href="#">Adopciones</a></li>
+                                    <li><a href="agendar-servicios.html">Cremaciones</a></li>
+                                </ul>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-2">
-                                <div class="footer-item">
-                                    <h3>Categorías</h3>
-                                    <ul>
-                                        <li><a href="#">Perros</a></li>
-                                        <li><a href="#">Gatos</a></li>
-                                        <li><a href="#">Salud e higiene</a></li>
-                                        <li><a href="PagePromos.html">Promociones</a></li>
-                                    </ul>
-                                </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-lg-2">
+                            <div class="footer-item">
+                                <h3>Categorías</h3>
+                                <ul>
+                                    <li><a href="#">Perros</a></li>
+                                    <li><a href="#">Gatos</a></li>
+                                    <li><a href="#">Salud e higiene</a></li>
+                                    <li><a href="PagePromos.html">Promociones</a></li>
+                                </ul>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-2">
-                                <div class="footer-item">
-                                    <h3>Enlaces de interés</h3>
-                                    <ul>
-                                        <li><a href="privacyPolicy.html">Aviso de privacidad</a></li>
-                                        <li><a href="terminosCondiciones.html">Términos y condiciones</a></li>
-                                        <li><a href="#">Políticas de envío</a></li>
-                                        <li><a href="#">Facturación</a></li>
-                                        <li><a href="ListaItems.html">Listado de productos</a></li>
-                                        <li><a href="product-registration.html">Registro de producto</a></li>    
-                                    </ul>
-                                </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-lg-2">
+                            <div class="footer-item">
+                                <h3>Enlaces de interés</h3>
+                                <ul>
+                                    <li><a href="privacyPolicy.html">Aviso de privacidad</a></li>
+                                    <li><a href="terminosCondiciones.html">Términos y condiciones</a></li>
+                                    <li><a href="#">Políticas de envío</a></li>
+                                    <li><a href="#">Facturación</a></li>
+                                    <li><a href="ListaItems.html">Listado de productos</a></li>
+                                    <li><a href="product-registration.html">Registro de producto</a></li>
+                                </ul>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-2">
-                                <div class="footer-item">
-                                    <h3 >Newsletter</h3>
-                                    <ul>
-                                        <li><a href="sign-up.html">Suscríbete y recibe promociones</a></li>
-                                        <div class="input-group mb-2">
-                                            <input type="text" class="form-control" placeholder="correo@mail.com" aria-label="email" aria-describedby="button-addon2">
-                                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">></button>
-                                        </div>
-                                        <li><a href="#"><strong>Atención:</strong><br> Lunes a domingo de 7:00 a 0:00 Hrs</a></li>
-                                    </ul>
-                                </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-lg-2">
+                            <div class="footer-item">
+                                <h3>Newsletter</h3>
+                                <ul>
+                                    <li><a href="sign-up.html">Suscríbete y recibe promociones</a></li>
+                                    <div class="input-group mb-2">
+                                        <input type="text" class="form-control" placeholder="correo@mail.com"
+                                            aria-label="email" aria-describedby="button-addon2">
+                                        <button class="btn btn-outline-secondary" type="button"
+                                            id="button-addon2">></button>
+                                    </div>
+                                    <li><a href="#"><strong>Atención:</strong><br> Lunes a domingo de 7:00 a 0:00
+                                            Hrs</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="footer-bottom">
-                    <div class="container">
-                        <p class="m-0 py-4 text-center">Copyright &copy;2024 PAWPALANDIA</p>
-                    </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <p class="m-0 py-4 text-center">Copyright &copy;2024 PAWPALANDIA</p>
                 </div>
-             </footer>
-            <!-- !Footer -->
+            </div>
+        </footer>
+        <!-- !Footer -->
 
     </div>
     <!-- !Main Wrapper -->
-    
+
     <!-- Style Switcher -->
     <div class="style-switcher js-style-switcher">
         <div class="style-switcher-toggler js-style-switcher-toggler">
@@ -314,4 +336,5 @@
         crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </body>
+
 </html>
