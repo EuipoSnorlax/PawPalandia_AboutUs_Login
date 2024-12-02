@@ -1540,3 +1540,35 @@ Modal Carrito de compras -----*/
     margin-top: 10px;
 }
 
+.Banner-blog{
+    display: block;
+    width: 60%;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 20px;
+}
+
+
+.gato-jugando{
+    width: 50%;
+    height: 50vh;
+    border-radius:150dvh;
+    padding: 5%;
+    float: right; 
+    shape-outside: circle(50%);
+}
+
+.container-post{
+    text-align:justify;
+    margin-top: 2%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.title-post1{
+    text-align: center;
+    margin: 2%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: oblique;
+    font-weight: bolder;
+}
