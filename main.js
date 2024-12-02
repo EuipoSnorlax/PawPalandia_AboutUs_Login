@@ -307,6 +307,7 @@ class SignUpUser {
       
       // Push the item to the items property
       this.items.push(user);
+      localStorage.clear();
   }
 }
  // Function to show the alerts. Alerts clean up after a certain time
