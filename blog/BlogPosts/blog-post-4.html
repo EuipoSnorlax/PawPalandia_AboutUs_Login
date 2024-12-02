@@ -105,6 +105,22 @@
                 <a href="/blog/blog.html" class="btn btn-primary" style="text-decoration: none; padding: 10px 20px; background-color: #b197fc; color: white; border-radius: 5px; font-weight: bold;">Regresar al Blog</a>
             </div>
         </div>
+          <!--Boton flotante-->
+          <button class="floating-btn" onclick="toggleChat()" id="chatbot-button"><i class="fa-solid fa-comments"
+            style="color: #ffffff;"></i></button>
+
+
+    <!--sliderbaer CHATBOT-->
+
+    <div id="chatSidebar" class="chat-sidebar">
+        <button class="close-btn" onclick="toggleChat()"><i class="fa-solid fa-rectangle-xmark fa-2xl"
+                style="color: #a40000;"></i></button>
+        <div class="chat-content">
+            <iframe class="container-iframe"
+                src="https://copilotstudio.microsoft.com/environments/Default-799bd0cb-438c-4214-9abe-19ea0d669df8/bots/cr9cd_pawpal/webchat?__version__=2"
+                frameborder="0" style="width: 100%; height: 100%;"></iframe>
+        </div>
+    </div>
         
 
 
