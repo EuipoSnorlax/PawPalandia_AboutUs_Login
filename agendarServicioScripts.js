@@ -1,4 +1,4 @@
-const registrar = document.getElementById('submit');
+const registrar = document.getElementById('botonregistrarcita');
 
 registrar.addEventListener('click', () => {
     const clientName = document.getElementById('clientName').value;
@@ -6,42 +6,42 @@ registrar.addEventListener('click', () => {
     const breed = document.getElementById('breed').value;
     const email = document.getElementById('email').value;
     const phoneNumber = document.getElementById('phoneNumber').value;
-    const date = document.getElementById('date').value;
+    const dateStr = document.getElementById('date').value;
     const kindOfService = document.getElementById('kindOfService').value;
     const comment = document.getElementById('comment').value;
-    const privacyPolicyAccepted = document.getElementById('privacyPolicyAccepted').value;
+    const privacyPolicyAccepted = document.getElementById('privacyPolicyAccepted').checked;
 
-    // Crear mi objeto que interactúa con el backend
+    const newDate = new Date(dateStr);
+    const formattedDate = newDate.toISOString().slice(0, 16);
+    // Crear objeto para enviar al backend
     const service = {
         clientName: clientName,
         petName: petName,
         breed: breed,
         email: email,
         phoneNumber: phoneNumber,
-        date: date,
+        date: formattedDate,
         kindOfService: kindOfService,
         comment: comment,
         privacyPolicyAccepted: privacyPolicyAccepted
-    }
+    };
 
-    // Comenzar con la llamada de la API (fetch, asynch-await, axios)
-    const url = `http://localhost:8080/api/v1`;
+    console.log(formattedDate);
+    // Realizar la llamada a la API
+    const url = `http://localhost:8080/api/v5/post-service`;
 
     fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify(service)
     })
-        .then(response => {
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-            console.log('Guardado', data)
+            console.log('Guardado', data);
         })
         .catch(error => {
             console.error(error);
-        })
-
-})
+        });
+});
