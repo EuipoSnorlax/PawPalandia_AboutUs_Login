@@ -159,49 +159,83 @@ function showAlert(type, message) {
             New User Validation T-9
 ------------------------------------------- */
 document.addEventListener('DOMContentLoaded', function () {
-if (document.body.classList.contains('registration-page')) {
-  const formUser= document.getElementById('userRegistrationForm');
-  if (formUser) {
-    formUser.addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent the form from submitting the default way  
-      // Validate the input fields
-      if (validateNewUser()) {
-          // Send the email if validation passes
-          const alertMessage = "🐈🐕--Te has Registrado Correctamente --🐈🐕";
-          showAlertAccount("success", alertMessage);
-
-          const isVip= document.getElementById('memberVipCheck').checked;
-          if (isVip){
-            showAlertErrorOne("info", "Gracias por ser parte del Club PawPalandia Vip");
-          }
-
-          const registro = new SignUpUser();
-          // console.log(document.getElementById('registerName'));
-          registro.agregarUsuario(
-            document.getElementById('registerName').value, 
-            document.getElementById('registerMidleName').value, 
-            document.getElementById('registerLastName').value, 
-            document.getElementById('registerBirthDay').value, 
-            document.getElementById('registerPhone').value, 
-            document.getElementById('registerEmail').value, 
-            document.getElementById('registerPassword').value, 
-            document.getElementById('memberVipCheck').checked,
-            document.getElementById('acceptTermsCheck').checked
-          );
-          //console.log(registro.items); 
-          /*---------------Almacenar datos en el Local Storage-----*/  
-          const userObjectJSON = JSON.stringify(registro.items);
-          localStorage.setItem('newUser',userObjectJSON);
-          console.log(userObjectJSON);
-          // //Redirigir a inicio con un retraso de 10 segundos
-          setTimeout(function(){
-            window.location.href = 'index.html';
-          }, 10000);
-      }
-    });
-  }
- }
-});
+  if (document.body.classList.contains('registration-page')) {
+    const formUser= document.getElementById('userRegistrationForm');
+    if (formUser) {
+      formUser.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting the default way  
+        // Validate the input fields
+        if (validateNewUser()) {
+            // Send the email if validation passes
+            const alertMessage = "🐈🐕--Te has Registrado Correctamente --🐈🐕";
+            showAlertAccount("success", alertMessage);
+  
+            const isVip= document.getElementById('memberVipCheck').checked;
+            if (isVip){
+              showAlertErrorOne("info", "Gracias por ser parte del Club PawPalandia Vip");
+            }
+  
+            const url = `http://localhost:8080/api/v3/post-user`;
+            
+            const user = {
+              // Increment the currentId property
+              name: document.getElementById('registerName').value,
+              middleName: document.getElementById('registerMidleName').value,
+              lastName: document.getElementById('registerLastName').value,
+              birthDay: document.getElementById('registerBirthDay').value,
+              phoneNumber: document.getElementById('registerPhone').value,
+              email: document.getElementById('registerEmail').value,
+              password: document.getElementById('registerPassword').value,
+              isVip: document.getElementById('memberVipCheck').checked, //add
+              privacyPolicyAccepted: document.getElementById('acceptTermsCheck').checked //add
+              //id: this.currentId++,
+          };
+  
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Guardado', data)
+                })
+                .catch(error => {
+                    console.error(error);
+                })
+  
+  
+            const registro = new SignUpUser();
+            // console.log(document.getElementById('registerName'));
+            registro.agregarUsuario(
+              document.getElementById('registerName').value, 
+              document.getElementById('registerMidleName').value, 
+              document.getElementById('registerLastName').value, 
+              document.getElementById('registerBirthDay').value, 
+              document.getElementById('registerPhone').value, 
+              document.getElementById('registerEmail').value, 
+              document.getElementById('registerPassword').value, 
+              document.getElementById('memberVipCheck').checked,
+              document.getElementById('acceptTermsCheck').checked
+            );
+            //console.log(registro.items); 
+            /*---------------Almacenar datos en el Local Storage-----*/  
+            const userObjectJSON = JSON.stringify(registro.items);
+            localStorage.setItem('newUser',userObjectJSON);
+            console.log(userObjectJSON);
+            // //Redirigir a inicio con un retraso de 10 segundos
+            setTimeout(function(){
+              window.location.href = 'index.html';
+            }, 10000);
+        }
+      });
+    }
+   }
+  });
 
 function validateNewUser() {
   const name = document.getElementById('registerName').value;

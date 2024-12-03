@@ -57,10 +57,10 @@ document.addEventListener('DOMContentLoaded', function () {
           // Validate the input fields
           if (validateLogin()) {
               // Send the email if validation passes
-              alert("Sesion iniciada con exito " );
-              const alertMessage = "🐈🐕--Bienvenido --🐈🐕";
-              showAlertAccount("success", alertMessage);
-
+              //alert("Sesion iniciada con exito " );
+              //const alertMessage = "🐈🐕--Bienvenido --🐈🐕";
+              //showAlertAccount("success", alertMessage);
+              
               const registro = new LogIn();
               // console.log(document.getElementById('registerName'));
               registro.ingresaUsuario(
@@ -71,11 +71,40 @@ document.addEventListener('DOMContentLoaded', function () {
               /*---------------Almacenar datos en el Local Storage-----*/  
               const loginObjectJSON = JSON.stringify(registro.items);
               localStorage.setItem('newLogin',loginObjectJSON);
-              console.log(loginObjectJSON);
-              // //Redirigir a inicio con un retraso de 10 segundos
-              setTimeout(function(){
-                window.location.href = 'index.html';
-              }, 10000);
+
+              //console.log(loginObjectJSON);
+              
+              const url = `http://localhost:8080/api/v3/users/email/r0g3r211@gmail.com`;
+
+              // fetch para método get
+              fetch(url)
+                  .then(response => response.json())
+                  .then(data => {
+                    if (document.getElementById('loginName').value === data.name && document.getElementById('loginEmail').value === data.email && document.getElementById('loginPassword').value === data.password){
+                      const alertMessage = "🐈🐕--Bienvenido --🐈🐕";
+                      showAlertAccount("success", alertMessage);
+                      //Redirigir a inicio con un retraso de 10 segundos
+
+                       setTimeout(function(){
+                        window.location.href = 'PagePromos.html';
+                      }, 4000);
+
+                    }else{
+                      const alertMessage = "🐈🐕--Intenta de nuevo --🐈🐕";
+                      showAlertAccount("danger", alertMessage);
+                    }
+
+                      
+              
+                  })
+                  .catch(error => {
+                      userInfo.innerHTML = `
+                          Usuario no encontrado
+                      `
+                      console.error(error)
+                  })
+
+               
           }
         });
       }
@@ -145,4 +174,4 @@ document.addEventListener('DOMContentLoaded', function () {
           alertContainer.innerHTML = '';
       }, 1500);
     }
-    
+
