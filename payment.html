@@ -22,11 +22,11 @@
                 <div class="card-number-box">#</div>
                 <div class="flexbox">
                     <div class="box">
-                        <span>card holder</span>
-                        <div class="card-holder-name">full name</div>
+                        <span>Titular de la tarjeta</span>
+                        <div class="card-holder-name">Nombre completo</div>
                     </div>
                     <div class="box">
-                        <span>expires</span>
+                        <span>Expiración</span>
                         <div class="expiration">
                             <span class="exp-month">mm</span>
                             <span class="exp-year">yy</span>
@@ -47,18 +47,18 @@
         </div>
         <form action="#">
             <div class="inputBox">
-                <span>Card Number</span>
+                <span>Número de la tarjeta</span>
                 <input type="text" maxlength="16" class="card-number-input">
             </div>
             <div class="inputBox">
-                <span>Card Holder</span>
+                <span>Titular de la tarjeta</span>
                 <input type="text" class="card-holder-input">
             </div>
             <div class="flexbox">
                 <div class="inputBox">
-                    <span>expiration mm</span>
+                    <span>Expiración mm</span>
                     <select name="" id="" class="month-input">
-                        <option value="month" selected disabled>month</option>
+                        <option value="month" selected disabled>mes</option>
                         <option value="01">01</option>
                         <option value="02">02</option>
                         <option value="03">03</option>
@@ -74,9 +74,9 @@
                     </select>
                 </div>
                 <div class="inputBox">
-                    <span>expiration yy</span>
+                    <span>Expiración yy</span>
                     <select name="" id="" class="year-input">
-                        <option value="year" selected disabled>year</option>
+                        <option value="year" selected disabled>año</option>
                         <option value="2024">2024</option>
                         <option value="2025">2025</option>
                         <option value="2026">2026</option>
@@ -91,7 +91,7 @@
                     <input type="text" maxlength="4" class="cvv-input">
                 </div>
             </div>
-            <input type="submit" value="submit" class="submit-btn">
+            <input type="submit" value="pagar" class="submit-btn">
         </form>
     </div>
 
@@ -101,17 +101,8 @@
 
 
     <!--sliderbaer CHATBOT-->
-
-    <div id="chatSidebar" class="chat-sidebar">
-        <button class="close-btn" onclick="toggleChat()"><i class="fa-solid fa-rectangle-xmark fa-2xl"
-            style="color:var(--main-color);"></i></button>
-        <div class="chat-content">
-            <iframe class="container-iframe"
-                src="https://copilotstudio.microsoft.com/environments/Default-799bd0cb-438c-4214-9abe-19ea0d669df8/bots/cr9cd_pawpal/webchat?__version__=2"
-                frameborder="0" style="width: 100%; height: 100%;"></iframe>
         </div>
     </div>
-
 
     <!-- IMPORTANT: UNIQUE SCRIPT TAG. DO NOT ADD OR REMOVE ADDITIONAL SCRIPT TAGS! -->
     <script src="./payment.js"></script>

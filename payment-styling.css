@@ -12,7 +12,7 @@
 
 .container {
     min-height: 100vh;
-    background: #eee;
+    background: linear-gradient(45deg,hsl(0, 0%, 80%), hsl(244, 57%, 78%),hsl(0, 0%, 80%));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,7 +59,7 @@
 
 .container form .submit-btn {
     width: 100%;
-    background: linear-gradient(45deg, blueviolet, deeppink);
+    background: linear-gradient(45deg,blueviolet, deeppink);
     margin-top: 20px;
     padding: 10px;
     font-size: 20px;
