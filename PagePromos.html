@@ -464,7 +464,7 @@
                                 <li><a href="sign-up.html">Suscríbete y recibe promociones</a></li>
                                 <div id="alertContainer" class="mt-3"></div>
                                         <div class="input-group mb-2">
-                                            <input type="text" id="emailInput" class="form-control" placeholder="correo@mail.com" aria-label="email" aria-describedby="button-addon2">
+                                            <input type="text" id="emailInputN" class="form-control" placeholder="correo@mail.com" aria-label="email" aria-describedby="button-addon2">
                                             <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="registerEmail()">></button>
                                         </div>
                                 <li><a href="#"><strong>Atención:</strong><br> Lunes a domingo de 7:00 a 0:00 Hrs</a>
@@ -522,10 +522,10 @@
         const sentEmails = new Set();
     
         function registerEmail() {
-            const emailInput = document.getElementById('emailInput');
+            const emailInputN = document.getElementById('emailInputN').value;
             const alertContainer = document.getElementById('alertContainer');
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expresión regular para validar correos
-            const emailValue = emailInput.value.trim();
+            const emailValue = emailInputN.value.trim();
     
             // Limpia cualquier alerta anterior
             alertContainer.innerHTML = '';
@@ -559,7 +559,7 @@
             `;
     
             // Borrar el contenido del campo de entrada
-            emailInput.value = '';
+            emailInputN.value = '';
     
             // Quitar la alerta automáticamente después de 5 segundos
             setTimeout(() => {
@@ -572,6 +572,7 @@
         crossorigin="anonymous"></script>
     <script src="main.js"></script>
     <script src="Redes_sociales.js"></script>
+    <script src="agendarServicioScripts.js"></script>
 </body>
 
 </html>
