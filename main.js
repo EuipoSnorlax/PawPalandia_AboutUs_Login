@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(userObjectJSON);
             // //Redirigir a inicio con un retraso de 10 segundos
             setTimeout(function(){
-              window.location.href = 'index.html';
+              window.location.href = 'log-in.html';
             }, 10000);
         }
       });
