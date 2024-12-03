@@ -1,17 +1,21 @@
   .hero {
     text-align: center;
-    padding: 4rem 2rem;
-    background-color: #eddafc;
+    padding: 1.5rem;
+    background: linear-gradient(to right, var(--body-gradient-bg-color-1), var(--main-color));
+    min-height: 9rem;
+    font-weight: bolder;
+    justify-content: end;
   }
   
   .hero h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
+    color: #fff;
   }
   
   .hero p {
     font-size: 1.2rem;
-    color: #555;
+    color: #fff;
   }
   
   .blog-carousel {
