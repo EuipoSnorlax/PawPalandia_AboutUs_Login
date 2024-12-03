@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                                 setTimeout(function () {
                                     window.location.href = 'PáginaBienvenida.html';
-                                }, 4000);
+                                }, 2000);
 
                             } else {
                                 const alertMessage = "🐈🐕--Intenta de nuevo --🐈🐕";
@@ -154,9 +154,9 @@ document.addEventListener('DOMContentLoaded', function () {
                            Bienvenid@, <span class="text-primary">${currentUser.name} 🐾</span>
                            </button>
                            <ul class="dropdown-menu">
-                           <li><a class="dropdown-item" href="#">Carrito de compras</a></li>
-                           <li><a class="dropdown-item" href="#">Detalles de pago</a></li>
-                           <li><a class="dropdown-item" href="#">Club pawpal</a></li>
+                           <li><a class="dropdown-item" href="courses.html">Carrito de compras</a></li>
+                           <li><a class="dropdown-item" href="payment.html">Detalles de pago</a></li>
+                           <li><a class="dropdown-item" href="Club.html">Club pawpal</a></li>
                            <li><a class="dropdown-item" href="PagePromos.html">Cerrar sesión</a></li>
                            </ul>
                         </div>
@@ -165,10 +165,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         welcomeUser.innerHTML = `<p>No se encontró un nombre de usuario válido.</p>`;
                     }
                 } else {
-                    welcomeUser.innerHTML = `<p>Datos de usuario no válidos. Por favor, inicia sesión.</p>`;
+                    welcomeUser.innerHTML = `<p>Datos de usuario no válidos</p>`;
                 }
             } else {
-                welcomeUser.innerHTML = `<p>Usuario no encontrado. Por favor, inicia sesión.</p>`;
+                welcomeUser.innerHTML = `<p>Usuario no encontrado</p>`;
             }
         } catch (error) {
             console.error('Error al obtener los datos del usuario:', error);
