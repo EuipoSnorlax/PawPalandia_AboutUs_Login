@@ -1,15 +1,15 @@
-const registrar = document.getElementById('submit');
+const suscribir = document.getElementById('button-addon2');
 
-registrar.addEventListener('click', () => {
-    const correoElectronico = document.getElementById('email').value;
+suscribir.addEventListener('click', () => {
+    const email = document.getElementById('emailInputN').value;
 
-    // Crear mi objeto que interactúa con el backend
+    // Crear objeto para enviar al backend
     const newsletter = {
-        email: correoElectronico,
-    }
-
-    // Comenzar con la llamada de la API (fetch, asynch-await, axios)
-    const url = `http://localhost:8080/api/v1`;
+        email: email,
+    };
+console.log(email);
+    // Realizar la llamada a la API
+    const url = `http://localhost:8080/api/v6/post-newsletter`;
 
     fetch(url, {
         method: 'POST',
@@ -18,14 +18,11 @@ registrar.addEventListener('click', () => {
         },
         body: JSON.stringify(newsletter)
     })
-        .then(response => {
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-            console.log('Guardado', data)
+            console.log('Guardado', data);
         })
         .catch(error => {
             console.error(error);
-        })
-
-})
+        });
+});
