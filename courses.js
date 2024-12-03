@@ -1,99 +1,154 @@
-const cardData = [
+// const cardData = [
 
-    {
-        "id": 1,
-        "name": "Collar Ajustable para Perros",
-        "price": 75.80,
-        "description": "Collar resistente y ajustable, disponible en varios colores.",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJzG-aoxw13npDwOYM1BxWEHwwxVSzZ1gyDQ&s",
-        "category": "Accesorios",
-        "stock": 25
-    },
-    {
-        "id": 2,
-        "name": "Comida Premium para Gatos",
-        "price": 450.00,
-        "description": "Bolsa de 2 kg de alimento balanceado para gatos adultos.",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDh6ifXyVLgOCnwwmLJQ5EznUPMyCXmz41WA&s",
-        "category": "Alimentos",
-        "stock": 50
-    },
-    {
-        "id": 3,
-        "name": "Juguete Interactivo para Mascotas",
-        "price": 100.78,
-        "description": "Pelota interactiva para mantener entretenidas a tus mascotas.",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeh4xKd_t00GI0Rd_pWytqY4hS-J7QM_UZK14A0z6Yv_wyA96NJ_VElQTNxgcXfyh7ZRA&usqp=CAU",
-        "category": "Juguetes",
-        "stock": 40
-    },
-    {
-        "id": 4,
-        "name": "Cama para Perros Grandes",
-        "price": 1200.99,
-        "description": "Cama cómoda y resistente, perfecta para razas grandes.",
-        "image": "https://m.media-amazon.com/images/I/71g+X2Sbf2L.jpg",
-        "category": "Mobiliario",
-        "stock": 10
-    },
-    {
-        "id": 5,
-        "name": "Rascador para Gatos",
-        "price": 500.00,
-        "description": "Rascador con diseño compacto y materiales duraderos.",
-        "image": "https://m.media-amazon.com/images/I/71GR4c0VZ9S._AC_UF1000,1000_QL80_.jpg",
-        "category": "Accesorios",
-        "stock": 20
-    },
-    {
-        "id": 6,
-        "name": "Aceite de Sardina",
-        "price": 599.00,
-        "description": "Superalimento para perros, contiene Omega-3, el cual es rico en ácidos grasos de cadena larga llamados EPA y DHA.",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiphckvQQYOuPVCT3mcN9sG9r-s23e_-0mzZCbylF32YVzGT9RTvUaP6HD36mlpV0AZPY&usqp=CAU",
-        "category": "Accesorios",
-        "stock": 20
-    }
+//     {
+//         "id": 1,
+//         "name": "Collar Ajustable para Perros",
+//         "price": 75.80,
+//         "description": "Collar resistente y ajustable, disponible en varios colores.",
+//         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJzG-aoxw13npDwOYM1BxWEHwwxVSzZ1gyDQ&s",
+//         "category": "Accesorios",
+//         "stock": 25
+//     },
+//     {
+//         "id": 2,
+//         "name": "Comida Premium para Gatos",
+//         "price": 450.00,
+//         "description": "Bolsa de 2 kg de alimento balanceado para gatos adultos.",
+//         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDh6ifXyVLgOCnwwmLJQ5EznUPMyCXmz41WA&s",
+//         "category": "Alimentos",
+//         "stock": 50
+//     },
+//     {
+//         "id": 3,
+//         "name": "Juguete Interactivo para Mascotas",
+//         "price": 100.78,
+//         "description": "Pelota interactiva para mantener entretenidas a tus mascotas.",
+//         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeh4xKd_t00GI0Rd_pWytqY4hS-J7QM_UZK14A0z6Yv_wyA96NJ_VElQTNxgcXfyh7ZRA&usqp=CAU",
+//         "category": "Juguetes",
+//         "stock": 40
+//     },
+//     {
+//         "id": 4,
+//         "name": "Cama para Perros Grandes",
+//         "price": 1200.99,
+//         "description": "Cama cómoda y resistente, perfecta para razas grandes.",
+//         "image": "https://m.media-amazon.com/images/I/71g+X2Sbf2L.jpg",
+//         "category": "Mobiliario",
+//         "stock": 10
+//     },
+//     {
+//         "id": 5,
+//         "name": "Rascador para Gatos",
+//         "price": 500.00,
+//         "description": "Rascador con diseño compacto y materiales duraderos.",
+//         "image": "https://m.media-amazon.com/images/I/71GR4c0VZ9S._AC_UF1000,1000_QL80_.jpg",
+//         "category": "Accesorios",
+//         "stock": 20
+//     },
+//     {
+//         "id": 6,
+//         "name": "Aceite de Sardina",
+//         "price": 599.00,
+//         "description": "Superalimento para perros, contiene Omega-3, el cual es rico en ácidos grasos de cadena larga llamados EPA y DHA.",
+//         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiphckvQQYOuPVCT3mcN9sG9r-s23e_-0mzZCbylF32YVzGT9RTvUaP6HD36mlpV0AZPY&usqp=CAU",
+//         "category": "Accesorios",
+//         "stock": 20
+//     }
     
-]
+// ]
 
 
 
 
-const container = document.querySelector('.card-container');
+// const container = document.querySelector('.card-container');
 
 
 
-cardData.forEach((item) => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-    <img src="${item.image}" alt="${item.name}" class="card-img">
-    <div class="card-body">
-      <h5 class="card-title" id = 'name'>${item.name}</h5>
-      <p class="card-text">${item.description}</p>
-      <p id='price'><strong>Precio:</strong> $${item.price}</p>
-      <div class="d-flex justify-content-center">
-    <button id="btn-cart-plus" onclick="addToCart(${item.id}, '${item.name}', '${item.image}', ${item.price})" class="btn btn-outline-warning" type="button" data-bs-toggle="modal" data-bs-target="#modalProduct">
-        <i class="fa-solid fa-cart-plus" style="color: #000000;"></i>
-    </button>
-</div>
-       <div class="card-rating">
-      <span class="average-rating">(4.5)</span>
-      <span class="average-stars">
-            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>     
-           <i class="fa-solid fa-star-half" style="color: #FFD43B;"></i>
-           <span class="card-reviews">(230)</span>
-      </span>
-      </div>
-    </div>
-  `;
-    container.appendChild(card);
-});
+// cardData.forEach((item) => {
+//     const card = document.createElement('div');
+//     card.className = 'card';
+//     card.innerHTML = `
+//     <img src="${item.image}" alt="${item.name}" class="card-img">
+//     <div class="card-body">
+//       <h5 class="card-title" id = 'name'>${item.name}</h5>
+//       <p class="card-text">${item.description}</p>
+//       <p id='price'><strong>Precio:</strong> $${item.price}</p>
+//       <div class="d-flex justify-content-center">
+//     <button id="btn-cart-plus" onclick="addToCart(${item.id}, '${item.name}', '${item.image}', ${item.price})" class="btn btn-outline-warning" type="button" data-bs-toggle="modal" data-bs-target="#modalProduct">
+//         <i class="fa-solid fa-cart-plus" style="color: #000000;"></i>
+//     </button>
+// </div>
+//        <div class="card-rating">
+//       <span class="average-rating">(4.5)</span>
+//       <span class="average-stars">
+//             <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+//             <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+//             <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+//             <i class="fa-solid fa-star" style="color: #FFD43B;"></i>     
+//            <i class="fa-solid fa-star-half" style="color: #FFD43B;"></i>
+//            <span class="card-reviews">(230)</span>
+//       </span>
+//       </div>
+//     </div>
+//   `;
+//     container.appendChild(card);
+// });
 
+
+//---(Inicio) Recolectar productos desde la base de datos---
+let cardData = [];
+
+    const url = `http://localhost:8080/api/v4/products`;
+
+              // fetch para método get
+              fetch(url)
+                  .then(response => response.json())
+                  .then(data => {
+                    cardData = data;
+                    // console.log('Datos fuera de fetch:', cardData);
+
+                    const container = document.querySelector('.card-container');
+
+                    cardData.forEach((item) => {
+                        const card = document.createElement('div');
+                        card.className = 'card';
+                        card.innerHTML = `
+                        <img src="${item.url}" alt="${item.url}" class="card-img">
+                        <div class="card-body">
+                        <h5 class="card-title" id = 'name'>${item.productName}</h5>
+                        <p class="card-text">${item.description}</p>
+                        <p id='price'><strong>Precio:</strong> $${item.price}</p>
+                        <div class="d-flex justify-content-center">
+                        <button id="btn-cart-plus" onclick="addToCart(${item.idProduct}, '${item.productName}', '${item.url}', ${item.price})" class="btn btn-outline-warning" type="button" data-bs-toggle="modal" data-bs-target="#modalProduct">
+                            <i class="fa-solid fa-cart-plus" style="color: #000000;"></i>
+                        </button>
+                    </div>
+                        <div class="card-rating">
+                        <span class="average-rating">(4.5)</span>
+                        <span class="average-stars">
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>     
+                            <i class="fa-solid fa-star-half" style="color: #FFD43B;"></i>
+                            <span class="card-reviews">(230)</span>
+                        </span>
+                        </div>
+                        </div>
+                    `;
+                        container.appendChild(card);
+              
+                    })
+
+                  })
+                  .catch(error => {
+                      userInfo.innerHTML = `
+                          Sin Productos
+                      `
+                      console.error(error)
+                  })
+
+//---(Final) Recolectar productos desde la base de datos---
 
 
 

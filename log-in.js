@@ -126,7 +126,7 @@ function showAlertErrorOne(type, message) {
 
     setTimeout(function () {
         alertContainer.innerHTML = '';
-    }, 1500);
+    }, 3000);
 }
 
 

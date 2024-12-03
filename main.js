@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // //Redirigir a inicio con un retraso de 10 segundos
             setTimeout(function(){
               window.location.href = 'log-in.html';
-            }, 10000);
+            }, 5000);
         }
       });
     }
@@ -356,7 +356,7 @@ function showAlertErrorOne(type, message) {
   
   setTimeout(function() {
       alertContainer.innerHTML = '';
-  }, 1500);
+  }, 3000);
 }
 
 /* ----------------------------------------
@@ -615,6 +615,43 @@ document.addEventListener('DOMContentLoaded',function(){
                 document.getElementById('productAmount').value||0,
                 document.getElementById('productAmountMin').value||0
               );
+
+              //--- Recuperar Datos productos (Incio)---
+              const url = `http://localhost:8080/api/v4/post-product`;
+          
+          const user = {
+            // Increment the currentId property
+            code: document.getElementById('productCode').value,
+            productName: document.getElementById('productName').value,
+            description:document.getElementById('productDescription').value,
+            url: document.getElementById('productImage').value,
+            price:document.getElementById('productPrice').value,
+            pricePawpal: document.getElementById('productPriceVIP').value ,
+            category: document.getElementById('productDepartment').value, 
+            isInventoried: document.getElementById('productInventoryCheck').checked,
+            quantity: document.getElementById('productAmount').value||0,
+            quantityMinimum: document.getElementById('productAmountMin').value||0
+            //id: this.currentId++,
+        };
+
+          fetch(url, {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(user)
+          })
+              .then(response => {
+                  return response.json();
+              })
+              .then(data => {
+                  console.log('Guardado', data)
+              })
+              .catch(error => {
+                  console.error(error);
+              })
+              //--- Recuperar Datos productos (Final)---
+
               //console.log(registro.items); 
     /*---------------Almacenar datos en el Local Storage-----*/  
               const productObjectJSON = JSON.stringify(registro.items);
@@ -623,7 +660,7 @@ document.addEventListener('DOMContentLoaded',function(){
                   //Redirigir a inicio con un retraso de 20 segundos
               setTimeout(function(){
                   window.location.href = 'ListaItems.html';
-              }, 20000);
+              }, 5000);
           }
        });
     }
@@ -773,7 +810,7 @@ function showAlertErrorTwo(type, message) {
       
       setTimeout(function() {
           alertContainer.innerHTML = '';
-      }, 2000);
+      }, 3000);
   }
 
   //Slidebar chatbot

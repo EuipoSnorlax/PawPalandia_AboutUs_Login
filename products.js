@@ -1,16 +1,45 @@
+// async function loadJSONData(callback) {
+//     try {
+//         const response = await fetch('./products.json');
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! Status: ${response.status}`);
+//         }
+//         const productos = await response.json();
+//         callback(productos);
+//     } catch (error) {
+//         console.error('Error loading JSON file:', error);
+//         showAlertErrorOne('danger', 'No se pudieron cargar los productos. Intente más tarde.');
+//     }
+// }
+
+//---(Inicio) Recolectar productos desde la base de datos---
 async function loadJSONData(callback) {
+    const url = `http://localhost:8080/api/v4/products`;
+
     try {
-        const response = await fetch('./products.json');
+        // fetch para método GET
+        const response = await fetch(url);
+        
+        // Verificar si la respuesta es exitosa (status 200-299)
         if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+            throw new Error('Error en la respuesta del servidor');
         }
-        const productos = await response.json();
-        callback(productos);
+        
+        const data = await response.json();  // Extraer los datos JSON
+
+        // Llamar al callback con los datos obtenidos
+        callback(data);
     } catch (error) {
-        console.error('Error loading JSON file:', error);
-        showAlertErrorOne('danger', 'No se pudieron cargar los productos. Intente más tarde.');
+        // Manejo de errores
+        const userInfo = document.getElementById('userInfo'); // Asegúrate de tener un elemento con id 'userInfo'
+        if (userInfo) {
+            userInfo.innerHTML = `Error al cargar los datos: ${error.message}`;
+        }
+        console.error(error);
     }
 }
+//---(Final) Recolectar productos desde la base de datos---
+
 
 
 
@@ -21,12 +50,12 @@ function renderizarPublicaciones(publicaciones) {
 
     publicaciones.forEach(publicacion => {
         lista.innerHTML += `
-            <div class="list-group-item" id="product-${publicacion.id}">
-                <img src="${publicacion.img}" alt="${publicacion.name}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
-                <strong>${publicacion.name}</strong>
+             <div class="list-group-item" id="product-${publicacion.idProduct}">
+                <img src="${publicacion.url}" alt="${publicacion.productName}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
+                <strong>${publicacion.productName}</strong>
                 <p>${publicacion.description}</p>
-                <button type="button" class="btn btn-theme" onclick="modificarProducto(${publicacion.id})">Modificar</button>
-                <button type="button" class="btn btn-theme" onclick="eliminarProducto(${publicacion.id})">Eliminar</button>
+                <button type="button" class="btn btn-theme" onclick="modificarProducto(${publicacion.idProduct})">Modificar</button>
+                <button type="button" class="btn btn-theme" onclick="eliminarProducto(${publicacion.idProduct})">Eliminar</button>
             </div>
         `;
     });
