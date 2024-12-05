@@ -292,7 +292,7 @@
         const sentEmails = new Set();
     
         function registerEmail() {
-            const emailInputN = document.getElementById('emailInputN').value;
+            const emailInputN = document.getElementById('emailInputN');
             const alertContainer = document.getElementById('alertContainer');
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expresión regular para validar correos
             const emailValue = emailInputN.value.trim();
