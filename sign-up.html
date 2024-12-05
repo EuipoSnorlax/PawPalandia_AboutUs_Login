@@ -214,7 +214,7 @@
                                     <li><a href="agendar-servicios.html">Entrenamiento Canino</a></li>
                                     <li><a href="agendar-servicios.html">Estética Canina</a></li>
                                     <li><a href="agendar-servicios.html">Consulta Veterinaria</a></li>
-                                    <li><a href="#">Adopciones</a></li>
+                                    <li><a href="Adopciones.html">Adopciones</a></li>
                                     <li><a href="agendar-servicios.html">Cremaciones</a></li>
                                 </ul>
                             </div>
@@ -247,7 +247,7 @@
                                 <h3>Newsletter</h3>
                                 <ul>
                                     <li><a href="sign-up.html">Suscríbete y recibe promociones</a></li>
-                                    <div id="alertContainer" class="mt-3"></div>
+                                    <div id="alertContainer2" class="mt-3"></div>
                                         <div class="input-group mb-2">
                                             <input type="text" id="emailInputN" class="form-control" placeholder="correo@mail.com" aria-label="email" aria-describedby="button-addon2">
                                             <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="registerEmail()">></button>
@@ -308,16 +308,16 @@
     
         function registerEmail() {
             const emailInputN = document.getElementById('emailInputN');
-            const alertContainer = document.getElementById('alertContainer');
+            const alertContainer2 = document.getElementById('alertContainer2');
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expresión regular para validar correos
             const emailValue = emailInputN.value.trim();
     
             // Limpia cualquier alerta anterior
-            alertContainer.innerHTML = '';
+            alertContainer2.innerHTML = '';
     
             if (!emailRegex.test(emailValue)) {
                 // Crear alerta de error para correo inválido
-                alertContainer.innerHTML = `
+                alertContainer2.innerHTML = `
                     <div class="alert alert-danger fade show" role="alert">
                         Esto no es un correo :(
                     </div>
@@ -327,7 +327,7 @@
     
             if (sentEmails.has(emailValue)) {
                 // Crear alerta si el correo ya fue enviado
-                alertContainer.innerHTML = `
+                alertContainer2.innerHTML = `
                     <div class="alert alert-warning fade show" role="alert">
                         Este correo ya fue enviado :|
                     </div>
@@ -337,7 +337,7 @@
     
             // Agregar el correo al conjunto de enviados y mostrar éxito
             sentEmails.add(emailValue);
-            alertContainer.innerHTML = `
+            alertContainer2.innerHTML = `
                 <div class="alert alert-success fade show" role="alert">
                     ¡Gracias! :)
                 </div>
@@ -348,7 +348,7 @@
     
             // Quitar la alerta automáticamente después de 5 segundos
             setTimeout(() => {
-                alertContainer.innerHTML = '';
+                alertContainer2.innerHTML = '';
             }, 5000);
         }
     </script>
